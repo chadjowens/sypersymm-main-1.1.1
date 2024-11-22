@@ -64,10 +64,11 @@ export const Contact: React.FC = () => {
         budget: budgetRanges[0],
         projectDescription: ''
       });
-    } catch (error) {
+    } catch (error: any) {
+      console.error('Submission error:', error);
       setSubmitStatus({
         type: 'error',
-        message: 'Something went wrong. Please try again later.'
+        message: `Error: ${error.message || 'Something went wrong. Please try again later.'}`
       });
     } finally {
       setIsSubmitting(false);

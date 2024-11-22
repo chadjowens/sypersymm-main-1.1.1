@@ -33,7 +33,7 @@ export const Navbar: React.FC = () => {
           <div className="flex-shrink-0 flex items-center">
             <Code2 className={`h-8 w-8 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} />
             <span className={`ml-2 text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              AI Agency
+             supersymmetry
             </span>
           </div>
 
