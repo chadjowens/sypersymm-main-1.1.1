@@ -39,15 +39,23 @@ export const Contact: React.FC = () => {
     setSubmitStatus({ type: null, message: '' });
 
     try {
+      // Convert the form data to snake_case to match database columns
+      const submissionData = {
+        full_name: formData.fullName,
+        email: formData.email,
+        company_name: formData.companyName,
+        phone_number: formData.phoneNumber,
+        completion_date: formData.completionDate.toISOString(),
+        budget: formData.budget,
+        project_description: formData.projectDescription,
+        submitted_at: new Date().toISOString()
+      };
+
+      console.log('Submitting data:', submissionData); // Debug log
+
       const { error } = await supabase
         .from('contact_submissions')
-        .insert([
-          {
-            ...formData,
-            completionDate: formData.completionDate.toISOString(),
-            submitted_at: new Date().toISOString()
-          }
-        ]);
+        .insert([submissionData]);
 
       if (error) throw error;
 

@@ -12,33 +12,44 @@ export const useActiveSection = () => {
       return;
     }
 
-    const observers = new Map();
-    const sections = document.querySelectorAll('section[id]');
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section[id]');
+      let currentSection = 'home';
+      let minDistance = Infinity;
 
-    const observerCallback: IntersectionObserverCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-          setActiveSection(entry.target.id);
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top);
+        
+        // Consider a section "active" if it's close to the viewport center
+        // or if it takes up a significant portion of the viewport
+        if (
+          distance < minDistance && 
+          (
+            (rect.top <= window.innerHeight * 0.3 && rect.bottom >= window.innerHeight * 0.3) ||
+            (rect.top <= 0 && rect.bottom >= window.innerHeight * 0.5)
+          )
+        ) {
+          minDistance = distance;
+          currentSection = section.id;
         }
       });
+
+      if (currentSection !== activeSection) {
+        setActiveSection(currentSection);
+      }
     };
 
-    const observerOptions: IntersectionObserverInit = {
-      threshold: 0.5,
-      rootMargin: '-50% 0px -50% 0px',
-    };
+    // Initial check
+    handleScroll();
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    sections.forEach((section) => {
-      observer.observe(section);
-      observers.set(section, observer);
-    });
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      observers.forEach((observer) => observer.disconnect());
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [location.pathname]);
+  }, [location.pathname, activeSection]);
 
   return activeSection;
 };
