@@ -15,10 +15,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, col
   const { isDarkMode } = useThemeStore();
   
   return (
-    <div className={`p-6 rounded-lg border group ${
+    <div className={`p-6 rounded-md border group ${
       isDarkMode 
-        ? 'bg-gray-800/50 border-gray-700 hover:bg-gray-700/50' 
-        : 'bg-white/50 border-gray-200 hover:bg-gray-50/50'
+        ? 'bg-gray-800/30 border-gray-700 hover:bg-gray-700/40' 
+        : 'bg-white/30 border-gray-200 hover:bg-gray-50/40'
     } transition-all duration-300 backdrop-blur-sm`}>
       <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${color} mb-4`}>
         {icon}

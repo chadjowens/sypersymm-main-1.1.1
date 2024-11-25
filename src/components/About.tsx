@@ -21,8 +21,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, role, bio, image, contact
   return (
     <div className={`flex flex-col items-center p-6 rounded-lg border ${
       isDarkMode 
-        ? 'bg-gray-800/50 border-gray-700' 
-        : 'bg-white/50 border-gray-200'
+        ? 'bg-gray-800/30 border-gray-700' 
+        : 'bg-white/30 border-gray-200'
     } backdrop-blur-sm`}>
       <img
         src={image}
@@ -64,24 +64,24 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, role, bio, image, contact
 
 const teamMembers: TeamMemberProps[] = [
   {
-    name: 'Sarah Johnson',
-    role: 'Chief Technology Officer',
-    bio: 'AI researcher and tech enthusiast with 15+ years of experience in building scalable solutions.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400',
+    name: 'Chad Owens',
+    role: 'Co-Founder & Chief Creative Engineer',
+    bio: 'Passionate about combining AI with human-centered design to build meaningful business solutions.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
     contact: {
-      email: 'sarah@example.com',
+      email: 'chad.owens@supersymm.io',
       github: 'https://github.com',
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com'
     }
   },
   {
-    name: 'Michael Chen',
-    role: 'Lead AI Architect',
-    bio: 'Passionate about combining AI with human-centered design to create meaningful experiences.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
+    name: 'Sarah Diseker',
+    role: 'Co-Founder & Chief Growth Officer',
+    bio: 'Strategist, researcher and trusted client partner with 15+ years of experience in building scalable solutions.',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400',
     contact: {
-      email: 'michael@example.com',
+      email: 'sarah@example.com',
       github: 'https://github.com',
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com'
@@ -99,28 +99,43 @@ export const About: React.FC = () => {
           <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${
             isDarkMode ? 'text-white' : 'text-gray-900'
           }`}>
-            About Us
+            Hello, we're SuperSymmety
           </h2>
-          <p className={`text-xl max-w-3xl mx-auto mb-8 ${
+          {/* className={`text-xl md:text-2xl mb-8 */}
+          {/* <p className={`text-xl max-w-3xl mx-auto mb-8 ${ */}
+          <p className={`text-xl max-w-5xl mx-auto md:text-2xl mb-8 ${
+            
             isDarkMode ? 'text-gray-300' : 'text-gray-600'
           }`}>
-            We are a team of passionate technologists and creative minds dedicated to pushing the boundaries 
+            We are a team of passionate strategist, technologists and creative minds dedicated to pushing the boundaries 
             of what's possible with artificial intelligence and modern web technologies.
           </p>
-          <div className={`max-w-3xl mx-auto p-6 rounded-lg mb-16 ${
+
+          <h3 className={`text-2xl font-bold mb-4 ${
+              isDarkMode ? 'text-white' : 'text-gray-900'
+            }`}>
+              Why we're here ... 
+            </h3>
+
+            {/* <p className={`text-xl max-w-3xl mx-auto mb-8 ${ */}
+            <p className={`text-xl max-w-5xl mx-auto md:text-2xl mb-8 ${
+            isDarkMode ? 'text-gray-300' : 'text-gray-600'
+          }`}>
+              We bring together a diverse team with rich experiences from consultancies, agencies, startups, and corporate roles. Our collective expertise spans Product Design, UX/UI, Software Development, Data Analytics, AI, and Machine Learning. With this unique DNA, we are driven by a vision to empower businesses to harness the potential of AI, enabling them to develop innovative and creative solutions that meet the market fast and with imapact.
+            </p>
+
+          {/* <div className={`max-w-3xl mx-auto p-6 rounded-lg mb-16 ${
             isDarkMode ? 'bg-gray-800/50' : 'bg-white/50'
-          } backdrop-blur-sm`}>
-            <h3 className={`text-2xl font-bold mb-4 ${
+          } backdrop-blur-sm`}> */}
+            {/* <h3 className={`text-2xl font-bold mb-4 ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             }`}>
               Our Core Philosophy
-            </h3>
-            <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              We believe in creating technology that not only solves complex problems but also enhances 
-              human capabilities. Our approach combines cutting-edge AI with thoughtful design to deliver 
-              solutions that make a real difference in how people work and live.
-            </p>
-          </div>
+            </h3> */}
+            {/* <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              We bring together a diverse team with rich experiences from consultancies, agencies, startups, and corporate roles. Our collective expertise spans Product Design, UX/UI, Software Development, Data Analytics, AI, and Machine Learning. With this unique DNA, we are driven by a vision to empower businesses to harness the potential of AI, enabling them to develop innovative and creative solutions that reach the market swiftly and effectively.
+            </p> */}
+          {/* </div> */}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {teamMembers.map((member) => (
