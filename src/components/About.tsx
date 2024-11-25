@@ -2,6 +2,8 @@ import React from 'react';
 import { useThemeStore } from '../store/themeStore';
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 
+import AnimatedSeparator from './AnimatedSeparator';
+
 interface TeamMemberProps {
   name: string;
   role: string;
@@ -101,41 +103,23 @@ export const About: React.FC = () => {
           }`}>
             Hello, we're SuperSymmety
           </h2>
-          {/* className={`text-xl md:text-2xl mb-8 */}
-          {/* <p className={`text-xl max-w-3xl mx-auto mb-8 ${ */}
           <p className={`text-xl max-w-5xl mx-auto md:text-2xl mb-8 ${
-            
             isDarkMode ? 'text-gray-300' : 'text-gray-600'
           }`}>
             We are a team of passionate strategist, technologists and creative minds dedicated to pushing the boundaries 
             of what's possible with artificial intelligence and modern web technologies.
           </p>
-
+          <AnimatedSeparator className="my-6" />
           <h3 className={`text-2xl font-bold mb-4 ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             }`}>
               Why we're here ... 
             </h3>
-
-            {/* <p className={`text-xl max-w-3xl mx-auto mb-8 ${ */}
-            <p className={`text-xl max-w-5xl mx-auto md:text-2xl mb-8 ${
+          <p className={`text-xl max-w-5xl mx-auto md:text-2xl mb-8 ${
             isDarkMode ? 'text-gray-300' : 'text-gray-600'
           }`}>
-              We bring together a diverse team with rich experiences from consultancies, agencies, startups, and corporate roles. Our collective expertise spans Product Design, UX/UI, Software Development, Data Analytics, AI, and Machine Learning. With this unique DNA, we are driven by a vision to empower businesses to harness the potential of AI, enabling them to develop innovative and creative solutions that meet the market fast and with imapact.
+              We bring together a diverse team with rich experiences from consultancies, agencies, startups, and corporate roles. Our collective expertise spans Product Design, UX/UI, Software Development, Data Analytics, AI, and Machine Learning. With this unique DNA, we are driven by a vision to empower businesses to harness the potential of AI, enabling them to develop innovative and creative solutions that meet the market fast and with impact.
             </p>
-
-          {/* <div className={`max-w-3xl mx-auto p-6 rounded-lg mb-16 ${
-            isDarkMode ? 'bg-gray-800/50' : 'bg-white/50'
-          } backdrop-blur-sm`}> */}
-            {/* <h3 className={`text-2xl font-bold mb-4 ${
-              isDarkMode ? 'text-white' : 'text-gray-900'
-            }`}>
-              Our Core Philosophy
-            </h3> */}
-            {/* <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              We bring together a diverse team with rich experiences from consultancies, agencies, startups, and corporate roles. Our collective expertise spans Product Design, UX/UI, Software Development, Data Analytics, AI, and Machine Learning. With this unique DNA, we are driven by a vision to empower businesses to harness the potential of AI, enabling them to develop innovative and creative solutions that reach the market swiftly and effectively.
-            </p> */}
-          {/* </div> */}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {teamMembers.map((member) => (
