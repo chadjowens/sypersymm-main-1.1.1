@@ -10,8 +10,8 @@ export const Hero: React.FC = () => {
         <h1 className={`text-5xl md:text-6xl font-bold mb-6 ${
           isDarkMode ? 'text-white' : 'text-gray-900'
         }`}>
-          Transforming Ideas into
-          <span className="text-blue-600"> Intelligent Solutions</span>
+          Super-Powering Digital Experiences //
+          <span className="text-blue-600"> Automating Business Impact</span>
         </h1>
         <p className={`text-xl md:text-2xl mb-8 ${
           isDarkMode ? 'text-gray-300' : 'text-gray-600'
