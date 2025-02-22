@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sun, Moon, Code2, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useThemeStore } from '../store/themeStore';
 import { NavItem } from '../types';
 import { PopupModal } from 'react-calendly';
@@ -143,12 +143,14 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      <PopupModal
-        url="https://calendly.com/chad-owens-supersymm/30min"
-        onModalClose={() => setIsCalendlyOpen(false)}
-        open={isCalendlyOpen}
-        rootElement={document.getElementById('root')!}
-      />
+      {isCalendlyOpen && (
+        <PopupModal
+          url="https://calendly.com/chad-owens-supersymm/30min"
+          onModalClose={() => setIsCalendlyOpen(false)}
+          open={isCalendlyOpen}
+          rootElement={document.getElementById('root') || document.body}
+        />
+      )}
     </nav>
   );
 };
