@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Font face declaration */
+@font-face {
+  font-family: 'HK Modular';
+  src: url('./assets/fonts/HKModular.woff2') format('woff2'),
+       url('./assets/fonts/HKModular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('./assets/fonts/Orbitron/Orbitron-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
@@ -19,4 +37,15 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Logo styling with echo effect */
+.logo-text {
+  font-family: 'HK Modular', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  text-shadow: 
+    2px 2px 0 #ff69b4,
+    4px 4px 0 rgba(255, 105, 180, 0.7),
+    6px 6px 0 rgba(255, 105, 180, 0.4);
+  font-weight: bold;
+  letter-spacing: 0.5px;
 }

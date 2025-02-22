@@ -27,13 +27,25 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 ${isDarkMode ? 'bg-gray-900' : 'bg-white'} shadow-lg`}>
+    <nav 
+      className="fixed w-full z-50 shadow-lg backdrop-blur-sm"
+      style={{
+        backgroundColor: isDarkMode ? 'rgba(17, 24, 39, 0.8)' : 'rgba(255, 255, 255, 0.8)'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <Code2 className={`h-8 w-8 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-            <span className={`ml-2 text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-             supersymmetry
+            <span 
+              className={`text-xl ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
+              style={{
+                fontFamily: "'Orbitron', sans-serif",
+                textShadow: '2px 2px 0 #ff69b4, 4px 4px 0 rgba(255, 105, 180, 0.7), 6px 6px 0 rgba(255, 105, 180, 0.4)',
+                fontWeight: '600',
+                letterSpacing: '0.5px'
+              }}
+            >
+              super\symmetry
             </span>
           </div>
 
