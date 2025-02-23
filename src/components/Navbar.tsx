@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useThemeStore } from '../store/themeStore';
 import { NavItem } from '../types';
@@ -22,6 +22,28 @@ export const Navbar: React.FC = () => {
 
   const isServicePage = location.pathname.startsWith('/services/');
 
+  useEffect(() => {
+    let animationFrame: number;
+    let angle = 0;
+
+    const rotate = () => {
+      angle = (angle + 1) % 360;
+      const buttons = document.querySelectorAll('.consultation-button');
+      buttons.forEach(button => {
+        (button as HTMLElement).style.setProperty('--angle', `${angle}deg`);
+      });
+      animationFrame = requestAnimationFrame(rotate);
+    };
+
+    rotate();
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, []);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -35,8 +57,25 @@ export const Navbar: React.FC = () => {
     >
       <style>
         {`
+          @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+          }
+
           .consultation-button {
-            transition: background-color 0.2s ease;
+            position: relative;
+            background: linear-gradient(${isDarkMode ? '#1f2937' : '#f3f4f6'}, ${isDarkMode ? '#1f2937' : '#f3f4f6'}) padding-box,
+              conic-gradient(
+                from var(--angle),
+                transparent 0deg,
+                transparent 70deg,
+                rgba(255, 105, 180, 0.8) 85deg,
+                transparent 100deg,
+                transparent 360deg
+              ) border-box;
+            border: 1px solid transparent;
+            will-change: transform;
           }
         `}
       </style>
@@ -67,14 +106,14 @@ export const Navbar: React.FC = () => {
                   <a
                     key={item.href}
                     href={isServicePage && item.href !== '#services' ? `/${item.href}` : item.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`px-3 py-2 rounded-md text-sm font-normal ${
                       isActive
                         ? isDarkMode
                           ? 'bg-gray-700 text-white'
                           : 'bg-gray-100 text-blue-600'
                         : isDarkMode
-                        ? 'text-gray-200 hover:text-white hover:bg-gray-700'
-                        : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                        ? 'text-gray-300 hover:text-white hover:bg-gray-700'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                     }`}
                   >
                     {item.label}
@@ -104,7 +143,9 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsCalendlyOpen(true)}
-              className="consultation-button hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium"
+              className={`consultation-button hidden md:block px-4 py-2 rounded-lg text-sm font-normal ${
+                isDarkMode ? 'text-white bg-gray-800' : 'text-gray-600 bg-gray-100'
+              }`}
             >
               Schedule Consultation
             </button>
@@ -124,14 +165,14 @@ export const Navbar: React.FC = () => {
                 key={item.href}
                 href={isServicePage && item.href !== '#services' ? `/${item.href}` : item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                className={`block px-3 py-2 rounded-md text-base font-normal ${
                   isActive
                     ? isDarkMode
                       ? 'bg-gray-700 text-white'
                       : 'bg-gray-100 text-blue-600'
                     : isDarkMode
-                    ? 'text-gray-200 hover:text-white hover:bg-gray-700'
-                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                    ? 'text-gray-300 hover:text-white hover:bg-gray-700'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                 }`}
               >
                 {item.label}
@@ -143,7 +184,7 @@ export const Navbar: React.FC = () => {
               setIsCalendlyOpen(true);
               setIsMobileMenuOpen(false);
             }}
-            className="w-full mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700"
+            className="w-full mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-normal hover:bg-blue-700"
           >
             Schedule Consultation
           </button>
