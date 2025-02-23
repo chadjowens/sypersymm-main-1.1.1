@@ -98,13 +98,13 @@ export const About: React.FC = () => {
     <section id="about" className="min-h-screen flex items-center justify-center px-4 py-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${
+          <h2 className={`text-4xl md:text-5xl section-header mb-4 ${
             isDarkMode ? 'text-white' : 'text-gray-900'
           }`}>
-            Hello, we're SuperSymmety
+            Hello, we're Supersymmety
           </h2>
-          <p className={`text-xl max-w-5xl mx-auto md:text-2xl mb-8 ${
-            isDarkMode ? 'text-gray-300' : 'text-gray-600'
+          <p className={`text-xl md:text-lg max-w-5xl mx-auto mb-8 font-light leading-snug ${
+            isDarkMode ? 'text-gray-200' : 'text-gray-600'
           }`}>
             We are a team of passionate strategist, technologists and creative minds dedicated to pushing the boundaries 
             of what's possible with artificial intelligence and modern web technologies.
@@ -115,8 +115,8 @@ export const About: React.FC = () => {
             }`}>
               Why we're here ... 
             </h3>
-          <p className={`text-xl max-w-5xl mx-auto md:text-2xl mb-8 ${
-            isDarkMode ? 'text-gray-300' : 'text-gray-600'
+          <p className={`text-xl md:text-lg max-w-5xl mx-auto mb-8 font-light leading-snug ${
+            isDarkMode ? 'text-gray-200' : 'text-gray-600'
           }`}>
               We bring together a diverse team with rich experiences from consultancies, agencies, startups, and corporate roles. Our collective expertise spans Product Design, UX/UI, Software Development, Data Analytics, AI, and Machine Learning. With this unique DNA, we are driven by a vision to empower businesses to harness the potential of AI, enabling them to develop innovative and creative solutions that meet the market fast and with impact.
             </p>

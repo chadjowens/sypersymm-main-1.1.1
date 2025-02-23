@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
                 letterSpacing: '0.5px'
               }}
             >
-              super\symmetry
+              super/symmetry
             </span>
           </div>
 

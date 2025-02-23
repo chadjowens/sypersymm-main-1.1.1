@@ -26,7 +26,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, col
       <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
         {title}
       </h3>
-      <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+      <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-4 font-light leading-snug`}>
         {description}
       </p>
       <Link 
@@ -93,13 +93,13 @@ export const Services: React.FC = () => {
     <section id="services" className="min-h-screen flex items-center justify-center px-4 py-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${
+          <h2 className={`text-4xl md:text-5xl section-header mb-4 ${
             isDarkMode ? 'text-white' : 'text-gray-900'
           }`}>
             Our Services
           </h2>
           <p className={`text-xl ${
-            isDarkMode ? 'text-gray-300' : 'text-gray-600'
+            isDarkMode ? 'text-gray-100' : 'text-gray-600'
           }`}>
             Comprehensive solutions for your digital transformation journey
           </p>

@@ -97,12 +97,12 @@ export const Contact: React.FC = () => {
     <section id="contact" className="min-h-screen flex items-center justify-center px-4 py-20">
       <div className="max-w-3xl mx-auto w-full">
         <div className="text-center mb-12">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${
+          <h2 className={`text-4xl md:text-5xl section-header mb-4 ${
             isDarkMode ? 'text-white' : 'text-gray-900'
           }`}>
             Contact Us
           </h2>
-          <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          <p className={`text-xl ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
             Let's discuss your project and bring your ideas to life
           </p>
         </div>
