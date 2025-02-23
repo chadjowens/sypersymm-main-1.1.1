@@ -33,6 +33,13 @@ export const Navbar: React.FC = () => {
         backgroundColor: isDarkMode ? 'rgba(17, 24, 39, 0.8)' : 'rgba(255, 255, 255, 0.8)'
       }}
     >
+      <style>
+        {`
+          .consultation-button {
+            transition: background-color 0.2s ease;
+          }
+        `}
+      </style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
@@ -97,7 +104,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsCalendlyOpen(true)}
-              className="hidden md:block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700"
+              className="consultation-button hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium"
             >
               Schedule Consultation
             </button>
