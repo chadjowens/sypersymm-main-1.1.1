@@ -27,6 +27,12 @@
   font-display: swap;
 }
 
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -57,3 +63,90 @@ html {
   font-weight: 700;
   letter-spacing: 0.5px;
 }
+
+@keyframes rotate-gradient {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+.service-card {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    transparent 0deg,
+    transparent 60deg,
+    rgba(255, 105, 180, 0.2) 65deg,
+    rgba(255, 105, 180, 0.4) 70deg,
+    rgba(255, 105, 180, 0.8) 75deg,
+    rgba(255, 105, 180, 0.4) 80deg,
+    rgba(255, 105, 180, 0.2) 85deg,
+    transparent 90deg,
+    transparent 360deg
+  );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
+}
+
+.service-card-animated::before {
+  opacity: 1;
+  animation: rotate-gradient 3s linear infinite;
+}
+
+/* Consultation button styles */
+.consultation-button {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+
+.consultation-button::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    transparent 0deg,
+    transparent 60deg,
+    rgba(255, 105, 180, 0.2) 65deg,
+    rgba(255, 105, 180, 0.4) 70deg,
+    rgba(255, 105, 180, 0.8) 75deg,
+    rgba(255, 105, 180, 0.4) 80deg,
+    rgba(255, 105, 180, 0.2) 85deg,
+    transparent 90deg,
+    transparent 360deg
+  );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
+}
+
+.consultation-button-animated::before {
+  opacity: 1;
+  animation: rotate-gradient 3s linear infinite;
+}
+
+/* Remove all service card animation styles since we're handling it in the component */

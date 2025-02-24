@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useThemeStore } from '../store/themeStore';
 import { NavItem } from '../types';
@@ -17,10 +17,35 @@ export const Navbar: React.FC = () => {
   const { isDarkMode, toggleTheme } = useThemeStore();
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isButtonAnimating, setIsButtonAnimating] = useState(false);
   const activeSection = useActiveSection();
   const location = useLocation();
 
   const isServicePage = location.pathname.startsWith('/services/');
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    
+    const startAnimation = () => {
+      setIsButtonAnimating(true);
+      
+      // Clear animation after 3 seconds
+      timeoutId = setTimeout(() => {
+        setIsButtonAnimating(false);
+      }, 3000);
+    };
+
+    // Initial animation
+    startAnimation();
+    
+    // Set up interval for future animations (8s = 3s animation + 5s pause)
+    const intervalId = setInterval(startAnimation, 8000);
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(intervalId);
+    };
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -33,13 +58,6 @@ export const Navbar: React.FC = () => {
         backgroundColor: isDarkMode ? 'rgba(17, 24, 39, 0.8)' : 'rgba(255, 255, 255, 0.8)'
       }}
     >
-      <style>
-        {`
-          .consultation-button {
-            transition: background-color 0.2s ease;
-          }
-        `}
-      </style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
@@ -67,14 +85,14 @@ export const Navbar: React.FC = () => {
                   <a
                     key={item.href}
                     href={isServicePage && item.href !== '#services' ? `/${item.href}` : item.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`px-3 py-2 rounded-md text-sm font-normal ${
                       isActive
                         ? isDarkMode
                           ? 'bg-gray-700 text-white'
                           : 'bg-gray-100 text-blue-600'
                         : isDarkMode
-                        ? 'text-gray-200 hover:text-white hover:bg-gray-700'
-                        : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                        ? 'text-gray-300 hover:text-white hover:bg-gray-700'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                     }`}
                   >
                     {item.label}
@@ -104,7 +122,18 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsCalendlyOpen(true)}
-              className="consultation-button hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium"
+              className={`
+                consultation-button
+                hidden 
+                md:block 
+                px-4 
+                py-2 
+                rounded-lg 
+                text-sm 
+                font-normal
+                ${isButtonAnimating ? 'consultation-button-animated' : ''}
+                ${isDarkMode ? 'text-white bg-gray-800' : 'text-gray-600 bg-gray-100'}
+              `}
             >
               Schedule Consultation
             </button>
@@ -124,14 +153,14 @@ export const Navbar: React.FC = () => {
                 key={item.href}
                 href={isServicePage && item.href !== '#services' ? `/${item.href}` : item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                className={`block px-3 py-2 rounded-md text-base font-normal ${
                   isActive
                     ? isDarkMode
                       ? 'bg-gray-700 text-white'
                       : 'bg-gray-100 text-blue-600'
                     : isDarkMode
-                    ? 'text-gray-200 hover:text-white hover:bg-gray-700'
-                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                    ? 'text-gray-300 hover:text-white hover:bg-gray-700'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                 }`}
               >
                 {item.label}
@@ -143,7 +172,7 @@ export const Navbar: React.FC = () => {
               setIsCalendlyOpen(true);
               setIsMobileMenuOpen(false);
             }}
-            className="w-full mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700"
+            className="w-full mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-normal hover:bg-blue-700"
           >
             Schedule Consultation
           </button>
