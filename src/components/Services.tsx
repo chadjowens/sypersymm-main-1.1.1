@@ -16,6 +16,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slu
   const { isDarkMode } = useThemeStore();
   
   const bgColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+  const hoverBgColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
 
   return (
     <div 
@@ -28,10 +29,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slu
         rounded-md 
         group 
         backdrop-blur-sm 
-        transition-colors
-        ${isDarkMode ? 'hover:bg-gray-700/40' : 'hover:bg-gray-50/40'}
+        transition-all
+        duration-300
+        hover:shadow-lg
+        border
+        hover:!bg-opacity-70
+        ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
         ${isAnimating ? 'service-card-animated' : ''}
       `}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.backgroundColor = hoverBgColor;
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.backgroundColor = bgColor;
+      }}
     >
       <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4">
         <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
