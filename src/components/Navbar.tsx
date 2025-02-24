@@ -181,9 +181,10 @@ export const Navbar: React.FC = () => {
 
       {isCalendlyOpen && (
         <PopupModal
-          url="https://calendly.com/supersymmetry/consultation"
+          url="https://calendly.com/chad-owens-supersymm/30min"
           onModalClose={() => setIsCalendlyOpen(false)}
-          rootElement={document.getElementById('root')!}
+          open={isCalendlyOpen}
+          rootElement={document.getElementById('root') || document.body}
         />
       )}
     </nav>
