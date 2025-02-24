@@ -9,17 +9,30 @@ interface ServiceCardProps {
   icon: React.ReactNode;
   slug: string;
   color?: string;
+  isAnimating?: boolean;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slug }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slug, isAnimating = false }) => {
   const { isDarkMode } = useThemeStore();
   
+  const bgColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+
   return (
-    <div className={`p-6 rounded-md border group ${
-      isDarkMode 
-        ? 'bg-gray-800/30 border-gray-700 hover:bg-gray-700/40' 
-        : 'bg-white/30 border-gray-200 hover:bg-gray-50/40'
-    } transition-all duration-300 backdrop-blur-sm`}>
+    <div 
+      style={{
+        backgroundColor: bgColor,
+      }}
+      className={`
+        service-card
+        p-6 
+        rounded-md 
+        group 
+        backdrop-blur-sm 
+        transition-colors
+        ${isDarkMode ? 'hover:bg-gray-700/40' : 'hover:bg-gray-50/40'}
+        ${isAnimating ? 'service-card-animated' : ''}
+      `}
+    >
       <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4">
         <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
           {icon}
@@ -90,6 +103,46 @@ export const services = [
 
 export const Services: React.FC = () => {
   const { isDarkMode } = useThemeStore();
+  const [animatingIndex, setAnimatingIndex] = React.useState<number | null>(null);
+
+  React.useEffect(() => {
+    console.log('Setting up animation cycle');
+    let timeoutId: NodeJS.Timeout;
+    let intervalId: NodeJS.Timeout;
+    
+    const animateRandomService = () => {
+      // Get random index, different from current if possible
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * services.length);
+      } while (randomIndex === animatingIndex && services.length > 1);
+      
+      console.log('Setting new animating index:', randomIndex);
+      setAnimatingIndex(randomIndex);
+    };
+
+    // Start the animation cycle
+    const startAnimationCycle = () => {
+      animateRandomService();
+      // Clear previous animation after 3 seconds
+      timeoutId = setTimeout(() => {
+        setAnimatingIndex(null);
+      }, 3000);
+    };
+
+    // Initial animation
+    startAnimationCycle();
+
+    // Set up interval for future animations
+    intervalId = setInterval(() => {
+      startAnimationCycle();
+    }, 8000); // Increased to 8 seconds for 5 second gap between 3-second animations
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(intervalId);
+    };
+  }, []); // Remove animatingIndex dependency
 
   return (
     <section id="services" className="min-h-screen flex items-center justify-center px-4 py-20">
@@ -107,8 +160,12 @@ export const Services: React.FC = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <ServiceCard key={service.slug} {...service} />
+          {services.map((service, index) => (
+            <ServiceCard 
+              key={service.slug} 
+              {...service} 
+              isAnimating={index === animatingIndex}
+            />
           ))}
         </div>
       </div>
