@@ -17,30 +17,33 @@ export const Navbar: React.FC = () => {
   const { isDarkMode, toggleTheme } = useThemeStore();
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isButtonAnimating, setIsButtonAnimating] = useState(false);
   const activeSection = useActiveSection();
   const location = useLocation();
 
   const isServicePage = location.pathname.startsWith('/services/');
 
   useEffect(() => {
-    let animationFrame: number;
-    let angle = 0;
-
-    const rotate = () => {
-      angle = (angle + 1) % 360;
-      const buttons = document.querySelectorAll('.consultation-button');
-      buttons.forEach(button => {
-        (button as HTMLElement).style.setProperty('--angle', `${angle}deg`);
-      });
-      animationFrame = requestAnimationFrame(rotate);
+    let timeoutId: NodeJS.Timeout;
+    
+    const startAnimation = () => {
+      setIsButtonAnimating(true);
+      
+      // Clear animation after 3 seconds
+      timeoutId = setTimeout(() => {
+        setIsButtonAnimating(false);
+      }, 3000);
     };
 
-    rotate();
+    // Initial animation
+    startAnimation();
+    
+    // Set up interval for future animations (8s = 3s animation + 5s pause)
+    const intervalId = setInterval(startAnimation, 8000);
 
     return () => {
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-      }
+      clearTimeout(timeoutId);
+      clearInterval(intervalId);
     };
   }, []);
 
@@ -55,30 +58,6 @@ export const Navbar: React.FC = () => {
         backgroundColor: isDarkMode ? 'rgba(17, 24, 39, 0.8)' : 'rgba(255, 255, 255, 0.8)'
       }}
     >
-      <style>
-        {`
-          @property --angle {
-            syntax: '<angle>';
-            initial-value: 0deg;
-            inherits: false;
-          }
-
-          .consultation-button {
-            position: relative;
-            background: linear-gradient(${isDarkMode ? '#1f2937' : '#f3f4f6'}, ${isDarkMode ? '#1f2937' : '#f3f4f6'}) padding-box,
-              conic-gradient(
-                from var(--angle),
-                transparent 0deg,
-                transparent 70deg,
-                rgba(255, 105, 180, 0.8) 85deg,
-                transparent 100deg,
-                transparent 360deg
-              ) border-box;
-            border: 1px solid transparent;
-            will-change: transform;
-          }
-        `}
-      </style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
@@ -143,9 +122,18 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsCalendlyOpen(true)}
-              className={`consultation-button hidden md:block px-4 py-2 rounded-lg text-sm font-normal ${
-                isDarkMode ? 'text-white bg-gray-800' : 'text-gray-600 bg-gray-100'
-              }`}
+              className={`
+                consultation-button
+                hidden 
+                md:block 
+                px-4 
+                py-2 
+                rounded-lg 
+                text-sm 
+                font-normal
+                ${isButtonAnimating ? 'consultation-button-animated' : ''}
+                ${isDarkMode ? 'text-white bg-gray-800' : 'text-gray-600 bg-gray-100'}
+              `}
             >
               Schedule Consultation
             </button>
@@ -193,10 +181,9 @@ export const Navbar: React.FC = () => {
 
       {isCalendlyOpen && (
         <PopupModal
-          url="https://calendly.com/chad-owens-supersymm/30min"
+          url="https://calendly.com/supersymmetry/consultation"
           onModalClose={() => setIsCalendlyOpen(false)}
-          open={isCalendlyOpen}
-          rootElement={document.getElementById('root') || document.body}
+          rootElement={document.getElementById('root')!}
         />
       )}
     </nav>
