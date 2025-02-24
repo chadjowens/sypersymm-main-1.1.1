@@ -131,8 +131,11 @@ export const Navbar: React.FC = () => {
                 rounded-lg 
                 text-sm 
                 font-normal
+                transition-all
+                duration-300
+                hover:shadow-lg
                 ${isButtonAnimating ? 'consultation-button-animated' : ''}
-                ${isDarkMode ? 'text-white bg-gray-800' : 'text-gray-600 bg-gray-100'}
+                ${isDarkMode ? 'text-white bg-gray-800 hover:bg-gray-700' : 'text-gray-600 bg-gray-100 hover:bg-gray-200'}
               `}
             >
               Schedule Consultation
