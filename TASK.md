@@ -7,6 +7,27 @@
 - 📅 Scheduled
 - ⭐ Priority
 
+## Project Structure Implementation
+### Core Structure
+- 🟢 Create core project structure (2025-04-15)
+- 🔴 Create .env.example file
+
+### Feature Directories
+- 🔴 Create src/layouts directory for page layout components
+  - Dependencies: [First page layout implementation]
+- 🔴 Create src/pages directory for routing components
+  - Dependencies: [Routing implementation]
+- 🔴 Create src/services directory for API integrations
+  - Dependencies: [External service integration]
+- 🔴 Create src/utils directory for utility functions
+  - Dependencies: [Shared utility implementation]
+- 🔴 Create src/context directory for React context providers
+  - Dependencies: [Context-based state implementation]
+- 🔴 Create public directory for static assets
+  - Dependencies: [Static assets that need root serving]
+- 🔴 Create tests directory for test files
+  - Dependencies: [Test implementation]
+
 ## Security & Infrastructure
 ### Authentication & Data Protection
 - 🔴 Set up Supabase authentication flow

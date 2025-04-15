@@ -1,0 +1,405 @@
+// Windsurf Workspace Rules
+// Company Website Project - Vite.js/TypeScript with Supabase Integration
+
+import { defineConfig } from 'windsurf';
+
+export default defineConfig({
+  /**
+   * 🔄 Project Awareness & Context
+   * Rules for maintaining project awareness and context
+   */
+  projectAwareness: {
+    requiredReadFiles: [
+      'PLANNING.md',  // Read at the start of any new conversation
+      'TASK.md',      // Check before starting a new task
+    ],
+    taskManagement: {
+      taskFile: 'TASK.md',
+      // Auto-update TASK.md with completion status and new discoveries
+      updateOnCompletion: true,
+      trackDiscoveredTasks: true,
+    }
+  },
+
+  /**
+   * 🧱 Code Structure & Modularity
+   * Rules for code structure and organization
+   */
+  codeStructure: {
+    fileSize: {
+      max: 500, // Maximum lines per file
+      action: 'warn',
+    },
+    
+    // Progressive directory structure implementation
+    directoryStructure: {
+      // Core directories that must exist from the beginning
+      coreDirectories: [
+        'src',
+        'src/assets',
+        'src/components',
+        'src/types',
+        'src/hooks',
+        'src/store', // For state management
+      ],
+      
+      // Feature-based directories to be created when implementing related features
+      featureDirectories: [
+        {
+          path: 'src/layouts',
+          description: 'Layout components for page structure',
+          createWhen: 'When implementing the first page layout'
+        },
+        {
+          path: 'src/pages',
+          description: 'Page components for routing',
+          createWhen: 'When implementing routing'
+        },
+        {
+          path: 'src/services',
+          description: 'Service modules for API and external integrations',
+          createWhen: 'When implementing external service integrations'
+        },
+        {
+          path: 'src/utils',
+          description: 'Utility functions and helpers',
+          createWhen: 'When implementing shared utility functions'
+        },
+        {
+          path: 'src/context',
+          description: 'React context providers',
+          createWhen: 'When implementing context-based state'
+        },
+        {
+          path: 'public',
+          description: 'Static assets served directly',
+          createWhen: 'When adding static assets that should be served at the root'
+        },
+        {
+          path: 'tests',
+          description: 'Test files',
+          createWhen: 'When implementing tests'
+        }
+      ],
+      
+      // Guidelines for empty directories
+      emptyDirectoryHandling: {
+        useGitKeep: true, // Add .gitkeep to empty directories
+        addReadme: true,  // Add README.md with purpose description
+        template: '# {{directoryName}}\n\n{{description}}\n\nCreate files in this directory when {{createWhen}}.'
+      }
+    },
+    
+    // Core files that must exist
+    requiredFiles: [
+      'index.html',
+      'vite.config.ts',
+      'tsconfig.json',
+      'package.json',
+      'README.md',
+      '.gitignore',
+      '.env.example',
+      'PLANNING.md',
+      'TASK.md',
+      'src/main.tsx',
+      'src/App.tsx',
+      'src/vite-env.d.ts',
+    ],
+    
+    // Feature-based files to be created when implementing related features
+    featureFiles: [
+      {
+        path: 'src/services/supabase.ts',
+        description: 'Supabase client configuration',
+        createWhen: 'When implementing Supabase integration'
+      },
+      {
+        path: 'src/components/contact/ContactForm.tsx',
+        description: 'Contact form component',
+        createWhen: 'When implementing contact functionality'
+      }
+    ],
+    
+    // Naming conventions
+    naming: {
+      // Components use PascalCase
+      'src/components/**/*.tsx': {
+        pattern: '^[A-Z][a-zA-Z0-9]*\\.tsx$',
+        message: 'Component files should use PascalCase and end with .tsx'
+      },
+      // Pages use PascalCase
+      'src/pages/**/*.tsx': {
+        pattern: '^[A-Z][a-zA-Z0-9]*\\.tsx$',
+        message: 'Page files should use PascalCase and end with .tsx'
+      },
+      // Hooks use camelCase and start with 'use'
+      'src/hooks/**/*.ts': {
+        pattern: '^use[A-Z][a-zA-Z0-9]*\\.ts$',
+        message: 'Hook files should start with "use" and follow camelCase'
+      },
+      // TypeScript types/interfaces use PascalCase
+      'src/types/**/*.ts': {
+        pattern: '^[A-Z][a-zA-Z0-9]*\\.ts$',
+        message: 'Type definition files should use PascalCase'
+      },
+      // Utils use camelCase
+      'src/utils/**/*.ts': {
+        pattern: '^[a-z][a-zA-Z0-9]*\\.ts$',
+        message: 'Utility files should use camelCase'
+      },
+    },
+    
+    // Import rules
+    imports: {
+      // Prefer relative imports within the same feature directory
+      preferRelative: true,
+      // Use absolute imports for cross-feature dependencies
+      absoluteImportDepth: 2,
+      // No relative imports going up more than 2 directory levels
+      maxRelativeDepth: 2,
+      // Core libraries imports should come first
+      importOrder: [
+        '^react',
+        '^@/types',
+        '^@/services',
+        '^@/store',
+        '^@/context',
+        '^@/hooks',
+        '^@/components',
+        '^@/utils',
+        '^@/assets',
+        '^[./]'
+      ],
+    }
+  },
+
+  /**
+   * 🧪 Testing & Reliability
+   * Rules for ensuring code quality through testing
+   */
+  testing: {
+    framework: 'vitest',
+    requiredCoverage: {
+      statements: 70,
+      branches: 60,
+      functions: 80,
+      lines: 70
+    },
+    testFileNaming: {
+      pattern: '{{name}}.test.tsx', // Example: Component.test.tsx
+      // Tests mirror the src directory structure
+      directory: 'tests'
+    },
+    testRequirements: {
+      // Require tests for critical parts of the application
+      'src/services/**/*.ts': true,
+      'src/hooks/**/*.ts': true,
+      'src/components/contact/**/*.tsx': true,
+      'src/utils/**/*.ts': true,
+    },
+    testTypes: [
+      'expected', // Test expected usage
+      'edge',     // Test edge cases
+      'failure'   // Test failure cases
+    ],
+    // Progressive testing implementation
+    progressiveImplementation: {
+      phase1: 'Core utility functions and hooks',
+      phase2: 'Critical components and services',
+      phase3: 'Integration tests and edge cases'
+    }
+  },
+
+  /**
+   * ✅ Task Completion
+   * Rules for task tracking and management
+   */
+  taskCompletion: {
+    taskFile: 'TASK.md',
+    markCompletedTasks: true,
+    addDiscoveredTasks: true,
+    taskFormat: {
+      completed: '- [x] {{description}} ({{date}})',
+      pending: '- [ ] {{description}}',
+      discovered: '- [ ] [DISCOVERED] {{description}} ({{date}})'
+    },
+    // Track structural implementation tasks
+    structureTracking: {
+      trackDirectoryCreation: true,
+      trackFeatureImplementation: true,
+      template: '- [ ] Create {{path}} directory for {{description}}'
+    }
+  },
+
+  /**
+   * 📎 Style & Conventions
+   * Rules for code style and formatting
+   */
+  style: {
+    language: 'typescript',
+    lintConfig: {
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react-hooks/recommended',
+        'plugin:react/jsx-runtime'
+      ]
+    },
+    formatters: [
+      'prettier'
+    ],
+    typeChecking: {
+      strict: true,
+      noImplicitAny: true
+    },
+    documentation: {
+      requireJSDoc: true,
+      jsdocFormat: {
+        functions: true,
+        components: true,
+        hooks: true
+      }
+    },
+    componentStructure: {
+      // Prefer functional components using arrow functions
+      preferArrowFunctions: true,
+      useTypedProps: true
+    },
+    supabase: {
+      // Strong typing for Supabase
+      typedClient: true,
+      typedQueries: true
+    }
+  },
+
+  /**
+   * 📚 Documentation & Explainability
+   * Rules for code documentation and explainability
+   */
+  documentation: {
+    requiredDocFiles: [
+      'README.md',
+      'PLANNING.md',
+    ],
+    
+    // Update README.md with new features, dependencies, etc.
+    autoupdateReadme: true,
+    
+    // Document complex logic with inline comments
+    requireReasonComments: true,
+    commentPattern: '// Reason: {{reasoning}}',
+    
+    // JSDoc requirements
+    jsDoc: {
+      requireForFunctions: true,
+      requireForComponents: true,
+      requireForHooks: true,
+      template: `/**
+ * {{description}}
+ * 
+ * @param {Object} props - Component properties
+ * @returns {JSX.Element} - Rendered component
+ */`
+    },
+    
+    // Progressive documentation
+    progressiveDocumentation: {
+      // Document structure as it evolves
+      structureDocumentation: {
+        updateReadme: true,
+        directoryReadmes: true,
+        template: '# {{directoryName}}\n\n{{purpose}}\n\n## Contents\n\n{{fileList}}'
+      }
+    }
+  },
+
+  /**
+   * 🧠 AI Behavior Rules
+   * Rules for AI assistants working with this project
+   */
+  aiRules: {
+    // Never assume missing context
+    requireConfirmation: true,
+    // Only use verified libraries
+    verifiedLibraries: [
+      'react',
+      'vite',
+      'typescript',
+      '@supabase/supabase-js',
+      'react-router-dom',
+      'react-hook-form',
+      'zod',
+      'vitest',
+      '@testing-library/react',
+      'tailwindcss',
+      'zustand' // or other state management
+    ],
+    // Verify paths before referencing
+    verifyPaths: true,
+    // Don't modify existing code without explicit instruction
+    safeModification: true,
+    // Progressive implementation guidance
+    progressiveImplementation: {
+      suggestJustInTimeCreation: true,
+      remindOfStructuralRules: true
+    }
+  },
+
+  /**
+   * ⚡ Vite Specific Configurations
+   * Rules specific to Vite.js projects
+   */
+  viteSpecific: {
+    // Ensure the vite.config.ts has required plugins
+    requiredPlugins: [
+      'react',
+      'typescript',
+      '@vitejs/plugin-react',
+    ],
+    // Proper environment variable handling
+    envHandling: {
+      requireEnvExample: true,
+      typeSafeEnv: true
+    },
+    // Path aliasing for cleaner imports
+    pathAliases: {
+      '@': './src'
+    },
+    // Assets handling rules
+    assets: {
+      imagesDir: 'src/assets/images',
+      svgAsComponents: true,
+      optimizeImages: true
+    }
+  },
+
+  /**
+   * 🔌 Supabase Integration Rules
+   * Rules specific to Supabase integration
+   */
+  supabaseRules: {
+    // Require type-safe Supabase client setup
+    typeSafeClient: true,
+    // Progressive implementation of Supabase features
+    progressiveImplementation: {
+      phase1: {
+        description: 'Basic Supabase client setup',
+        files: ['src/services/supabase.ts', 'src/types/supabase.ts']
+      },
+      phase2: {
+        description: 'Authentication implementation',
+        files: ['src/hooks/useSupabaseAuth.ts']
+      },
+      phase3: {
+        description: 'Contact form integration',
+        files: ['src/services/contactService.ts', 'src/components/contact/ContactForm.tsx']
+      }
+    },
+    // Security practices for Supabase
+    security: {
+      requireEnvForKeys: true,
+      noHardcodedKeys: true,
+      rls: true // Reminder to use Row Level Security
+    }
+  }
+});
