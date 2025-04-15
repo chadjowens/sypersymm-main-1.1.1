@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeStore } from '../store/themeStore';
+import { useThemeStore } from '../../store/themeStore';
 import { Brain, Rocket, Code, Palette, LineChart, Wand2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
