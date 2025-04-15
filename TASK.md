@@ -68,6 +68,19 @@
 - 🔴 Implement toast notifications
 - 🔴 Add keyboard navigation support
 
+### UI Enhancements
+- 🔴 ⭐ Remove the About Us profile cards
+- 🔴 Update / remove the animated spacer
+- 🔴 Update icons within the services cards
+- 🔴 Remove links to "Learn more" pages (for now)
+- 🔴 Update headers and content for each of the service cards
+  - Reference: [Content Google Doc](https://docs.google.com/document/d/content-id)
+- 🔴 Add an animated scroll down indicator
+- 🔴 Add an image or band to separate each section
+- 🔴 Update Contact Us "Submit" button width
+- 🔴 Double check responsive views
+- 🔴 Update background animation colors when light mode is selected
+
 ### Integration
 - 🔴 Set up analytics tracking
 - 🔴 ⭐ Integrate CMS platform
