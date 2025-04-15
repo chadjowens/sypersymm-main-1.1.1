@@ -1,8 +1,8 @@
 import React from 'react';
-import { useThemeStore } from '../store/themeStore';
+import { useThemeStore } from '../../store/themeStore';
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 
-import AnimatedSeparator from './AnimatedSeparator';
+import AnimatedSeparator from '../ui/AnimatedSeparator';
 
 interface TeamMemberProps {
   name: string;

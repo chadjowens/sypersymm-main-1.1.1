@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useThemeStore } from '../store/themeStore';
+import { useThemeStore } from '../../store/themeStore';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { supabase } from '../config/supabase';
-import { ContactFormData } from '../types';
+import { supabase } from '../../config/supabase';
+import { ContactFormData } from '../../types';
 
 /**
  * Available budget ranges for project estimation

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeStore } from '../store/themeStore';
+import { useThemeStore } from '../../store/themeStore';
 
 export const Hero: React.FC = () => {
   const { isDarkMode } = useThemeStore();

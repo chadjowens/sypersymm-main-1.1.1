@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
-import { useThemeStore } from '../store/themeStore';
-import { NavItem } from '../types';
+import { useThemeStore } from '../../store/themeStore';
+import { NavItem } from '../../types';
 import { PopupModal } from 'react-calendly';
-import { useActiveSection } from '../hooks/useActiveSection';
+import { useActiveSection } from '../../hooks/useActiveSection';
 import { useLocation } from 'react-router-dom';
 
 /**
