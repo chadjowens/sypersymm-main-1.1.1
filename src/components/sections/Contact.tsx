@@ -5,6 +5,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { supabase } from '../config/supabase';
 import { ContactFormData } from '../types';
 
+/**
+ * Available budget ranges for project estimation
+ * Used in the contact form dropdown selection
+ */
 const budgetRanges = [
   '1,000-5,000',
   '5,000-10,000',
@@ -15,6 +19,19 @@ const budgetRanges = [
   '30,000+'
 ];
 
+/**
+ * Contact component provides a form for users to submit project inquiries
+ * 
+ * Features include:
+ * - Comprehensive project inquiry form with validation
+ * - Integration with Supabase for form submission storage
+ * - Date picker for project timeline selection
+ * - Budget range selection
+ * - Success/error status messaging
+ * - Themed styling based on light/dark mode
+ * 
+ * @returns {JSX.Element} The rendered Contact component
+ */
 export const Contact: React.FC = () => {
   const { isDarkMode } = useThemeStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,6 +50,12 @@ export const Contact: React.FC = () => {
     projectDescription: ''
   });
 
+  /**
+   * Handles form submission, validates data, and sends to Supabase
+   * 
+   * @param {React.FormEvent} e - The form submission event
+   * @returns {Promise<void>}
+   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);

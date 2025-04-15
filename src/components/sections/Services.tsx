@@ -3,6 +3,17 @@ import { useThemeStore } from '../store/themeStore';
 import { Brain, Rocket, Code, Palette, LineChart, Wand2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Props for the ServiceCard component
+ * 
+ * @interface ServiceCardProps
+ * @property {string} title - The title of the service
+ * @property {string} description - A brief description of the service
+ * @property {React.ReactNode} icon - The icon to display for the service
+ * @property {string} slug - URL slug for the service page
+ * @property {string} [color] - Optional background color for the service card
+ * @property {boolean} [isAnimating] - Whether the card should display animation
+ */
 interface ServiceCardProps {
   title: string;
   description: string;
@@ -12,6 +23,14 @@ interface ServiceCardProps {
   isAnimating?: boolean;
 }
 
+/**
+ * ServiceCard component displays an individual service offering
+ * 
+ * Features hover effects, animations, and links to service-specific pages
+ * 
+ * @param {ServiceCardProps} props - The component props
+ * @returns {JSX.Element} The rendered ServiceCard component
+ */
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slug, isAnimating = false }) => {
   const { isDarkMode } = useThemeStore();
   
@@ -67,6 +86,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slu
   );
 };
 
+/**
+ * Array of service offerings provided by SyperSymmetry
+ * Each service includes title, description, icon, and routing information
+ */
 export const services = [
   {
     title: 'AI Development & Enablement',
@@ -112,6 +135,17 @@ export const services = [
   }
 ];
 
+/**
+ * Services component displays all service offerings in a grid layout
+ * 
+ * Features include:
+ * - Responsive grid layout for service cards
+ * - Random animation of service cards to draw attention
+ * - Links to detailed service pages
+ * - Themed styling based on light/dark mode
+ * 
+ * @returns {JSX.Element} The rendered Services component
+ */
 export const Services: React.FC = () => {
   const { isDarkMode } = useThemeStore();
   const [animatingIndex, setAnimatingIndex] = React.useState<number | null>(null);

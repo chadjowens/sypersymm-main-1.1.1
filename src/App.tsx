@@ -1,44 +1,23 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
-import { Background } from './components/Background';
-import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { About } from './components/About';
-import { Contact } from './components/Contact';
-import { AIDevLayout } from './components/layouts/AIDevLayout';
-import { MVPLayout } from './components/layouts/MVPLayout';
-import { FullStackLayout } from './components/layouts/FullStackLayout';
-import { UXUILayout } from './components/layouts/UXUILayout';
-import { DataVizLayout } from './components/layouts/DataVizLayout';
-import { AICreativeLayout } from './components/layouts/AICreativeLayout';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Navbar } from './layouts/core/Navbar';
+import { Background } from './layouts/core/Background';
 import { useThemeStore } from './store/themeStore';
-import { ErrorBoundary } from './components/ErrorBoundary';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
+import HomePage from './pages/HomePage';
+import ServicePage from './pages/ServicePage';
 
-const MainLayout = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    // Check if we need to scroll to services section
-    if (location.state && (location.state as any).scrollToServices) {
-      const servicesSection = document.getElementById('services');
-      if (servicesSection) {
-        servicesSection.scrollIntoView({ behavior: 'smooth' });
-      }
-      // Clear the state after scrolling
-      window.history.replaceState({}, document.title);
-    }
-  }, [location]);
-
-  return (
-    <main>
-      <Hero />
-      <Services />
-      <About />
-      <Contact />
-    </main>
-  );
-};
+/**
+ * Main App component that sets up routing and global layout
+ * 
+ * Provides the application shell with:
+ * - Theme context (light/dark mode)
+ * - Navigation bar
+ * - Background effects
+ * - Error boundary for graceful error handling
+ * - Routing configuration for all pages
+ * 
+ * @returns {JSX.Element} The rendered App component
+ */
 
 function App() {
   const { isDarkMode } = useThemeStore();
@@ -52,13 +31,8 @@ function App() {
         <div className="relative">
           <Navbar />
           <Routes>
-            <Route path="/" element={<MainLayout />} />
-            <Route path="/services/ai-development" element={<AIDevLayout />} />
-            <Route path="/services/mvp-development" element={<MVPLayout />} />
-            <Route path="/services/custom-development" element={<FullStackLayout />} />
-            <Route path="/services/ux-ui-design" element={<UXUILayout />} />
-            <Route path="/services/data-visualization" element={<DataVizLayout />} />
-            <Route path="/services/ai-creative" element={<AICreativeLayout />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/services/:serviceSlug" element={<ServicePage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

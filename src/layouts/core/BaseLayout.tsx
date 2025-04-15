@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { useThemeStore } from '../store/themeStore';
-import { services } from './Services';
+import { useThemeStore } from '../../store/themeStore';
+import { services } from '../../components/sections/Services';
 
 interface NavItem {
   id: string;
@@ -37,7 +37,17 @@ const defaultNavItems: NavItem[] = [
   }
 ];
 
-export const ServiceLayout: React.FC = () => {
+/**
+ * BaseLayout component that provides a common layout structure for content pages
+ * 
+ * Features:
+ * - Section navigation
+ * - Dynamic content rendering
+ * - Theme-aware styling
+ * 
+ * @returns {JSX.Element} The rendered BaseLayout component
+ */
+export const BaseLayout: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { isDarkMode } = useThemeStore();
   const [activeSection, setActiveSection] = useState('overview');

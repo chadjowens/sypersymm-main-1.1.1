@@ -6,6 +6,10 @@ import { PopupModal } from 'react-calendly';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { useLocation } from 'react-router-dom';
 
+/**
+ * Navigation items for the main application menu
+ * Each item includes a label and href for navigation
+ */
 const navItems: NavItem[] = [
   { label: 'Home', href: '#home' },
   { label: 'Services', href: '#services' },
@@ -13,6 +17,14 @@ const navItems: NavItem[] = [
   { label: 'Contact', href: '#contact' },
 ];
 
+/**
+ * Navbar component for the SyperSymmetry website
+ * 
+ * Provides navigation, theme toggling, and consultation scheduling functionality.
+ * Features responsive design with mobile menu support and active section highlighting.
+ * 
+ * @returns {JSX.Element} The rendered Navbar component
+ */
 export const Navbar: React.FC = () => {
   const { isDarkMode, toggleTheme } = useThemeStore();
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
