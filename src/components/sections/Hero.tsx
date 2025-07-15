@@ -7,11 +7,9 @@ export const Hero: React.FC = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4">
       <div className="max-w-4xl text-center">
-        <h1 className={`text-5xl md:text-6xl font-bold mb-6 ${
-          isDarkMode ? 'text-white' : 'text-gray-900'
-        }`}>
+        <h1 className={`text-5xl md:text-6xl font-bold mb-6 hero-header`}>
           Super-Powering Digital Experiences //
-          <span className="text-blue-600"> Automating Business Impact</span>
+          <span> Automating Business Impact</span>
         </h1>
         <p className={`text-xl md:text-2xl mb-8 ${
           isDarkMode ? 'text-gray-100' : 'text-gray-600'

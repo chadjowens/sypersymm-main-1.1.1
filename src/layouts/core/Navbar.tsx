@@ -12,8 +12,8 @@ import { useLocation } from 'react-router-dom';
  */
 const navItems: NavItem[] = [
   { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'About Us', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
 

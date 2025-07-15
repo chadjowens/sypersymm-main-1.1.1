@@ -36,8 +36,8 @@ const HomePage = () => {
   return (
     <main>
       <Hero />
-      <Services />
       <About />
+      <Services />
       <Contact />
     </main>
   );

@@ -16,6 +16,12 @@ const AnimatedSeparator: React.FC<AnimatedSeparatorProps> = ({ className = '' })
             0% { transform: translateX(0%); }
             100% { transform: translateX(250%); }
           }
+          
+          @keyframes gradient-shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
         `}
       </style>
       <div
@@ -29,11 +35,14 @@ const AnimatedSeparator: React.FC<AnimatedSeparatorProps> = ({ className = '' })
           style={{
             background: `linear-gradient(90deg, 
               transparent 0%,
-              rgba(255, 192, 203, 0.8) 50%,
+              #0077ff 25%,
+              #ff69b4 50%,
+              #0077ff 75%,
               transparent 100%
             )`,
+            backgroundSize: '200% 200%',
             left: '-25%',
-            animation: 'shimmer 3s infinite linear',
+            animation: 'shimmer 8s infinite linear, gradient-shimmer 8s ease infinite',
           }}
         />
       </div>
