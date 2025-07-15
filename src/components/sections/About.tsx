@@ -103,10 +103,8 @@ export const About: React.FC = () => {
           }`}>
             Hello, we're Supersymmetry
           </h2>
-          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-10 font-light leading-relaxed ${
-            isDarkMode ? 'text-gray-200' : 'text-gray-600'
-          }`}>
-            Supersymmetry specializes in designing and deploying bespoke "agent teams" tailored to your specific business needs. Imagine a coordinated network of intelligent AI agents working tirelessly across your digital ecosystem:
+          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-8 font-light leading-relaxed ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
+            Supersymmetry specializes in designing and deploying bespoke <span className="font-bold section-header">agent teams</span> tailored to your specific business needs. Imagine a coordinated network of intelligent AI agents working tirelessly across your digital ecosystem:
           </p>
           
           <div className={`max-w-5xl mx-auto mb-12 ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
@@ -141,7 +139,10 @@ export const About: React.FC = () => {
               
               <div className="flex items-start">
                 <BarChart3 className="gradient-icon mr-4 mt-1 flex-shrink-0" size={32} />
-                <span className="text-xl">With real-time analytics</span>
+                <div className="text-xl text-left">
+                  Ongoing optimization with<br />
+                  real-time analytics
+                </div>
               </div>
             </div>
           </div>
