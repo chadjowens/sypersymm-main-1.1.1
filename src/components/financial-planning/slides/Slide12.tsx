@@ -11,9 +11,20 @@ import '../styles/SlideStyles.css';
  */
 const Slide12: React.FC = () => {
   return (
-    <div className="slide" style={{ backgroundColor: '#ffffff' }}>
+    <div 
+      className="slide-container" 
+      style={{ 
+        backgroundColor: '#ffffff',
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden',
+        borderRadius: '0',
+        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+      }}
+    >
       {/* Fractal Pattern Background */}
-      <svg className="fractal-background" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style={{ backgroundColor: '#ffffff' }}>
+      <svg className="fractal-background" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style={{ backgroundColor: '#ffffff', position: 'absolute', top: 0, left: 0, zIndex: 1 }}>
         <pattern id="fractal-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
           <path d="M0 50 L25 25 L50 50 L75 25 L100 50 L75 75 L50 50 L25 75 Z" fill="none" stroke="#8A2BE2" strokeWidth="0.5" opacity="0.6"></path>
           <path d="M0 0 L50 50 L0 100 M100 0 L50 50 L100 100" fill="none" stroke="#5D3FD3" strokeWidth="0.3" opacity="0.4"></path>
@@ -22,7 +33,7 @@ const Slide12: React.FC = () => {
         <rect width="100%" height="100%" fill="url(#fractal-pattern)"></rect>
       </svg>
       
-      <div className="content px-16">
+      <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: '#ffffff' }}>
         {/* Title Section with good spacing from top */}
         <div className="mt-16 mb-8">
           <h1 className="title text-4xl" style={{ fontSize: '36px', fontWeight: 'normal', color: 'rgb(26, 32, 44)' }}>
@@ -116,30 +127,13 @@ const Slide12: React.FC = () => {
       </div>
       
       {/* Footer with logo and page numbering */}
-      <div className="footer" style={{
-        position: 'absolute',
-        bottom: 0,
-        width: '100%',
-        padding: '20px 40px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        borderTop: '1px solid #e2e8f0',
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        zIndex: 20
-      }}>
-        <div className="logo" style={{ 
-          fontSize: '20px', 
-          color: 'transparent', 
-          background: 'linear-gradient(90deg, #000000, #8A2BE2)', 
-          WebkitBackgroundClip: 'text',
-          position: 'relative',
-          display: 'inline-block',
-          fontWeight: 800,
-          textTransform: 'uppercase',
-          letterSpacing: '1px'
-        }}>
+      <div 
+        className="absolute bottom-0 w-full py-5 px-10 flex justify-between items-center border-t border-gray-200 z-20" 
+        style={{ backgroundColor: '#ffffff' }}
+      >
+        <div className="font-extrabold text-xl uppercase tracking-wider bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent relative inline-block">
           SUPER{'{SYMMETRY}'}
+          <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600"></span>
         </div>
         <div className="flex items-center">
           <span className="text-sm text-gray-500 mr-4">Confidential</span>

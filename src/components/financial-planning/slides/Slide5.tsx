@@ -19,7 +19,7 @@ const Slide5: React.FC = () => {
         width: '100%',
         height: '100%',
         overflow: 'hidden',
-        borderRadius: '12px',
+        borderRadius: '0',
         boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
       }}
     >
@@ -52,7 +52,7 @@ const Slide5: React.FC = () => {
           <div className="relative w-full max-w-4xl mx-auto" style={{ height: '280px' }}>
             {/* Step 1: Foundation */}
             <div 
-              className="absolute flex items-start justify-center font-bold text-gray-800 p-4 rounded-lg shadow-md border-2 border-white border-opacity-40" 
+              className="absolute flex items-start justify-center font-bold text-gray-800 p-4 shadow-md border-2 border-white border-opacity-40" 
               style={{ 
                 left: '60px', 
                 top: '190px', 
@@ -71,7 +71,7 @@ const Slide5: React.FC = () => {
             
             {/* Step 2: Sales */}
             <div 
-              className="absolute flex items-start justify-center font-bold text-gray-800 p-4 rounded-lg shadow-md border-2 border-white border-opacity-40" 
+              className="absolute flex items-start justify-center font-bold text-gray-800 p-4 shadow-md border-2 border-white border-opacity-40" 
               style={{ 
                 left: '180px', 
                 top: '145px', 
@@ -90,7 +90,7 @@ const Slide5: React.FC = () => {
             
             {/* Step 3: Servicing */}
             <div 
-              className="absolute flex items-start justify-center font-bold text-gray-800 p-4 rounded-lg shadow-md border-2 border-white border-opacity-40" 
+              className="absolute flex items-start justify-center font-bold text-gray-800 p-4 shadow-md border-2 border-white border-opacity-40" 
               style={{ 
                 left: '300px', 
                 top: '100px', 
@@ -109,7 +109,7 @@ const Slide5: React.FC = () => {
             
             {/* Step 4: Optimization */}
             <div 
-              className="absolute flex items-start justify-center font-bold text-gray-800 p-4 rounded-lg shadow-md border-2 border-white border-opacity-40" 
+              className="absolute flex items-start justify-center font-bold text-gray-800 p-4 shadow-md border-2 border-white border-opacity-40" 
               style={{ 
                 left: '420px', 
                 top: '55px', 
@@ -128,7 +128,7 @@ const Slide5: React.FC = () => {
             
             {/* Step 5: Innovation */}
             <div 
-              className="absolute flex items-start justify-center font-bold text-gray-800 p-4 rounded-lg shadow-md border-2 border-white border-opacity-40" 
+              className="absolute flex items-start justify-center font-bold text-gray-800 p-4 shadow-md border-2 border-white border-opacity-40" 
               style={{ 
                 left: '600px', 
                 top: '10px', 

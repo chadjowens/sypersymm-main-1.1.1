@@ -19,7 +19,7 @@ const Slide4: React.FC = () => {
         width: '100%',
         height: '100%',
         overflow: 'hidden',
-        borderRadius: '12px',
+        borderRadius: '0',
         boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
       }}
     >
@@ -45,17 +45,17 @@ const Slide4: React.FC = () => {
         {/* Content Area */}
         <div className="mb-20">
           <div className="grid grid-cols-1 gap-2">
-            <div className="p-5 rounded-lg shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
               <div className="text-xl font-semibold text-purple-600 mb-2">Who We Are</div>
               <p className="text-gray-700">An AI transformation partner leveraging Agentic AI to position organizations at the forefront of the digital revolution. We specialize in creating intelligent, autonomous systems that act as powerful force multipliers for your business.</p>
             </div>
             
-            <div className="p-5 rounded-lg shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
               <div className="text-xl font-semibold text-purple-600 mb-2">What We Do</div>
               <p className="text-gray-700">We build, deploy, and accelerate your digital operations with intelligent agent teams that work across your ecosystem. Our solutions optimize lead generation, enhance sales efficiency, streamline customer servicing, and drive data-driven decisions.</p>
             </div>
             
-            <div className="p-5 rounded-lg shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
               <div className="text-xl font-semibold text-purple-600 mb-2">Our Philosophy</div>
               <p className="text-gray-700">True digital transformation extends beyond mere automation; it involves creating intelligent, autonomous agent teams that amplify human capabilities. This collaborative intelligence creates a force multiplier effect, enabling you to achieve significantly greater outcomes with existing resources.</p>
             </div>

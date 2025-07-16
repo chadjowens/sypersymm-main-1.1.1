@@ -49,7 +49,7 @@ const Slide10: React.FC = () => {
                 <div className="circle-icon flex-shrink-0" style={{
                   width: '60px',
                   height: '60px',
-                  borderRadius: '50%',
+                  borderRadius: '0',
                   backgroundColor: '#F3E8FF',
                   border: '2px solid #8A2BE2',
                   display: 'flex',
@@ -70,7 +70,7 @@ const Slide10: React.FC = () => {
                 <div className="circle-icon flex-shrink-0" style={{
                   width: '60px',
                   height: '60px',
-                  borderRadius: '50%',
+                  borderRadius: '0',
                   backgroundColor: '#F3E8FF',
                   border: '2px solid #8A2BE2',
                   display: 'flex',
@@ -91,7 +91,7 @@ const Slide10: React.FC = () => {
                 <div className="circle-icon flex-shrink-0" style={{
                   width: '60px',
                   height: '60px',
-                  borderRadius: '50%',
+                  borderRadius: '0',
                   backgroundColor: '#F3E8FF',
                   border: '2px solid #8A2BE2',
                   display: 'flex',
@@ -112,7 +112,7 @@ const Slide10: React.FC = () => {
                 <div className="circle-icon flex-shrink-0" style={{
                   width: '60px',
                   height: '60px',
-                  borderRadius: '50%',
+                  borderRadius: '0',
                   backgroundColor: '#F3E8FF',
                   border: '2px solid #8A2BE2',
                   display: 'flex',

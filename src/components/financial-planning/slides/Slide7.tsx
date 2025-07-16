@@ -19,7 +19,7 @@ const Slide7: React.FC = () => {
         width: '100%',
         height: '100%',
         overflow: 'hidden',
-        borderRadius: '12px',
+        borderRadius: '0',
         boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
       }}
     >
@@ -54,7 +54,7 @@ const Slide7: React.FC = () => {
                   <path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"></path>
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-40 flex flex-col shadow-sm">
+              <div className="bg-gray-50 p-5 h-40 flex flex-col shadow-sm">
                 <h3 className="font-semibold text-xl mb-2">Lead Generation Systems</h3>
                 <p className="text-gray-600 text-sm">Automated lead scraping, qualification, and prioritization from multiple sources.</p>
               </div>
@@ -67,7 +67,7 @@ const Slide7: React.FC = () => {
                   <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-40 flex flex-col shadow-sm">
+              <div className="bg-gray-50 p-5 h-40 flex flex-col shadow-sm">
                 <h3 className="font-semibold text-xl mb-2">Outbound Email Campaigns</h3>
                 <p className="text-gray-600 text-sm">Personalized outreach optimized for conversion based on prospect's market position.</p>
               </div>
@@ -80,7 +80,7 @@ const Slide7: React.FC = () => {
                   <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-40 flex flex-col shadow-sm">
+              <div className="bg-gray-50 p-5 h-40 flex flex-col shadow-sm">
                 <h3 className="font-semibold text-xl mb-2">Lead Scoring &amp; Pipeline</h3>
                 <p className="text-gray-600 text-sm">Intelligent scoring and auto-responders for timely follow-ups and lead nurturing.</p>
               </div>
@@ -93,7 +93,7 @@ const Slide7: React.FC = () => {
                   <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd"></path>
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-40 flex flex-col shadow-sm">
+              <div className="bg-gray-50 p-5 h-40 flex flex-col shadow-sm">
                 <h3 className="font-semibold text-xl mb-2">Call Transcript Analysis</h3>
                 <p className="text-gray-600 text-sm">Virtual assistants that transcribe calls, analyze content, and identify next steps.</p>
               </div>

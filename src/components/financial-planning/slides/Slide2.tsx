@@ -19,7 +19,7 @@ const Slide2: React.FC = () => {
         width: '100%',
         height: '100%',
         overflow: 'hidden',
-        borderRadius: '12px',
+        borderRadius: '0',
         boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
       }}
     >
@@ -36,22 +36,22 @@ const Slide2: React.FC = () => {
         {/* Content Area */}
         <div className="mb-8">
           <div className="grid grid-cols-2 gap-4">
-            <div className="p-4 rounded-lg shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
               <span className="text-xl font-bold text-purple-600">$4.4 trillion</span>
               <p className="text-gray-700">Long-term AI productivity potential (McKinsey)</p>
             </div>
             
-            <div className="p-4 rounded-lg shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
               <span className="text-xl font-bold text-purple-600">4× growth</span>
               <p className="text-gray-700">Productivity nearly quadrupled in AI-exposed industries since 2022</p>
             </div>
             
-            <div className="p-4 rounded-lg shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
               <span className="text-xl font-bold text-purple-600">56%</span>
               <p className="text-gray-700">Wage premium for jobs requiring AI skills</p>
             </div>
             
-            <div className="p-4 rounded-lg shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
               <span className="text-xl font-bold text-purple-600">80%</span>
               <p className="text-gray-700">Productivity improvement reported by workers using AI tools</p>
             </div>

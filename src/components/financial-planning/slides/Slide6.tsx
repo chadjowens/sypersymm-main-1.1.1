@@ -19,7 +19,7 @@ const Slide6: React.FC = () => {
         width: '100%',
         height: '100%',
         overflow: 'hidden',
-        borderRadius: '12px',
+        borderRadius: '0',
         boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
       }}
     >
@@ -54,7 +54,7 @@ const Slide6: React.FC = () => {
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clipRule="evenodd" />
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-40 flex flex-col justify-between shadow-sm">
+              <div className="bg-gray-50 p-5 h-40 flex flex-col justify-between shadow-sm">
                 <h3 className="font-semibold text-xl text-gray-800">Website Migration</h3>
                 <p className="text-gray-600 mt-2">High-performance hosting, domain management, lead capture landing pages</p>
                 <div className="mt-auto text-xs text-gray-500">Phase 1</div>
@@ -68,7 +68,7 @@ const Slide6: React.FC = () => {
                   <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-40 flex flex-col justify-between shadow-sm">
+              <div className="bg-gray-50 p-5 h-40 flex flex-col justify-between shadow-sm">
                 <h3 className="font-semibold text-xl text-gray-800">SEO Optimization</h3>
                 <p className="text-gray-600 mt-2">Web chat implementation, search visibility, organic traffic growth</p>
                 <div className="mt-auto text-xs text-gray-500">Phase 2</div>
@@ -82,7 +82,7 @@ const Slide6: React.FC = () => {
                   <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-40 flex flex-col justify-between shadow-sm">
+              <div className="bg-gray-50 p-5 h-40 flex flex-col justify-between shadow-sm">
                 <h3 className="font-semibold text-xl text-gray-800">Social Media</h3>
                 <p className="text-gray-600 mt-2">Consistent social presence with automated posting and content calendars</p>
                 <div className="mt-auto text-xs text-gray-500">Phase 3</div>
@@ -96,7 +96,7 @@ const Slide6: React.FC = () => {
                   <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-40 flex flex-col justify-between shadow-sm">
+              <div className="bg-gray-50 p-5 h-40 flex flex-col justify-between shadow-sm">
                 <h3 className="font-semibold text-xl text-gray-800">Content Creation</h3>
                 <p className="text-gray-600 mt-2">Newsletters, whitepapers, e-books, and CTA optimization</p>
                 <div className="mt-auto text-xs text-gray-500">Phase 4</div>

@@ -20,7 +20,7 @@ const Slide9: React.FC = () => {
         width: '100%',
         height: '100%',
         overflow: 'hidden',
-        borderRadius: '12px',
+        borderRadius: '0',
         boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
       }}
     >
@@ -52,7 +52,7 @@ const Slide9: React.FC = () => {
                   <p className="text-xs text-gray-500">CUSTOMER ACQUISITION</p>
                   <p className="text-xl font-semibold text-purple-600">+42%</p>
                 </div>
-                <div className="text-purple-500 bg-purple-100 p-1 rounded-full">
+                <div className="text-purple-500 bg-purple-100 p-1">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
                   </svg>
@@ -72,7 +72,7 @@ const Slide9: React.FC = () => {
                   <p className="text-xs text-gray-500">CONVERSION RATE</p>
                   <p className="text-xl font-semibold text-purple-600">3.8%</p>
                 </div>
-                <div className="text-purple-500 bg-purple-100 p-1 rounded-full">
+                <div className="text-purple-500 bg-purple-100 p-1">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M3 3a1 1 0 000 2h10a1 1 0 100-2H3zm0 4a1 1 0 000 2h6a1 1 0 100-2H3zm0 4a1 1 0 100 2h12a1 1 0 100-2H3z" clipRule="evenodd"></path>
                   </svg>
@@ -92,7 +92,7 @@ const Slide9: React.FC = () => {
                   <p className="text-xs text-gray-500">RESPONSE TIME</p>
                   <p className="text-xl font-semibold text-purple-600">0.8s</p>
                 </div>
-                <div className="text-purple-500 bg-purple-100 p-1 rounded-full">
+                <div className="text-purple-500 bg-purple-100 p-1">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path>
                   </svg>
@@ -112,7 +112,7 @@ const Slide9: React.FC = () => {
                   <p className="text-xs text-gray-500">ROI</p>
                   <p className="text-xl font-semibold text-purple-600">285%</p>
                 </div>
-                <div className="text-purple-500 bg-purple-100 p-1 rounded-full">
+                <div className="text-purple-500 bg-purple-100 p-1">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
                   </svg>

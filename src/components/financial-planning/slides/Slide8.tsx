@@ -19,7 +19,7 @@ const Slide8: React.FC = () => {
         width: '100%',
         height: '100%',
         overflow: 'hidden',
-        borderRadius: '12px',
+        borderRadius: '0',
         boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
       }}
     >
@@ -54,7 +54,7 @@ const Slide8: React.FC = () => {
                   <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-50 w-full flex flex-col shadow-sm">
+              <div className="bg-gray-50 p-5 h-50 w-full flex flex-col shadow-sm">
                 <h3 className="font-semibold text-xl">Customer Onboarding</h3>
                 <p className="text-gray-600 mt-2">Streamlined welcome process with automated calls, document distribution, and client intake.</p>
               </div>
@@ -67,7 +67,7 @@ const Slide8: React.FC = () => {
                   <path fillRule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clipRule="evenodd"></path>
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-50 w-full flex flex-col shadow-sm">
+              <div className="bg-gray-50 p-5 h-50 w-full flex flex-col shadow-sm">
                 <h3 className="font-semibold text-xl">Self-Service Portal</h3>
                 <p className="text-gray-600 mt-2">24/7 client portal with automated onboarding and form distribution for immediate access.</p>
               </div>
@@ -80,7 +80,7 @@ const Slide8: React.FC = () => {
                   <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd"></path>
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-50 w-full flex flex-col shadow-sm">
+              <div className="bg-gray-50 p-5 h-50 w-full flex flex-col shadow-sm">
                 <h3 className="font-semibold text-xl">Multi-modal Chat</h3>
                 <p className="text-gray-600 mt-2">AI conversations across platforms with instant chat-based Q&amp;A support.</p>
               </div>
@@ -93,7 +93,7 @@ const Slide8: React.FC = () => {
                   <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path>
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-50 w-full flex flex-col shadow-sm">
+              <div className="bg-gray-50 p-5 h-50 w-full flex flex-col shadow-sm">
                 <h3 className="font-semibold text-xl">Meeting Automation</h3>
                 <p className="text-gray-600 mt-2">Smart scheduling, reminders, and follow-ups to optimize client meetings.</p>
               </div>
@@ -106,7 +106,7 @@ const Slide8: React.FC = () => {
                   <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
                 </svg>
               </div>
-              <div className="bg-gray-50 rounded-lg p-5 h-50 w-full flex flex-col shadow-sm">
+              <div className="bg-gray-50 p-5 h-50 w-full flex flex-col shadow-sm">
                 <h3 className="font-semibold text-xl">Knowledge Base</h3>
                 <p className="text-gray-600 mt-2">Secure RAG-based repository with voice/chat access to business knowledge.</p>
               </div>

@@ -19,7 +19,7 @@ const Slide3: React.FC<{ businessName?: string }> = ({ businessName = 'Your Busi
         width: '100%',
         height: '100%',
         overflow: 'hidden',
-        borderRadius: '12px',
+        borderRadius: '0',
         boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
       }}
     >
@@ -38,17 +38,17 @@ const Slide3: React.FC<{ businessName?: string }> = ({ businessName = 'Your Busi
         {/* Content Area */}
         <div className="mb-20">
           <div className="space-y-4">
-            <div className="p-4 rounded-lg shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
               <h2 className="font-semibold text-xl mb-2 text-gray-800">Competitive Pressure</h2>
               <p className="text-gray-700">The rapid adoption of AI solutions is creating a widening gap between digital leaders and laggards. Organizations that delay transformation risk falling permanently behind as competitors leverage AI for efficiency and growth.</p>
             </div>
             
-            <div className="p-4 rounded-lg shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
               <h2 className="font-semibold text-xl mb-2 text-gray-800">Growth Opportunity</h2>
               <p className="text-gray-700">Strategic AI implementation offers exponential growth potential through enhanced operational efficiency, accelerated sales cycles, and improved customer experiences—driving both top and bottom line results.</p>
             </div>
             
-            <div className="p-4 rounded-lg shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
               <h2 className="font-semibold text-xl mb-2 text-gray-800">Cost of Inaction</h2>
               <p className="text-gray-700">Beyond missed opportunities, the existential risk of digital stagnation grows daily. As AI adoption accelerates across industries, the competitive disadvantage compounds, making later transformation increasingly difficult.</p>
             </div>
