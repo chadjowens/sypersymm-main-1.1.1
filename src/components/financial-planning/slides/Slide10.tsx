@@ -23,7 +23,7 @@ const Slide10: React.FC = () => {
       {/* Fractal Pattern Background */}
       <FractalBackground />
       
-      <div className="content px-16">
+      <div className="content px-16" style={{ paddingBottom: '80px' }}>
         {/* Title Section with reduced spacing from top */}
         <div className="mt-12 mb-6">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
@@ -34,9 +34,9 @@ const Slide10: React.FC = () => {
         </div>
         
         {/* Split Layout Content */}
-        <div className="flex mb-4">
+        <div className="flex mb-6">
           {/* Left Side - Innovation & Education with icon treatment */}
-          <div className="w-4/5 pr-8">
+          <div className="w-3/4 pr-8">
             <div className="mb-5">
               {/* Innovation & Education Features with reduced spacing */}
               <div className="flex items-start mb-4">
@@ -56,7 +56,7 @@ const Slide10: React.FC = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-800">Ongoing Digital Training</h3>
-                  <p className="text-gray-600 mt-1">Regular workshops, personalized training sessions, and digital literacy courses for your team</p>
+                  <p className="text-gray-600 mt-1" style={{ fontSize: '0.9rem', lineHeight: '1.3' }}>Regular workshops, personalized training sessions, and digital literacy courses for your team</p>
                 </div>
               </div>
               
@@ -77,7 +77,7 @@ const Slide10: React.FC = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-800">Early Access to Next-Gen Tools</h3>
-                  <p className="text-gray-600 mt-1">Preview and beta access to emerging AI technologies before market release</p>
+                  <p className="text-gray-600 mt-1" style={{ fontSize: '0.9rem', lineHeight: '1.3' }}>Preview and beta access to emerging AI technologies before market release</p>
                 </div>
               </div>
               
@@ -98,7 +98,7 @@ const Slide10: React.FC = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-800">Strategic Innovation Roadmapping</h3>
-                  <p className="text-gray-600 mt-1">Quarterly sessions to align technological advancements with your business objectives</p>
+                  <p className="text-gray-600 mt-1" style={{ fontSize: '0.9rem', lineHeight: '1.3' }}>Quarterly sessions to align technological advancements with your business objectives</p>
                 </div>
               </div>
               
@@ -119,7 +119,7 @@ const Slide10: React.FC = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-800">Innovation Culture Development</h3>
-                  <p className="text-gray-600 mt-1">Resources and methodologies to foster internal innovation and continuous improvement</p>
+                  <p className="text-gray-600 mt-1" style={{ fontSize: '0.9rem', lineHeight: '1.3' }}>Resources and methodologies to foster internal innovation and continuous improvement</p>
                 </div>
               </div>
             </div>
@@ -131,13 +131,7 @@ const Slide10: React.FC = () => {
           </div>
         </div>
         
-        {/* Value Section (moved outside to span full width) */}
-        <div className="bg-gray-50 p-3 rounded-lg border border-gray-200 mt-6 mb-6">
-          <p className="font-semibold text-gray-800 flex items-center">
-            <i className="fas fa-lightbulb text-yellow-500 mr-3 text-lg"></i>
-            <span>Value: Create a future-ready organization that continuously evolves with technological advancements.</span>
-          </p>
-        </div>
+
         
         {/* Mobile screen positioned absolutely */}
         <div className="mobile-screen" style={{
@@ -148,8 +142,8 @@ const Slide10: React.FC = () => {
           overflow: 'hidden',
           position: 'absolute',
           boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
-          zIndex: 50,
-          right: '80px',
+          zIndex: 999, /* Extremely high z-index to ensure it's above everything */
+          right: '60px',
           top: '50%',
           transform: 'translateY(-50%)'
         }}>
@@ -328,6 +322,22 @@ const Slide10: React.FC = () => {
         </div>
       </div>
       
+      {/* Value Section positioned above footer */}
+      <div className="value-section" style={{
+        position: 'absolute',
+        bottom: '70px',
+        width: '100%',
+        padding: '0 40px',
+        zIndex: 5 /* Lower z-index to ensure it's behind the mobile screen */
+      }}>
+        <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
+          <p className="font-semibold text-gray-800 flex items-center">
+            <i className="fas fa-lightbulb text-yellow-500 mr-3 text-lg"></i>
+            <span>Value: Create a future-ready organization that continuously evolves with technological advancements.</span>
+          </p>
+        </div>
+      </div>
+      
       {/* Footer with logo and page numbering */}
       <div className="footer" style={{
         position: 'absolute',
@@ -339,7 +349,7 @@ const Slide10: React.FC = () => {
         alignItems: 'center',
         borderTop: '1px solid #e2e8f0',
         backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        zIndex: 20
+        zIndex: 10
       }}>
         <div className="slide-footer-logo relative inline-block">
           SUPER{'{SYMMETRY}'}

@@ -11,7 +11,7 @@
 
 .slide-fractal-path {
   fill: none;
-  stroke: url(#animated-gradient);
+  /* stroke is now applied directly in the SVG */
 }
 
 .slide-fractal-path-primary {
