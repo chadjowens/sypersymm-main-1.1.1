@@ -1,36 +1,58 @@
 import React from 'react';
-import '../styles/SlideStyles.css';
 
 /**
- * Slide1 component - Introduction slide
+ * Slide1 component - Digital Transformation Partnership Proposal
  * 
  * First slide in the financial planning presentation
- * Introduces the financial planning concept and sets expectations
+ * Introduces the digital transformation partnership concept
  * 
  * @returns {JSX.Element} The rendered Slide1 component
  */
 const Slide1: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-full text-center">
-      <h1 className="slide-title">Financial Planning Reimagined</h1>
-      <h2 className="slide-subtitle mb-6">A Strategic Approach to Your Financial Future</h2>
+    <div className="relative w-full h-full overflow-hidden bg-white">
+      {/* Fractal Pattern Background */}
+      <svg className="absolute w-full h-full opacity-15" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <pattern id="fractal-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+          <path d="M0 50 L25 25 L50 50 L75 25 L100 50 L75 75 L50 50 L25 75 Z" fill="none" stroke="#8A2BE2" strokeWidth="0.5" opacity="0.6"></path>
+          <path d="M0 0 L50 50 L0 100 M100 0 L50 50 L100 100" fill="none" stroke="#5D3FD3" strokeWidth="0.3" opacity="0.4"></path>
+          <path d="M25 0 L25 100 M75 0 L75 100 M0 25 L100 25 M0 75 L100 75" fill="none" stroke="#C9A0DC" strokeWidth="0.2" opacity="0.3"></path>
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#fractal-pattern)"></rect>
+      </svg>
       
-      <div className="slide-text max-w-2xl mx-auto">
-        <p className="mb-4">
-          Welcome to our interactive financial planning experience. This presentation will guide you through 
-          the key aspects of building a solid financial foundation and planning for your future.
-        </p>
-        <p>
-          Use the navigation controls below to move through the presentation at your own pace,
-          or use the left and right arrow keys on your keyboard.
-        </p>
+      <div className="relative z-10 h-full px-20 flex items-center justify-center">
+        {/* Title Section with vertical centering */}
+        <div className="flex-grow flex flex-col items-center justify-center text-center">
+          <h1 className="font-bold tracking-tight leading-tight text-5xl mb-6" style={{ 
+            background: 'linear-gradient(90deg, #000000, #8A2BE2)', 
+            WebkitBackgroundClip: 'text', 
+            color: 'transparent' 
+          }}>
+            Digital Transformation, Growth &amp; Agentic Automation Partnership
+          </h1>
+          <h2 className="font-medium text-gray-700 leading-normal text-2xl mb-10">
+            Comprehensive 12-Month Digital Transformation Strategy
+          </h2>
+          <p className="text-lg text-gray-600 mt-12">Prepared by: Supersymmetry, LLC</p>
+        </div>
       </div>
       
-      <div className="mt-8 flex items-center justify-center">
-        <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+      {/* Footer with logo and page numbering */}
+      <div className="absolute bottom-0 left-0 right-0 w-full py-5 px-10 flex justify-between items-center border-t border-gray-200 bg-white bg-opacity-80 z-20">
+        <div className="font-extrabold text-xl uppercase tracking-wider" style={{ 
+          background: 'linear-gradient(90deg, #000000, #8A2BE2)', 
+          WebkitBackgroundClip: 'text', 
+          color: 'transparent',
+          position: 'relative',
+          display: 'inline-block'
+        }}>
+          SUPER{'{SYMMETRY}'}
+          <span className="absolute bottom-[-2px] left-0 w-full h-[2px] bg-purple-600"></span>
+        </div>
+        <div className="flex items-center">
+          <span className="text-sm text-gray-500 mr-4">Confidential</span>
+          <span className="text-sm text-gray-500">1</span>
         </div>
       </div>
     </div>

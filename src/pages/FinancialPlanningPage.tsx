@@ -7,6 +7,16 @@ import { Background } from '../layouts/core/Background';
 import Slide1 from '../components/financial-planning/slides/Slide1';
 import Slide2 from '../components/financial-planning/slides/Slide2';
 import Slide3 from '../components/financial-planning/slides/Slide3';
+import Slide4 from '../components/financial-planning/slides/Slide4';
+import Slide5 from '../components/financial-planning/slides/Slide5';
+import Slide6 from '../components/financial-planning/slides/Slide6';
+import Slide7 from '../components/financial-planning/slides/Slide7';
+import Slide8 from '../components/financial-planning/slides/Slide8';
+import Slide9 from '../components/financial-planning/slides/Slide9';
+import Slide10 from '../components/financial-planning/slides/Slide10';
+import Slide11 from '../components/financial-planning/slides/Slide11';
+import Slide12 from '../components/financial-planning/slides/Slide12';
+import Slide13 from '../components/financial-planning/slides/Slide13';
 
 // Import styles
 import '../components/financial-planning/styles/SlideStyles.css';
@@ -24,7 +34,7 @@ interface SlideContextType {
 // Create context with default values
 const SlideContext = createContext<SlideContextType>({
   currentSlide: 1,
-  totalSlides: 3,
+  totalSlides: 13,
   goToNextSlide: () => {},
   goToPrevSlide: () => {},
   goToSlide: () => {},
@@ -96,7 +106,7 @@ const NavigationControls: React.FC = () => {
  */
 const SlideContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
-  const totalSlides = 3; // Update this when adding more slides
+  const totalSlides = 13; // Updated for Slide13
   
   // Navigation functions
   const goToNextSlide = useCallback(() => {
@@ -145,6 +155,26 @@ const SlideContainer: React.FC = () => {
         return <Slide2 />;
       case 3:
         return <Slide3 />;
+      case 4:
+        return <Slide4 />;
+      case 5:
+        return <Slide5 />;
+      case 6:
+        return <Slide6 />;
+      case 7:
+        return <Slide7 />;
+      case 8:
+        return <Slide8 />;
+      case 9:
+        return <Slide9 />;
+      case 10:
+        return <Slide10 />;
+      case 11:
+        return <Slide11 />;
+      case 12:
+        return <Slide12 />;
+      case 13:
+        return <Slide13 />;
       default:
         return <Slide1 />;
     }
