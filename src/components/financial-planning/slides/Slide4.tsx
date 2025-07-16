@@ -81,9 +81,8 @@ const Slide4: React.FC = () => {
         className="absolute bottom-0 w-full py-5 px-10 flex justify-between items-center border-t border-gray-200 z-20" 
         style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
       >
-        <div className="font-extrabold text-xl uppercase tracking-wider bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent relative inline-block">
+        <div className="slide-footer-logo relative inline-block">
           SUPER{'{SYMMETRY}'}
-          <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600"></span>
         </div>
         <div className="flex items-center">
           <span className="text-sm text-gray-500 mr-4">Confidential</span>

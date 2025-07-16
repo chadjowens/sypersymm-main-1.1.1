@@ -9,6 +9,18 @@
   100% { stop-color: #0077ff; }
 }
 
+/* Slide Footer Styles */
+.slide-footer-logo {
+  font-weight: normal;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #0077ff, #ff69b4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 /* Slide Container Styles */
 .slide-container {
   position: relative;

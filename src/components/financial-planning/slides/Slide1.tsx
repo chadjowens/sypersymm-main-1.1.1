@@ -53,15 +53,8 @@ const Slide1: React.FC = () => {
       
       {/* Footer with logo and page numbering */}
       <div className="absolute bottom-0 left-0 right-0 w-full py-5 px-10 flex justify-between items-center border-t border-gray-200 bg-white bg-opacity-80 z-20">
-        <div className="font-extrabold text-xl uppercase tracking-wider" style={{ 
-          background: 'linear-gradient(90deg, #000000, #8A2BE2)', 
-          WebkitBackgroundClip: 'text', 
-          color: 'transparent',
-          position: 'relative',
-          display: 'inline-block'
-        }}>
+        <div className="slide-footer-logo relative inline-block">
           SUPER{'{SYMMETRY}'}
-          <span className="absolute bottom-[-2px] left-0 w-full h-[2px] bg-purple-600"></span>
         </div>
         <div className="flex items-center">
           <span className="text-sm text-gray-500 mr-4">Confidential</span>

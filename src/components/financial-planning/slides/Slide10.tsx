@@ -360,27 +360,8 @@ const Slide10: React.FC = () => {
         backgroundColor: 'rgba(255, 255, 255, 0.8)',
         zIndex: 20
       }}>
-        <div className="logo" style={{
-          fontWeight: 800,
-          fontSize: '20px',
-          textTransform: 'uppercase',
-          letterSpacing: '1px',
-          background: 'linear-gradient(90deg, #000000, #8A2BE2)',
-          WebkitBackgroundClip: 'text',
-          color: 'transparent',
-          position: 'relative',
-          display: 'inline-block'
-        }}>
+        <div className="slide-footer-logo relative inline-block">
           SUPER{'{SYMMETRY}'}
-          <span style={{
-            content: '',
-            position: 'absolute',
-            bottom: '-2px',
-            left: 0,
-            width: '100%',
-            height: '2px',
-            backgroundColor: '#8A2BE2'
-          }}></span>
         </div>
         <div className="flex items-center">
           <span className="text-sm text-gray-500 mr-4">Confidential</span>
