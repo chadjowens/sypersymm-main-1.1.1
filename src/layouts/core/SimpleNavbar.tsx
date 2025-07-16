@@ -113,10 +113,10 @@ export const SimpleNavbar: React.FC = () => {
       {/* Calendly Modal */}
       {isCalendlyOpen && (
         <PopupModal
-          url="https://calendly.com/supersymmetry/30min"
+          url="https://calendly.com/chad-owens-supersymm/30min"
           onModalClose={() => setIsCalendlyOpen(false)}
-          rootElement={document.getElementById('root')!}
           open={isCalendlyOpen}
+          rootElement={document.getElementById('root') || document.body}
         />
       )}
     </>
