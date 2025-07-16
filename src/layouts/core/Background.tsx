@@ -36,18 +36,18 @@ export const Background: React.FC = () => {
     const colors = [];
 
     const color = new THREE.Color();
-    // Primary color is blue in both modes
+    // Primary color is blue in dark mode, purple in light mode
     const baseColor1 = isDarkMode 
       ? new THREE.Color(0x0077ff)  // Dark mode: blue
-      : new THREE.Color(0x0077ff); // Light mode: blue
+      : new THREE.Color(0x8A2BE2); // Light mode: blueviolet
     // Secondary colors
     const baseColor2 = isDarkMode
       ? new THREE.Color(0x00ff88)  // Dark mode: green
-      : new THREE.Color(0xff69b4); // Light mode: pink
+      : new THREE.Color(0xff69b4); // Light mode: hot pink
     // Third color for more variety
     const baseColor3 = isDarkMode
       ? new THREE.Color(0x6600ff)  // Dark mode: purple-blue
-      : new THREE.Color(0x00ccff); // Light mode: light blue
+      : new THREE.Color(0xDA70D6); // Light mode: orchid purple
 
     for (let i = 0; i < particles; i++) {
       positions.push((Math.random() * 2 - 1) * 2000);
@@ -57,16 +57,31 @@ export const Background: React.FC = () => {
       // Favor blue by giving it a higher probability
       const colorSelector = Math.random();
       
-      if (colorSelector < 0.6) {
-        // 60% chance of blue or blue-based mix
-        const mixFactor = Math.random() * 0.3; // Limit mix to keep more blue
-        color.lerpColors(baseColor1, colorSelector < 0.3 ? baseColor2 : baseColor3, mixFactor);
-      } else if (colorSelector < 0.8) {
-        // 20% chance of light blue
-        color.copy(baseColor3);
+      if (isDarkMode) {
+        // Dark mode color distribution (unchanged)
+        if (colorSelector < 0.6) {
+          // 60% chance of blue or blue-based mix
+          const mixFactor = Math.random() * 0.3; // Limit mix to keep more blue
+          color.lerpColors(baseColor1, colorSelector < 0.3 ? baseColor2 : baseColor3, mixFactor);
+        } else if (colorSelector < 0.8) {
+          // 20% chance of purple-blue
+          color.copy(baseColor3);
+        } else {
+          // 20% chance of green
+          color.copy(baseColor2);
+        }
       } else {
-        // 20% chance of secondary color (green in dark mode, pink in light mode)
-        color.copy(baseColor2);
+        // Light mode color distribution (more pink and purple)
+        if (colorSelector < 0.4) {
+          // 40% chance of blueviolet
+          color.copy(baseColor1);
+        } else if (colorSelector < 0.7) {
+          // 30% chance of hot pink
+          color.copy(baseColor2);
+        } else {
+          // 30% chance of orchid purple
+          color.copy(baseColor3);
+        }
       }
       
       colors.push(color.r, color.g, color.b);
@@ -79,7 +94,7 @@ export const Background: React.FC = () => {
       size: 2,
       vertexColors: true,
       transparent: true,
-      opacity: isDarkMode ? 0.6 : 0.3, // More transparent in light mode
+      opacity: isDarkMode ? 0.6 : 0.5, // Increased opacity in light mode for better visibility
     });
 
     const points = new THREE.Points(geometry, material);
