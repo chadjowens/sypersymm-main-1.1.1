@@ -38,12 +38,12 @@ const Slide8: React.FC = () => {
         <div className="mt-12 mb-6">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">03 | Servicing (Client &amp; Team Experience)</h1>
           <div className="w-24 h-1 bg-purple-600 mt-3"></div>
-          <p className="text-lg mt-4 text-gray-800">Optimizing customer service and support through advanced automation, ensuring efficient and personalized interactions.</p>
+          <p className="text-lg mt-4 text-gray-800">Optimizing knowledge, service and support through advanced automation and personalized interactions.</p>
         </div>
         
         {/* Content Area with Timeline */}
         <div className="mb-12">
-          <div className="flex justify-between items-start mt-10 relative">
+          <div className="flex justify-between items-start mt-6 relative">
             {/* Timeline connector line */}
             <div className="absolute h-0.5 bg-purple-100 top-7 left-8 right-8 z-0"></div>
             
