@@ -41,11 +41,11 @@ const Slide8: React.FC = () => {
             {/* Timeline connector line */}
             <div className="absolute h-0.5 bg-purple-100 top-7 left-8 right-8 z-0"></div>
             
-            {/* Customer Onboarding */}
-            <div className="w-1/5 px-2 relative z-10 flex flex-col items-center">
-              <div className="w-15 h-15 rounded-full bg-purple-50 flex items-center justify-center mb-4 border-2 border-purple-600" style={{ width: '60px', height: '60px' }}>
-                <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
+            {/* Onboarding */}
+            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+              <div className="enhanced-icon-container">
+                <svg className="enhanced-icon" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"></path>
                 </svg>
               </div>
               <div className="content-box">
@@ -55,10 +55,10 @@ const Slide8: React.FC = () => {
             </div>
             
             {/* Self-Service Portal */}
-            <div className="w-1/5 px-2 relative z-10 flex flex-col items-center">
-              <div className="w-15 h-15 rounded-full bg-purple-50 flex items-center justify-center mb-4 border-2 border-purple-600" style={{ width: '60px', height: '60px' }}>
-                <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clipRule="evenodd"></path>
+            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+              <div className="enhanced-icon-container">
+                <svg className="enhanced-icon" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
               </div>
               <div className="content-box">
@@ -68,10 +68,10 @@ const Slide8: React.FC = () => {
             </div>
             
             {/* Multi-modal Chat */}
-            <div className="w-1/5 px-2 relative z-10 flex flex-col items-center">
-              <div className="w-15 h-15 rounded-full bg-purple-50 flex items-center justify-center mb-4 border-2 border-purple-600" style={{ width: '60px', height: '60px' }}>
-                <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd"></path>
+            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+              <div className="enhanced-icon-container">
+                <svg className="enhanced-icon" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.89 9.89 0 01-8.484-3.772l-1.89-1.89c-1.247-1.247-1.247-3.28 0-4.527l1.89-1.89c1.247-1.247 3.28-1.247 4.527 0l4.527 4.527c1.247 1.247 1.247 3.28 0 4.527z"></path>
                 </svg>
               </div>
               <div className="content-box">
@@ -81,10 +81,10 @@ const Slide8: React.FC = () => {
             </div>
             
             {/* Meeting Automation */}
-            <div className="w-1/5 px-2 relative z-10 flex flex-col items-center">
-              <div className="w-15 h-15 rounded-full bg-purple-50 flex items-center justify-center mb-4 border-2 border-purple-600" style={{ width: '60px', height: '60px' }}>
-                <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path>
+            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+              <div className="enhanced-icon-container">
+                <svg className="enhanced-icon" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L7.353 7.353m0 0L6.414 8l-2.829-2.828"></path>
                 </svg>
               </div>
               <div className="content-box">
@@ -94,10 +94,10 @@ const Slide8: React.FC = () => {
             </div>
             
             {/* Knowledge Base */}
-            <div className="w-1/5 px-2 relative z-10 flex flex-col items-center">
-              <div className="w-15 h-15 rounded-full bg-purple-50 flex items-center justify-center mb-4 border-2 border-purple-600" style={{ width: '60px', height: '60px' }}>
-                <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
+            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+              <div className="enhanced-icon-container">
+                <svg className="enhanced-icon" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.477 6.364 9.268 5.12 7.5 4.397c-1.357-0.557-2.464-1.146-4.063-1.591C5.13 3.002 3.393 3.448 1.5 4.397a1 1 0 0 0-1.5 1.397zm0 1.104C4.666 7.379 7.316 9.038 10.666 12a3 3 0 00-10.666-7.334 1 1 0 01-1.5 1.397z"></path>
                 </svg>
               </div>
               <div className="content-box">
@@ -109,8 +109,8 @@ const Slide8: React.FC = () => {
           
           <div className="mt-6">
             <div className="value-container">
-              <svg className="w-6 h-6 text-yellow-500 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
+              <svg className="w-6 h-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
               </svg>
               <p className="value-text">Value: Provide instant, 24/7 personalized support while reducing response times from hours to seconds, improving satisfaction.</p>
             </div>
