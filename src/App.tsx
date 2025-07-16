@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Navbar } from './layouts/core/Navbar';
 import { Background } from './layouts/core/Background';
 import { useThemeStore } from './store/themeStore';
@@ -21,26 +21,44 @@ import FinancialPlanningPage from './pages/FinancialPlanningPage';
  * @returns {JSX.Element} The rendered App component
  */
 
-function App() {
+/**
+ * AppLayout component that conditionally renders the Navbar
+ * 
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Child components to render
+ * @returns {JSX.Element} The rendered AppLayout component
+ */
+const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const { isDarkMode } = useThemeStore();
+  const location = useLocation();
+  
+  // Don't render the main Navbar on the financial-planning-2 page
+  // since it has its own SimpleNavbar
+  const showMainNavbar = location.pathname !== '/financial-planning-2';
+  
+  return (
+    <div className={`relative min-h-screen ${isDarkMode ? 'dark' : 'light'}`}>
+      <ErrorBoundary>
+        <Background />
+      </ErrorBoundary>
+      <div className="relative">
+        {showMainNavbar && <Navbar />}
+        {children}
+      </div>
+    </div>
+  );
+};
 
+function App() {
   return (
     <Router>
-      <div className={`relative min-h-screen ${isDarkMode ? 'dark' : 'light'}`}>
-        <ErrorBoundary>
-          <Background />
-        </ErrorBoundary>
-        <div className="relative">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services/:serviceSlug" element={<ServicePage />} />
-            <Route path="/financial-planning" element={<PresentationDeckPage />} />
-            <Route path="/financial-planning-2" element={<FinancialPlanningPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<AppLayout><HomePage /></AppLayout>} />
+        <Route path="/services/:serviceSlug" element={<AppLayout><ServicePage /></AppLayout>} />
+        <Route path="/financial-planning" element={<AppLayout><PresentationDeckPage /></AppLayout>} />
+        <Route path="/financial-planning-2" element={<AppLayout><FinancialPlanningPage /></AppLayout>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </Router>
   );
 }
