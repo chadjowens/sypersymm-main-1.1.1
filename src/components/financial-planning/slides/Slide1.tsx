@@ -1,4 +1,6 @@
 import React from 'react';
+import FractalBackground from '../components/FractalBackground';
+import '../styles/SlideStyles.css';
 
 /**
  * Slide1 component - Digital Transformation Partnership Proposal
@@ -12,27 +14,7 @@ const Slide1: React.FC = () => {
   return (
     <div className="relative w-full h-full overflow-hidden bg-white">
       {/* Fractal Pattern Background */}
-      <svg className="absolute w-full h-full opacity-25" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <defs>
-          <linearGradient id="animated-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0077ff">
-              <animate attributeName="stop-color" values="#0077ff; #ff69b4; #0077ff" dur="8s" repeatCount="indefinite" />
-            </stop>
-            <stop offset="50%" stopColor="#ff69b4">
-              <animate attributeName="stop-color" values="#ff69b4; #0077ff; #ff69b4" dur="8s" repeatCount="indefinite" />
-            </stop>
-            <stop offset="100%" stopColor="#0077ff">
-              <animate attributeName="stop-color" values="#0077ff; #ff69b4; #0077ff" dur="8s" repeatCount="indefinite" />
-            </stop>
-          </linearGradient>
-        </defs>
-        <pattern id="fractal-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-          <path d="M0 50 L25 25 L50 50 L75 25 L100 50 L75 75 L50 50 L25 75 Z" fill="none" stroke="url(#animated-gradient)" strokeWidth="0.8" opacity="0.7"></path>
-          <path d="M0 0 L50 50 L0 100 M100 0 L50 50 L100 100" fill="none" stroke="url(#animated-gradient)" strokeWidth="0.6" opacity="0.6"></path>
-          <path d="M25 0 L25 100 M75 0 L75 100 M0 25 L100 25 M0 75 L100 75" fill="none" stroke="url(#animated-gradient)" strokeWidth="0.4" opacity="0.5"></path>
-        </pattern>
-        <rect width="100%" height="100%" fill="url(#fractal-pattern)"></rect>
-      </svg>
+      <FractalBackground />
       
       <div className="relative z-10 h-full px-20 flex items-center justify-center">
         {/* Title Section with vertical centering */}
