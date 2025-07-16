@@ -187,7 +187,9 @@ const SlideContainer: React.FC = () => {
           <div className="content">
             {renderCurrentSlide()}
           </div>
-          
+        </div>
+        
+        <div className="navigation-wrapper">
           <NavigationControls />
         </div>
       </section>

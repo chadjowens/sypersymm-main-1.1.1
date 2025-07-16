@@ -32,24 +32,24 @@ const Slide3: React.FC<{ businessName?: string }> = ({ businessName = 'Your Busi
             Implications for {businessName}
           </h1>
           <div className="w-24 h-1 bg-purple-600 mt-3"></div>
-          <p className="text-lg mt-3 text-gray-800">What these AI transformation trends mean for your organization:</p>
+          <p className="text-lg mt-4 text-gray-800">What these AI transformation trends mean for your organization:</p>
         </div>
         
         {/* Content Area */}
-        <div className="mb-20">
-          <div className="space-y-4">
-            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
-              <h2 className="font-semibold text-xl mb-2 text-gray-800">Competitive Pressure</h2>
+        <div className="mb-12">
+          <div className="grid grid-cols-1 gap-2">
+            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+              <div className="text-xl font-semibold text-purple-600 mb-2">Competitive Pressure</div>
               <p className="text-gray-700">The rapid adoption of AI solutions is creating a widening gap between digital leaders and laggards. Organizations that delay transformation risk falling permanently behind as competitors leverage AI for efficiency and growth.</p>
             </div>
             
-            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
-              <h2 className="font-semibold text-xl mb-2 text-gray-800">Growth Opportunity</h2>
+            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+              <div className="text-xl font-semibold text-purple-600 mb-2">Growth Opportunity</div>
               <p className="text-gray-700">Strategic AI implementation offers exponential growth potential through enhanced operational efficiency, accelerated sales cycles, and improved customer experiences—driving both top and bottom line results.</p>
             </div>
             
-            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
-              <h2 className="font-semibold text-xl mb-2 text-gray-800">Cost of Inaction</h2>
+            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+              <div className="text-xl font-semibold text-purple-600 mb-2">Cost of Inaction</div>
               <p className="text-gray-700">Beyond missed opportunities, the existential risk of digital stagnation grows daily. As AI adoption accelerates across industries, the competitive disadvantage compounds, making later transformation increasingly difficult.</p>
             </div>
           </div>

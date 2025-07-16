@@ -36,12 +36,12 @@ const Slide11: React.FC = () => {
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: '#ffffff' }}>
 
         {/* Title Section with good spacing from top */}
-        <div className="mt-16 mb-6">
-          <h1 className="title text-4xl" style={{ fontSize: '36px', fontWeight: 'normal', color: 'rgb(26, 32, 44)' }}>
+        <div className="mt-12 mb-6">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
             Engagement Model
           </h1>
           <div className="w-24 h-1 bg-purple-600 mt-3"></div>
-          <p className="text-base mt-2 text-gray-700">
+          <p className="text-lg mt-4 text-gray-800">
             12-month partnership with structured financial terms designed to deliver continuous value.
           </p>
         </div>

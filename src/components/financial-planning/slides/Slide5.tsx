@@ -147,11 +147,12 @@ const Slide5: React.FC = () => {
             
             {/* Education Bar */}
             <div 
-              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-11/12 h-15 flex items-center justify-center rounded-lg shadow-md font-bold text-purple-900 border-2 border-purple-600 border-opacity-30 text-lg"
+              className="absolute left-1/2 transform -translate-x-1/2 w-11/12 h-15 flex items-center justify-center rounded-lg shadow-md font-bold text-purple-900 border-2 border-purple-600 border-opacity-30 text-lg"
               style={{ 
                 backgroundColor: 'rgba(240, 230, 255, 0.8)',
                 boxShadow: '0 -4px 12px rgba(138, 43, 226, 0.2)',
-                height: '60px'
+                height: '60px',
+                bottom: '-20px'
               }}
             >
               <div className="flex items-center justify-center">

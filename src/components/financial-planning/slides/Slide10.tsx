@@ -31,12 +31,12 @@ const Slide10: React.FC = () => {
       
       <div className="content px-16">
         {/* Title Section with reduced spacing from top */}
-        <div className="mt-20 mb-6">
-          <h1 className="title text-4xl" style={{ fontSize: '36px', fontWeight: 'normal', color: '#1a202c' }}>
+        <div className="mt-12 mb-6">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
             05 | Innovation &amp; Education
           </h1>
           <div className="w-24 h-1 bg-purple-600 mt-3"></div>
-          <p className="text-lg mt-4">Stay ahead of the AI curve with our comprehensive innovation and education offerings:</p>
+          <p className="text-lg mt-4 text-gray-800">Stay ahead of the AI curve with our comprehensive innovation and education offerings:</p>
         </div>
         
         {/* Split Layout Content */}

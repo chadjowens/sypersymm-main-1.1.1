@@ -35,8 +35,8 @@ const Slide12: React.FC = () => {
       
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: '#ffffff' }}>
         {/* Title Section with good spacing from top */}
-        <div className="mt-16 mb-8">
-          <h1 className="title text-4xl" style={{ fontSize: '36px', fontWeight: 'normal', color: 'rgb(26, 32, 44)' }}>
+        <div className="mt-12 mb-6">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
             Next Steps
           </h1>
           <div className="w-24 h-1 bg-purple-600 mt-3"></div>
