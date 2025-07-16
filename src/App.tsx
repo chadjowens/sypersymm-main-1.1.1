@@ -5,6 +5,8 @@ import { useThemeStore } from './store/themeStore';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 import HomePage from './pages/HomePage';
 import ServicePage from './pages/ServicePage';
+import PresentationDeckPage from './pages/PresentationDeckPage';
+import FinancialPlanningPage from './pages/FinancialPlanningPage';
 
 /**
  * Main App component that sets up routing and global layout
@@ -33,6 +35,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/services/:serviceSlug" element={<ServicePage />} />
+            <Route path="/financial-planning" element={<PresentationDeckPage />} />
+            <Route path="/financial-planning-2" element={<FinancialPlanningPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
