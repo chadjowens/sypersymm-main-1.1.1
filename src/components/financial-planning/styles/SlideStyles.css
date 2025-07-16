@@ -1,3 +1,14 @@
+/* Animated Fractal Background */
+.animated-fractal-pattern {
+  stroke: url(#animated-gradient);
+}
+
+@keyframes fractal-gradient-shift {
+  0% { stop-color: #0077ff; }
+  50% { stop-color: #ff69b4; }
+  100% { stop-color: #0077ff; }
+}
+
 /* Slide Container Styles */
 .slide-container {
   position: relative;

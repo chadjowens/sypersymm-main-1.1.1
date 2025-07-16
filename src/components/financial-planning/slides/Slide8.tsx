@@ -24,13 +24,26 @@ const Slide8: React.FC = () => {
       }}
     >
       {/* Fractal Pattern Background */}
-      <svg className="absolute top-0 left-0 w-full h-full opacity-15 z-0" xmlns="http://www.w3.org/2000/svg">
-        <pattern id="fractal-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-          <path d="M0 50 L25 25 L50 50 L75 25 L100 50 L75 75 L50 50 L25 75 Z" fill="none" stroke="#8A2BE2" strokeWidth="0.5" opacity="0.6"></path>
-          <path d="M0 0 L50 50 L0 100 M100 0 L50 50 L100 100" fill="none" stroke="#5D3FD3" strokeWidth="0.3" opacity="0.4"></path>
-          <path d="M25 0 L25 100 M75 0 L75 100 M0 25 L100 25 M0 75 L100 75" fill="none" stroke="#C9A0DC" strokeWidth="0.2" opacity="0.3"></path>
+      <svg className="absolute top-0 left-0 w-full h-full opacity-25 z-0" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <defs>
+          <linearGradient id="animated-gradient-slide8" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#0077ff">
+              <animate attributeName="stop-color" values="#0077ff; #ff69b4; #0077ff" dur="8s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="50%" stopColor="#ff69b4">
+              <animate attributeName="stop-color" values="#ff69b4; #0077ff; #ff69b4" dur="8s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="100%" stopColor="#0077ff">
+              <animate attributeName="stop-color" values="#0077ff; #ff69b4; #0077ff" dur="8s" repeatCount="indefinite" />
+            </stop>
+          </linearGradient>
+        </defs>
+        <pattern id="fractal-pattern-slide8" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+          <path d="M0 50 L25 25 L50 50 L75 25 L100 50 L75 75 L50 50 L25 75 Z" fill="none" stroke="url(#animated-gradient-slide8)" strokeWidth="0.8" opacity="0.7"></path>
+          <path d="M0 0 L50 50 L0 100 M100 0 L50 50 L100 100" fill="none" stroke="url(#animated-gradient-slide8)" strokeWidth="0.6" opacity="0.6"></path>
+          <path d="M25 0 L25 100 M75 0 L75 100 M0 25 L100 25 M0 75 L100 75" fill="none" stroke="url(#animated-gradient-slide8)" strokeWidth="0.4" opacity="0.5"></path>
         </pattern>
-        <rect width="100%" height="100%" fill="url(#fractal-pattern)"></rect>
+        <rect width="100%" height="100%" fill="url(#fractal-pattern-slide8)"></rect>
       </svg>
       
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: 'transparent' }}>
