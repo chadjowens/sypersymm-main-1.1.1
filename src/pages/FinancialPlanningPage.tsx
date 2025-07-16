@@ -152,7 +152,7 @@ const SlideContainer: React.FC = () => {
   
   return (
     <SlideContext.Provider value={contextValue}>
-      <section className="min-h-screen flex flex-col items-center justify-center px-4 py-10">
+      <section className="flex flex-col items-center justify-center px-4">
         <div className="slide-container">
           <div className="content">
             {renderCurrentSlide()}
@@ -182,8 +182,11 @@ const FinancialPlanningPage: React.FC = () => {
       <Background />
       <div className="relative">
         <SimpleNavbar />
-        <main className="pt-16"> {/* Add padding-top to prevent content from sitting behind navbar */}
-          <SlideContainer />
+        <main className="pt-4"> {/* Minimal padding to reduce space after navbar */}
+          <div className="container mx-auto px-4 mb-8">
+            <h1 className="text-5xl md:text-6xl font-bold text-center mb-8 hero-header">Financial Planning</h1>
+            <SlideContainer />
+          </div>
         </main>
       </div>
     </div>
