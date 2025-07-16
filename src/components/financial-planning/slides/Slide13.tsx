@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
+import { PopupModal } from 'react-calendly';
 
 /**
  * Slide13 - Thank You
@@ -11,6 +12,7 @@ import '../styles/SlideStyles.css';
  * @returns {JSX.Element} The rendered Slide13 component
  */
 const Slide13: React.FC = () => {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   return (
     <div 
       className="slide-container" 
@@ -96,19 +98,25 @@ const Slide13: React.FC = () => {
               </p>
             </div>
             
-            <a href="#" className="cta-button" style={{ 
-              display: 'inline-block',
-              backgroundColor: '#8A2BE2',
-              color: 'white',
-              fontWeight: 600,
-              padding: '12px 24px',
-              borderRadius: '6px',
-              textDecoration: 'none',
-              transition: 'all 0.2s ease',
-              boxShadow: '0 4px 6px rgba(138, 43, 226, 0.25)'
-            }}>
+            <button 
+              onClick={() => setIsCalendlyOpen(true)}
+              className="cta-button" 
+              style={{ 
+                display: 'inline-block',
+                backgroundColor: '#8A2BE2',
+                color: 'white',
+                fontWeight: 600,
+                padding: '12px 24px',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 4px 6px rgba(138, 43, 226, 0.25)',
+                border: 'none',
+                cursor: 'pointer'
+              }}
+            >
               Schedule a Consultation
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -126,6 +134,16 @@ const Slide13: React.FC = () => {
           <span className="text-sm text-gray-500">13</span>
         </div>
       </div>
+      
+      {/* Calendly Modal */}
+      {isCalendlyOpen && (
+        <PopupModal
+          url="https://calendly.com/supersymmetry/30min"
+          onModalClose={() => setIsCalendlyOpen(false)}
+          rootElement={document.getElementById('root')!}
+          open={isCalendlyOpen}
+        />
+      )}
     </div>
   );
 };
