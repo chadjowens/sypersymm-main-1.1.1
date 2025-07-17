@@ -225,6 +225,276 @@ const MaterialSymbolsCSS = () => {
 - Uses the reusable `animated-gradient-text` class for the animation effect
 - Icon size set to 48px to match other icons
 
+### Lead Generation (Material Symbols - Slide 7)
+```jsx
+<div style={{ 
+  marginBottom: '15px', 
+  backgroundColor: 'white', 
+  borderRadius: '50%', 
+  width: '60px', 
+  height: '60px', 
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center' 
+}}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    filter_alt
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "filter_alt" icon
+- Applies the same animated gradient styling as Slide 6 icons
+- Includes white circular background (60px diameter) that masks the animated dotted line
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px for consistency
+
+### Outbound Email Campaigns (Material Symbols - Slide 7)
+```jsx
+<div style={{ 
+  marginBottom: '15px', 
+  backgroundColor: 'white', 
+  borderRadius: '50%', 
+  width: '60px', 
+  height: '60px', 
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center' 
+}}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    outgoing_mail
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "outgoing_mail" icon
+- Applies the same animated gradient styling as Slide 6 icons
+- Includes white circular background (60px diameter) that masks the animated dotted line
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px for consistency
+
+### Lead Scoring & Pipeline (Material Symbols - Slide 7)
+```jsx
+<div style={{ 
+  marginBottom: '15px', 
+  backgroundColor: 'white', 
+  borderRadius: '50%', 
+  width: '60px', 
+  height: '60px', 
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center' 
+}}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    readiness_score
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "readiness_score" icon
+- Applies the same animated gradient styling as Slide 6 icons
+- Includes white circular background (60px diameter) that masks the animated dotted line
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px for consistency
+
+### Call Transcript Analysis (Material Symbols - Slide 7)
+```jsx
+<div style={{ 
+  marginBottom: '15px', 
+  backgroundColor: 'white', 
+  borderRadius: '50%', 
+  width: '60px', 
+  height: '60px', 
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center' 
+}}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    speech_to_text
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "speech_to_text" icon
+- Applies the same animated gradient styling as Slide 6 icons
+- Includes white circular background (60px diameter) that masks the animated dotted line
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px for consistency
+
+### Customer Onboarding (Material Symbols - Slide 8)
+```jsx
+<div style={{ 
+  marginBottom: '15px', 
+  backgroundColor: 'white', 
+  borderRadius: '50%', 
+  width: '60px', 
+  height: '60px', 
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center' 
+}}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    person_raised_hand
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "person_raised_hand" icon
+- Applies the same animated gradient styling as Slide 6 icons
+- Includes white circular background (60px diameter) that masks the animated dotted line
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px for consistency
+
+### Self-Service Portal (Material Symbols - Slide 8)
+```jsx
+<div style={{ 
+  marginBottom: '15px', 
+  backgroundColor: 'white', 
+  borderRadius: '50%', 
+  width: '60px', 
+  height: '60px', 
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center' 
+}}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    dashboard_customize
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "dashboard_customize" icon
+- Applies the same animated gradient styling as Slide 6 icons
+- Includes white circular background (60px diameter) that masks the animated dotted line
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px for consistency
+
+### Multi-Modal Chat (Material Symbols - Slide 8)
+```jsx
+<div style={{ 
+  marginBottom: '15px', 
+  backgroundColor: 'white', 
+  borderRadius: '50%', 
+  width: '60px', 
+  height: '60px', 
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center' 
+}}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    voice_chat
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "voice_chat" icon
+- Applies the same animated gradient styling as Slide 6 icons
+- Includes white circular background (60px diameter) that masks the animated dotted line
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px for consistency
+
+### Meeting Automation (Material Symbols - Slide 8)
+```jsx
+<div style={{ 
+  marginBottom: '15px', 
+  backgroundColor: 'white', 
+  borderRadius: '50%', 
+  width: '60px', 
+  height: '60px', 
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center' 
+}}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    calendar_clock
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "calendar_clock" icon
+- Applies the same animated gradient styling as Slide 6 icons
+- Includes white circular background (60px diameter) that masks the animated dotted line
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px for consistency
+
+### Knowledge Base (Material Symbols - Slide 8)
+```jsx
+<div style={{ 
+  marginBottom: '15px', 
+  backgroundColor: 'white', 
+  borderRadius: '50%', 
+  width: '60px', 
+  height: '60px', 
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center' 
+}}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    network_intel_node
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "network_intel_node" icon
+- Applies the same animated gradient styling as Slide 6 icons
+- Includes white circular background (60px diameter) that masks the animated dotted line
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px for consistency
+
 ### Lead Magnet
 ```svg
 <svg class="enhanced-icon" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
