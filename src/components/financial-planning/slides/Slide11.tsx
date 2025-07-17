@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
@@ -11,6 +11,16 @@ import '../styles/SlideStyles.css';
  * @returns {JSX.Element} The rendered Slide11 component
  */
 const Slide11: React.FC = () => {
+  // Animation visibility state
+  const [isVisible, setIsVisible] = useState(false);
+  
+  // Set visibility after component mounts for animations
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div 
       className="slide-container" 
@@ -30,7 +40,14 @@ const Slide11: React.FC = () => {
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: 'transparent' }}>
 
         {/* Title Section with good spacing from top */}
-        <div className="mt-12 mb-6">
+        <div 
+          className="mt-12 mb-6"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+            transition: 'opacity 0.7s ease-in-out, transform 0.7s ease-in-out'
+          }}
+        >
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
             Engagement Model
           </h1>
@@ -43,8 +60,15 @@ const Slide11: React.FC = () => {
         {/* Content Area */}
         <div className="mb-8">
           {/* Pricing Table */}
-          <div className="overflow-hidden">
-            <table className="price-table text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0, overflow: 'hidden', borderRadius: '8px' }}>
+          <div 
+            className="overflow-hidden"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.7s ease-in-out 0.4s, transform 0.7s ease-in-out 0.4s'
+            }}
+          >
+            <table className="price-table text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0, overflow: 'hidden', borderRadius: '0' }}>
               <thead>
                 <tr>
                   <th className="w-1/5" style={{ backgroundColor: 'rgba(138, 43, 226, 0.15)', fontWeight: 600, textAlign: 'left', padding: '10px 16px', color: '#4A5568' }}>Offering</th>
@@ -86,7 +110,15 @@ const Slide11: React.FC = () => {
           
           {/* Additional Info in 3-column layout with card styling */}
           <div className="grid grid-cols-3 gap-6 mt-6">
-            <div className="info-card">
+            <div 
+              className="info-card" 
+              style={{ 
+                borderRadius: '0',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.8s, transform 0.7s ease-in-out 0.8s'
+              }}
+            >
               <h3 className="text-sm font-semibold mb-2" style={{ fontSize: '16px', fontWeight: 'bold', color: 'rgb(138, 43, 226)' }}>
                 Service Guarantee
               </h3>
@@ -95,7 +127,15 @@ const Slide11: React.FC = () => {
               </p>
             </div>
             
-            <div className="info-card">
+            <div 
+              className="info-card" 
+              style={{ 
+                borderRadius: '0',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 1.0s, transform 0.7s ease-in-out 1.0s'
+              }}
+            >
               <h3 className="text-sm font-semibold mb-2" style={{ fontSize: '16px', fontWeight: 'bold', color: 'rgb(138, 43, 226)' }}>
                 Performance Metrics
               </h3>
@@ -107,7 +147,15 @@ const Slide11: React.FC = () => {
               </ul>
             </div>
             
-            <div className="info-card">
+            <div 
+              className="info-card" 
+              style={{ 
+                borderRadius: '0',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 1.2s, transform 0.7s ease-in-out 1.2s'
+              }}
+            >
               <h3 className="text-sm font-semibold mb-2" style={{ fontSize: '16px', fontWeight: 'bold', color: 'rgb(138, 43, 226)' }}>
                 Performance Bonuses
               </h3>
@@ -123,15 +171,15 @@ const Slide11: React.FC = () => {
       
       {/* Footer with logo and page numbering */}
       <div 
-        className="absolute bottom-0 w-full py-5 px-10 flex justify-between items-center border-t border-gray-200 z-20" 
+        className="absolute bottom-0 w-full py-3 px-10 flex justify-between items-center border-t border-gray-200 z-20" 
         style={{ backgroundColor: '#ffffff' }}
       >
         <div className="slide-footer-logo relative inline-block">
           SUPER{'{SYMMETRY}'}
         </div>
         <div className="flex items-center">
-          <span className="text-sm text-gray-500 mr-4">Confidential</span>
-          <span className="text-sm text-gray-500">11</span>
+          <span className="text-xs text-gray-500 mr-3">Confidential</span>
+          <span className="text-xs text-gray-500">11</span>
         </div>
       </div>
     </div>

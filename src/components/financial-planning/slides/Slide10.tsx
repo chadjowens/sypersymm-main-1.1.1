@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
@@ -11,6 +11,12 @@ import '../styles/SlideStyles.css';
  * @returns {JSX.Element} The rendered Slide10 component
  */
 const Slide10: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    // Set visible after component mounts to trigger animations
+    setIsVisible(true);
+  }, []);
   return (
     <div 
       className="slide-container"
@@ -25,7 +31,13 @@ const Slide10: React.FC = () => {
       
       <div className="content px-16" style={{ paddingBottom: '80px' }}>
         {/* Title Section with reduced spacing from top */}
-        <div className="mt-12 mb-6">
+        <div 
+          className="mt-12 mb-6"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+            transition: 'opacity 0.7s ease-in-out, transform 0.7s ease-in-out'
+          }}>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
             05 | Innovation &amp; Education
           </h1>
@@ -37,22 +49,45 @@ const Slide10: React.FC = () => {
         <div className="flex mb-6">
           {/* Left Side - Innovation & Education with icon treatment */}
           <div className="w-3/4 pr-8">
-            <div className="mb-5">
+            <div className="mb-5 relative">
+              {/* Vertical animated dotted line */}
+              <div 
+                className="absolute animated-dotted-line-vertical z-0"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transition: 'opacity 0.7s ease-in-out 2.0s',
+                  height: 'calc(100% - 100px)',
+                  left: '25px',
+                  top: '50px'
+                }}
+              ></div>
               {/* Innovation & Education Features with reduced spacing */}
-              <div className="flex items-start mb-4">
-                <div className="circle-icon flex-shrink-0" style={{
-                  width: '60px',
-                  height: '60px',
-                  borderRadius: '0',
-                  backgroundColor: '#F3E8FF',
-                  border: '2px solid #8A2BE2',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#8A2BE2',
-                  position: 'relative'
+              <div 
+                className="flex items-start mb-4"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'scale(1)' : 'scale(0.97)',
+                  transition: 'opacity 0.7s ease-in-out 0.4s, transform 0.7s ease-in-out 0.4s'
+                }}
+              >
+                <div className="flex-shrink-0" style={{ 
+                  marginRight: '15px', 
+                  backgroundColor: 'white', 
+                  borderRadius: '50%', 
+                  width: '50px', 
+                  height: '50px', 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center' 
                 }}>
-                  <i className="fas fa-chalkboard-teacher fa-lg"></i>
+                  <span 
+                    className="material-symbols-outlined animated-gradient-text" 
+                    style={{ 
+                      fontSize: '48px'
+                    }}
+                  >
+                    cognition_2
+                  </span>
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-800">Ongoing Digital Training</h3>
@@ -60,20 +95,32 @@ const Slide10: React.FC = () => {
                 </div>
               </div>
               
-              <div className="flex items-start mb-4">
-                <div className="circle-icon flex-shrink-0" style={{
-                  width: '60px',
-                  height: '60px',
-                  borderRadius: '0',
-                  backgroundColor: '#F3E8FF',
-                  border: '2px solid #8A2BE2',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#8A2BE2',
-                  position: 'relative'
+              <div 
+                className="flex items-start mb-4"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'scale(1)' : 'scale(0.97)',
+                  transition: 'opacity 0.7s ease-in-out 0.8s, transform 0.7s ease-in-out 0.8s'
+                }}
+              >
+                <div className="flex-shrink-0" style={{ 
+                  marginRight: '15px', 
+                  backgroundColor: 'white', 
+                  borderRadius: '50%', 
+                  width: '50px', 
+                  height: '50px', 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center' 
                 }}>
-                  <i className="fas fa-rocket fa-lg"></i>
+                  <span 
+                    className="material-symbols-outlined animated-gradient-text" 
+                    style={{ 
+                      fontSize: '48px'
+                    }}
+                  >
+                    widgets
+                  </span>
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-800">Early Access to Next-Gen Tools</h3>
@@ -81,20 +128,32 @@ const Slide10: React.FC = () => {
                 </div>
               </div>
               
-              <div className="flex items-start mb-4">
-                <div className="circle-icon flex-shrink-0" style={{
-                  width: '60px',
-                  height: '60px',
-                  borderRadius: '0',
-                  backgroundColor: '#F3E8FF',
-                  border: '2px solid #8A2BE2',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#8A2BE2',
-                  position: 'relative'
+              <div 
+                className="flex items-start mb-4"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'scale(1)' : 'scale(0.97)',
+                  transition: 'opacity 0.7s ease-in-out 1.2s, transform 0.7s ease-in-out 1.2s'
+                }}
+              >
+                <div className="flex-shrink-0" style={{ 
+                  marginRight: '15px', 
+                  backgroundColor: 'white', 
+                  borderRadius: '50%', 
+                  width: '50px', 
+                  height: '50px', 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center' 
                 }}>
-                  <i className="fas fa-route fa-lg"></i>
+                  <span 
+                    className="material-symbols-outlined animated-gradient-text" 
+                    style={{ 
+                      fontSize: '48px'
+                    }}
+                  >
+                    directions
+                  </span>
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-800">Strategic Innovation Roadmapping</h3>
@@ -102,20 +161,32 @@ const Slide10: React.FC = () => {
                 </div>
               </div>
               
-              <div className="flex items-start mb-4">
-                <div className="circle-icon flex-shrink-0" style={{
-                  width: '60px',
-                  height: '60px',
-                  borderRadius: '0',
-                  backgroundColor: '#F3E8FF',
-                  border: '2px solid #8A2BE2',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#8A2BE2',
-                  position: 'relative'
+              <div 
+                className="flex items-start mb-4"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'scale(1)' : 'scale(0.97)',
+                  transition: 'opacity 0.7s ease-in-out 1.6s, transform 0.7s ease-in-out 1.6s'
+                }}
+              >
+                <div className="flex-shrink-0" style={{ 
+                  marginRight: '15px', 
+                  backgroundColor: 'white', 
+                  borderRadius: '50%', 
+                  width: '50px', 
+                  height: '50px', 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center' 
                 }}>
-                  <i className="fas fa-lightbulb fa-lg"></i>
+                  <span 
+                    className="material-symbols-outlined animated-gradient-text" 
+                    style={{ 
+                      fontSize: '48px'
+                    }}
+                  >
+                    screen_rotation_alt
+                  </span>
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-800">Innovation Culture Development</h3>
@@ -134,18 +205,22 @@ const Slide10: React.FC = () => {
 
         
         {/* Mobile screen positioned absolutely */}
-        <div className="mobile-screen" style={{
-          backgroundColor: '#f9fafc',
-          height: '420px',
-          width: '240px',
-          borderRadius: '16px',
-          overflow: 'hidden',
-          position: 'absolute',
-          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
-          zIndex: 999, /* Extremely high z-index to ensure it's above everything */
-          right: '60px',
-          top: '50%',
-          transform: 'translateY(-50%)'
+        <div 
+          className="mobile-screen" 
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.95)',
+            transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s',
+            backgroundColor: '#f9fafc',
+            height: '420px',
+            width: '240px',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            position: 'absolute',
+            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
+            zIndex: 999, /* Extremely high z-index to ensure it's above everything */
+            right: '60px',
+            top: '50%'
         }}>
           {/* Dashboard Header */}
           <div className="dashboard-header" style={{
@@ -330,11 +405,30 @@ const Slide10: React.FC = () => {
         padding: '0 40px',
         zIndex: 5 /* Lower z-index to ensure it's behind the mobile screen */
       }}>
-        <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-          <p className="font-semibold text-gray-800 flex items-center">
-            <i className="fas fa-lightbulb text-yellow-500 mr-3 text-lg"></i>
-            <span>Value: Create a future-ready organization that continuously evolves with technological advancements.</span>
-          </p>
+        <div 
+          className="bg-gray-50 p-3 rounded-lg border border-gray-200 flex items-center"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.97)',
+            transition: 'opacity 0.7s ease-in-out 2.4s, transform 0.7s ease-in-out 2.4s'
+          }}
+        >
+          <div style={{ 
+            marginRight: '12px',
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center' 
+          }}>
+            <span 
+              className="material-symbols-outlined animated-gradient-text" 
+              style={{ 
+                fontSize: '24px'
+              }}
+            >
+              bolt
+            </span>
+          </div>
+          <p className="font-semibold text-gray-800">Create a future-ready organization that continuously evolves with technological advancements.</p>
         </div>
       </div>
       
@@ -343,7 +437,7 @@ const Slide10: React.FC = () => {
         position: 'absolute',
         bottom: 0,
         width: '100%',
-        padding: '20px 40px',
+        padding: '12px 40px', /* Reduced from 20px */
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -355,8 +449,8 @@ const Slide10: React.FC = () => {
           SUPER{'{SYMMETRY}'}
         </div>
         <div className="flex items-center">
-          <span className="text-sm text-gray-500 mr-4">Confidential</span>
-          <span className="text-sm text-gray-500">10</span>
+          <span className="text-xs text-gray-500 mr-3">Confidential</span>
+          <span className="text-xs text-gray-500">10</span>
         </div>
       </div>
     </div>

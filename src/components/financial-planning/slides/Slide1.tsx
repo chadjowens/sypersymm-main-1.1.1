@@ -34,13 +34,13 @@ const Slide1: React.FC = () => {
       </div>
       
       {/* Footer with logo and page numbering */}
-      <div className="absolute bottom-0 left-0 right-0 w-full py-5 px-10 flex justify-between items-center border-t border-gray-200 bg-white bg-opacity-80 z-20">
+      <div className="absolute bottom-0 left-0 right-0 w-full py-3 px-10 flex justify-between items-center border-t border-gray-200 bg-white bg-opacity-80 z-20">
         <div className="slide-footer-logo relative inline-block">
           SUPER{'{SYMMETRY}'}
         </div>
         <div className="flex items-center">
-          <span className="text-sm text-gray-500 mr-4">Confidential</span>
-          <span className="text-sm text-gray-500">1</span>
+          <span className="text-xs text-gray-500 mr-3">Confidential</span>
+          <span className="text-xs text-gray-500">1</span>
         </div>
       </div>
     </div>

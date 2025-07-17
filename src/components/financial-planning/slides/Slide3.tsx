@@ -98,15 +98,15 @@ const Slide3: React.FC<{ businessName?: string }> = ({ businessName = 'Your Busi
       
       {/* Footer with logo and page numbering */}
       <div 
-        className="absolute bottom-0 w-full py-5 px-10 flex justify-between items-center border-t border-gray-200 z-20" 
+        className="absolute bottom-0 w-full py-3 px-10 flex justify-between items-center border-t border-gray-200 z-20" 
         style={{ backgroundColor: '#ffffff' }}
       >
         <div className="slide-footer-logo relative inline-block">
           SUPER{'{SYMMETRY}'}
         </div>
         <div className="flex items-center">
-          <span className="text-sm text-gray-500 mr-4">Confidential</span>
-          <span className="text-sm text-gray-500">3</span>
+          <span className="text-xs text-gray-500 mr-3">Confidential</span>
+          <span className="text-xs text-gray-500">3</span>
         </div>
       </div>
     </div>

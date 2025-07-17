@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
@@ -11,6 +11,16 @@ import '../styles/SlideStyles.css';
  * @returns {JSX.Element} The rendered Slide12 component
  */
 const Slide12: React.FC = () => {
+  // Animation visibility state
+  const [isVisible, setIsVisible] = useState(false);
+  
+  // Set visibility after component mounts for animations
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
   // Common styles for consistent layout
   const stepContainerStyle = {
     display: 'flex',
@@ -24,8 +34,9 @@ const Slide12: React.FC = () => {
   const stepNumberStyle = {
     fontSize: '4rem',
     fontWeight: 800,
-    color: '#8A2BE2',
-    opacity: 0.85,
+    background: 'linear-gradient(90deg, #000000, #8A2BE2)',
+    WebkitBackgroundClip: 'text',
+    color: 'transparent',
     lineHeight: 1,
     minWidth: '60px',
     textAlign: 'left' as const
@@ -74,8 +85,20 @@ const Slide12: React.FC = () => {
       
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: 'transparent' }}>
         {/* Title Section with good spacing from top */}
-        <div className="mt-12 mb-6" style={{ textAlign: 'left' }}>
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
+        <div 
+          className="mt-12 mb-6" 
+          style={{ 
+            textAlign: 'left',
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+            transition: 'opacity 0.7s ease-in-out, transform 0.7s ease-in-out'
+          }}
+        >
+          <h1 className="text-2xl font-bold inline-block leading-tight tracking-tight" style={{
+            background: 'linear-gradient(90deg, #000000, #8A2BE2)',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent'
+          }}>
             Next Steps
           </h1>
           <div className="w-24 h-1 bg-purple-600 mt-3"></div>
@@ -84,7 +107,14 @@ const Slide12: React.FC = () => {
         {/* Content Area */}
         <div className="mb-8" style={{ width: '100%', textAlign: 'left' }}>
           {/* Step 1 */}
-          <div style={stepContainerStyle}>
+          <div 
+            style={{
+              ...stepContainerStyle,
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.7s ease-in-out 0.3s, transform 0.7s ease-in-out 0.3s'
+            }}
+          >
             <div style={stepNumberStyle}>1</div>
             <div style={stepContentStyle}>
               <h3 style={headingStyle}>Discovery Session</h3>
@@ -93,7 +123,14 @@ const Slide12: React.FC = () => {
           </div>
           
           {/* Step 2 */}
-          <div style={stepContainerStyle}>
+          <div 
+            style={{
+              ...stepContainerStyle,
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.7s ease-in-out 0.5s, transform 0.7s ease-in-out 0.5s'
+            }}
+          >
             <div style={stepNumberStyle}>2</div>
             <div style={stepContentStyle}>
               <h3 style={headingStyle}>Customized Roadmap</h3>
@@ -102,16 +139,31 @@ const Slide12: React.FC = () => {
           </div>
           
           {/* Step 3 */}
-          <div style={stepContainerStyle}>
+          <div 
+            style={{
+              ...stepContainerStyle,
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.7s ease-in-out 0.7s, transform 0.7s ease-in-out 0.7s'
+            }}
+          >
             <div style={stepNumberStyle}>3</div>
             <div style={stepContentStyle}>
-              <h3 style={headingStyle}>Agreement Finalization</h3>
-              <p style={paragraphStyle}>Finalize partnership agreement with clear terms, performance metrics, and success criteria.</p>
+              <h3 style={headingStyle}>Kickoff Meeting</h3>
+              <p style={paragraphStyle}>Conduct a formal kickoff meeting with all stakeholders to establish communication channels and begin implementation.</p>
             </div>
           </div>
           
           {/* Step 4 */}
-          <div style={{...stepContainerStyle, borderBottom: 'none'}}>
+          <div 
+            style={{
+              ...stepContainerStyle, 
+              borderBottom: 'none',
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.7s ease-in-out 0.9s, transform 0.7s ease-in-out 0.9s'
+            }}
+          >
             <div style={stepNumberStyle}>4</div>
             <div style={stepContentStyle}>
               <h3 style={headingStyle}>Implementation Kickoff</h3>
@@ -121,17 +173,14 @@ const Slide12: React.FC = () => {
         </div>
       </div>
       
-      {/* Footer with logo and page numbering */}
-      <div 
-        className="absolute bottom-0 w-full py-5 px-10 flex justify-between items-center border-t border-gray-200 z-20" 
-        style={{ backgroundColor: '#ffffff' }}
-      >
+      {/* Footer */}
+      <div className="footer absolute bottom-0 w-full py-3 px-10 flex justify-between items-center border-t border-gray-200 bg-white z-10"> 
         <div className="slide-footer-logo relative inline-block">
           SUPER{'{SYMMETRY}'}
         </div>
         <div className="flex items-center">
-          <span className="text-sm text-gray-500 mr-4">Confidential</span>
-          <span className="text-sm text-gray-500">12</span>
+          <span className="text-xs text-gray-500 mr-3">Confidential</span>
+          <span className="text-xs text-gray-500">12</span>
         </div>
       </div>
     </div>
