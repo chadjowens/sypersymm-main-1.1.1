@@ -37,6 +37,22 @@
   100% { stop-color: #0077ff; }
 }
 
+@keyframes text-gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient-text {
+  background: linear-gradient(90deg, #000000, #8A2BE2, #000000);
+  background-size: 200% 200%;
+  animation: text-gradient-animation 3s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
 /* Slide Footer Styles */
 .slide-footer-logo {
   font-weight: normal;

@@ -41,12 +41,12 @@ const Slide7: React.FC = () => {
             {/* Timeline connector line */}
             <div className="absolute h-0.5 bg-purple-100 top-7 left-0 right-0 z-0"></div>
             
-            {/* Lead Generation */}
+            {/* Lead Generation - Using Material Symbols */}
             <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
-              <div className="enhanced-icon-container">
-                <svg className="enhanced-icon" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
+              <div className="enhanced-icon-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '40px', height: '40px', backgroundColor: '#f3f4f6', borderRadius: '50%' }}>
+                <span className="material-symbols-outlined" style={{ fontSize: '24px', color: '#6b21a8' }}>
+                  browse_activity
+                </span>
               </div>
               <div className="content-box">
                 <h3 className="content-box-header">Lead Generation Systems</h3>

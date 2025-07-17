@@ -1,12 +1,122 @@
 # Slide Icon Reference
 
-This document serves as a central repository for icons used in the financial planning presentation slides. Each section contains SVG code for icons used in specific slides, making it easy to update and maintain consistent icon styling across the presentation.
+This document serves as a central repository for icons used in the financial planning presentation slides. Each section contains icon code for icons used in specific slides, making it easy to update and maintain consistent icon styling across the presentation.
+
+## Icon Sources
+
+### SVG Icons
+SVG icons are directly embedded in the components. The SVG code is stored in this document for reference.
+
+### Google Material Symbols
+For Google Material Symbols, we use the CDN approach:
+
+```html
+<!-- Add to index.html or component that needs icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> 
+
+<!-- Add styling for the icons -->
+<style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+</style>
+
+<!-- Usage example -->
+<span class="material-symbols-outlined">browse_activity</span>
+```
 
 ## How to Use
 
 1. Find the slide and icon you want to update
-2. Copy the SVG code from this document
-3. Replace the existing SVG in the slide component
+2. Copy the icon code from this document
+3. Replace the existing icon in the slide component
+
+## Slide 6 Icons (Foundation)
+
+### Website Migration (Material Symbols)
+```jsx
+<div style={{ marginBottom: '15px' }}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    browse_activity
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Completely removed all container elements to eliminate the circle
+- Doubled the icon size from 24px to 48px
+- Added 15px padding below the icon for better spacing
+- Applied a true animated gradient using CSS animations
+- Created a reusable `animated-gradient-text` class in SlideStyles.css:
+
+```css
+@keyframes text-gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient-text {
+  background: linear-gradient(90deg, #000000, #8A2BE2, #000000);
+  background-size: 200% 200%;
+  animation: text-gradient-animation 3s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+```
+
+## Slide 7 Icons (Sales)
+
+### Lead Generation Systems (Material Symbols)
+```html
+<!-- Material Symbols CSS import in component -->
+const MaterialSymbolsCSS = () => {
+  useEffect(() => {
+    // Create link element for Material Symbols
+    const linkElement = document.createElement('link');
+    linkElement.rel = 'stylesheet';
+    linkElement.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=browse_activity';
+    document.head.appendChild(linkElement);
+
+    // Create style element for Material Symbols configuration
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    `;
+    document.head.appendChild(styleElement);
+
+    // Cleanup function
+    return () => {
+      document.head.removeChild(linkElement);
+      document.head.removeChild(styleElement);
+    };
+  }, []);
+
+  return null;
+};
+
+<!-- Usage in component -->
+<span className="material-symbols-outlined" style={{ fontSize: '24px', color: 'currentColor' }}>
+  browse_activity
+</span>
+```
 
 ## Slide 6 Icons (Acquisition)
 
