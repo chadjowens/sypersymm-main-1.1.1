@@ -61,6 +61,14 @@
   animation: move-line 1.5s linear infinite;
 }
 
+/* Vertical animated dotted line */
+.animated-dotted-line-vertical {
+  width: 2px;
+  background: radial-gradient(circle, #8A2BE2 40%, transparent 40%);
+  background-size: 2px 10px;
+  animation: move-line-vertical 1.5s linear infinite;
+}
+
 @keyframes move-line {
   0% {
     background-position: 0 0;
@@ -70,10 +78,19 @@
   }
 }
 
+@keyframes move-line-vertical {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 20px;
+  }
+}
+
 /* Slide Footer Styles */
 .slide-footer-logo {
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 0.85rem; /* Reduced from 1rem */
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background: linear-gradient(135deg, #0077ff, #ff69b4);
