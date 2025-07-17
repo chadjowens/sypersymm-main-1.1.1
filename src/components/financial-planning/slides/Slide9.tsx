@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 import { Chart, registerables } from 'chart.js';
@@ -15,6 +15,11 @@ Chart.register(...registerables);
  * @returns {JSX.Element} The rendered Slide9 component
  */
 const Slide9: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
   // References for chart canvases
   const lineChartRef = useRef<HTMLCanvasElement | null>(null);
   const barChartRef = useRef<HTMLCanvasElement | null>(null);
@@ -74,13 +79,7 @@ const Slide9: React.FC = () => {
             },
             plugins: {
               legend: {
-                position: 'top',
-                align: 'end',
-                labels: {
-                  boxWidth: 12,
-                  usePointStyle: true,
-                  pointStyle: 'circle'
-                }
+                display: false, // Hide the default legend since we have a custom one in the header
               },
               tooltip: {
                 backgroundColor: 'rgba(0, 0, 0, 0.7)',
@@ -243,21 +242,21 @@ const Slide9: React.FC = () => {
           <p className="text-lg mt-4 text-gray-800">Measuring performance and optimizing for growth</p>
         </div>
         
-        <div className="grid grid-cols-3 gap-4 mb-3">
+        <div className="grid grid-cols-3 gap-3 mb-2">
           {/* KPI Cards */}
           <div className="bg-white p-2 rounded-lg border border-gray-200" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-            <div className="flex items-center mb-0">
-              <div className="w-5 h-5 rounded-full bg-purple-100 flex items-center justify-center mr-1">
-                <svg className="w-3 h-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                  <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                </svg>
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center">
+                <div className="w-5 h-5 rounded-full bg-purple-100 flex items-center justify-center mr-1">
+                  <svg className="w-3 h-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                    <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                  </svg>
+                </div>
+                <span className="text-xs font-medium text-gray-500">Conversion Rate</span>
               </div>
-              <span className="text-xs font-medium text-gray-500">Conversion Rate</span>
-            </div>
-            <div className="flex items-end">
               <span className="text-sm font-bold text-gray-800">4.8%</span>
-              <span className="ml-1 text-xs text-green-500 flex items-center">
+              <span className="text-xs text-green-500 flex items-center">
                 <svg className="w-2 h-2 mr-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd"></path>
                 </svg>
@@ -267,17 +266,17 @@ const Slide9: React.FC = () => {
           </div>
           
           <div className="bg-white p-2 rounded-lg border border-gray-200" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-            <div className="flex items-center mb-0">
-              <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mr-1">
-                <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
-                </svg>
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center">
+                <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mr-1">
+                  <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+                  </svg>
+                </div>
+                <span className="text-xs font-medium text-gray-500">New Clients</span>
               </div>
-              <span className="text-xs font-medium text-gray-500">New Clients</span>
-            </div>
-            <div className="flex items-end">
               <span className="text-sm font-bold text-gray-800">128</span>
-              <span className="ml-1 text-xs text-green-500 flex items-center">
+              <span className="text-xs text-green-500 flex items-center">
                 <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd"></path>
                 </svg>
@@ -287,17 +286,17 @@ const Slide9: React.FC = () => {
           </div>
           
           <div className="bg-white p-2 rounded-lg border border-gray-200" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-            <div className="flex items-center mb-0">
-              <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-1">
-                <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
-                </svg>
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center">
+                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mr-1">
+                  <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
+                  </svg>
+                </div>
+                <span className="text-xs font-medium text-gray-500">Revenue</span>
               </div>
-              <span className="text-xs font-medium text-gray-500">Revenue</span>
-            </div>
-            <div className="flex items-end">
               <span className="text-sm font-bold text-gray-800">$89.4k</span>
-              <span className="ml-1 text-xs text-green-500 flex items-center">
+              <span className="text-xs text-green-500 flex items-center">
                 <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd"></path>
                 </svg>
@@ -307,10 +306,22 @@ const Slide9: React.FC = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-2 gap-4 mb-3">
+        <div className="grid grid-cols-2 gap-3 mb-2">
           {/* Line Chart */}
           <div className="bg-white p-2 rounded-lg border border-gray-200" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-            <h3 className="text-xs font-semibold text-gray-700 mb-1 px-1">Website Traffic</h3>
+            <div className="flex justify-between items-center mb-1 px-1">
+              <h3 className="text-xs font-semibold text-gray-700">Website Traffic</h3>
+              <div className="flex items-center text-xs">
+                <div className="flex items-center mr-2">
+                  <div className="w-2 h-2 rounded-full bg-purple-600 mr-1"></div>
+                  <span className="text-gray-600 text-xs">Organic</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 rounded-full bg-blue-600 mr-1"></div>
+                  <span className="text-gray-600 text-xs">Paid</span>
+                </div>
+              </div>
+            </div>
             <div className="h-24">
               <canvas ref={lineChartRef}></canvas>
             </div>
@@ -325,17 +336,17 @@ const Slide9: React.FC = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-3 mb-2">
           {/* Gauge Chart */}
           <div className="bg-white p-2 rounded-lg border border-gray-200" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
             <h3 className="text-xs font-semibold text-gray-700 mb-1 px-1">Goal Completion</h3>
-            <div className="h-20 relative">
+            <div className="h-16 relative">
               <canvas ref={gaugeChartRef}></canvas>
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-lg font-bold text-gray-800">75%</span>
+                <span className="text-base font-bold text-gray-800">75%</span>
               </div>
             </div>
-            <div className="text-center mt-1">
+            <div className="text-center">
               <span className="text-xs text-gray-500">Q3 Target: 80%</span>
             </div>
           </div>
@@ -346,43 +357,77 @@ const Slide9: React.FC = () => {
             <table className="w-full text-xs">
               <thead>
                 <tr className="border-b border-gray-200">
-                  <th className="text-left p-1 font-medium text-gray-600">Content</th>
-                  <th className="text-right p-1 font-medium text-gray-600">Views</th>
-                  <th className="text-right p-1 font-medium text-gray-600">Conv. Rate</th>
+                  <th className="text-left py-0.5 px-1 font-medium text-gray-600">Content</th>
+                  <th className="text-right py-0.5 px-1 font-medium text-gray-600">Views</th>
+                  <th className="text-right py-0.5 px-1 font-medium text-gray-600">Conv. Rate</th>
                 </tr>
               </thead>
-              <tbody className="text-gray-700">
+              <tbody className="text-gray-700 text-xs">
                 <tr className="border-b border-gray-100">
-                  <td className="p-1">AI Guide</td>
-                  <td className="p-1 text-right">8,452</td>
-                  <td className="p-1 text-right">4.2%</td>
+                  <td className="py-0.5 px-1">AI Guide</td>
+                  <td className="py-0.5 px-1 text-right">8,452</td>
+                  <td className="py-0.5 px-1 text-right">4.2%</td>
                 </tr>
                 <tr className="border-b border-gray-100">
-                  <td className="p-1">Case Study</td>
-                  <td className="p-1 text-right">6,731</td>
-                  <td className="p-1 text-right">3.8%</td>
+                  <td className="py-0.5 px-1">Case Study</td>
+                  <td className="py-0.5 px-1 text-right">6,731</td>
+                  <td className="py-0.5 px-1 text-right">3.8%</td>
                 </tr>
                 <tr className="border-b border-gray-100">
-                  <td className="p-1">Webinar</td>
-                  <td className="p-1 text-right">5,128</td>
-                  <td className="p-1 text-right">5.1%</td>
+                  <td className="py-0.5 px-1">Webinar</td>
+                  <td className="py-0.5 px-1 text-right">5,128</td>
+                  <td className="py-0.5 px-1 text-right">5.1%</td>
                 </tr>
                 <tr>
-                  <td className="p-1">Blog Post</td>
-                  <td className="p-1 text-right">4,390</td>
-                  <td className="p-1 text-right">2.3%</td>
+                  <td className="py-0.5 px-1">Blog Post</td>
+                  <td className="py-0.5 px-1 text-right">4,390</td>
+                  <td className="py-0.5 px-1 text-right">2.3%</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
         
-        <div className="flex justify-center mt-4">
-          <div className="bg-gray-50 p-2 rounded-lg border border-gray-200 flex items-center" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-            <svg className="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
-            </svg>
+        <div className="flex justify-center mb-1">
+          <div className="bg-gray-50 p-1 rounded-lg border border-gray-200 flex items-center" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
+            <span 
+              className="material-symbols-outlined animated-gradient-text" 
+              style={{ 
+                fontSize: '24px',
+                marginRight: '12px'
+              }}
+            >
+              bolt
+            </span>
             <span className="text-xs text-gray-600">Insights are updated daily. Last update: <span className="font-medium">Today, 9:41 AM</span></span>
+          </div>
+        </div>
+        
+        <div className="mt-6">
+          <div 
+            className="value-container"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s'
+            }}
+          >
+            <div style={{ 
+              marginRight: '12px',
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center' 
+            }}>
+              <span 
+                className="material-symbols-outlined animated-gradient-text" 
+                style={{ 
+                  fontSize: '24px'
+                }}
+              >
+                bolt
+              </span>
+            </div>
+            <p className="value-text">Gain actionable insights from real-time analytics to optimize marketing spend and increase ROI by 30%.</p>
           </div>
         </div>
       </div>
