@@ -120,6 +120,111 @@ const MaterialSymbolsCSS = () => {
 
 ## Slide 6 Icons (Acquisition)
 
+### Website Migration (Material Symbols)
+```jsx
+<div style={{ marginBottom: '15px' }}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    browse_activity
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Completely removed all container elements to eliminate the circle
+- Doubled the icon size from 24px to 48px
+- Added 15px padding below the icon for better spacing
+- Applied a true animated gradient using CSS animations
+- Created a reusable `animated-gradient-text` class in SlideStyles.css
+
+### SEO Optimization (Material Symbols)
+```jsx
+<div style={{ marginBottom: '15px' }}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    search_insights
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "search_insights" icon
+- Applies the same animated gradient styling as Website Migration icon
+- Includes 15px padding below the icon for consistent spacing
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px to match other icons
+
+### Social Media (Material Symbols)
+```jsx
+<div style={{ marginBottom: '15px' }}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    brand_awareness
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "brand_awareness" icon
+- Applies the same animated gradient styling as other icons
+- Includes 15px padding below the icon for consistent spacing
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px to match other icons
+
+### Social Media (Material Symbols)
+```jsx
+<div style={{ marginBottom: '15px' }}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    brand_awareness
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "brand_awareness" icon
+- Applies the same animated gradient styling as other icons
+- Includes 15px padding below the icon for consistent spacing
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px to match other icons
+
+### Content Creation (Material Symbols)
+```jsx
+<div style={{ marginBottom: '15px' }}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '48px'
+    }}
+  >
+    auto_stories
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "auto_stories" icon
+- Applies the same animated gradient styling as other icons
+- Includes 15px padding below the icon for consistent spacing
+- Uses the reusable `animated-gradient-text` class for the animation effect
+- Icon size set to 48px to match other icons
+
 ### Lead Magnet
 ```svg
 <svg class="enhanced-icon" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

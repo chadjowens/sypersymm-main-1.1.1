@@ -53,6 +53,23 @@
   display: inline-block;
 }
 
+/* Animated dotted line */
+.animated-dotted-line {
+  height: 2px;
+  background: linear-gradient(to right, #8A2BE2 50%, transparent 50%);
+  background-size: 20px 2px;
+  animation: move-line 1.5s linear infinite;
+}
+
+@keyframes move-line {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 0;
+  }
+}
+
 /* Slide Footer Styles */
 .slide-footer-logo {
   font-weight: normal;
