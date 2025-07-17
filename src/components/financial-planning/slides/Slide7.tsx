@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
@@ -11,6 +11,13 @@ import '../styles/SlideStyles.css';
  * @returns {JSX.Element} The rendered Slide7 component
  */
 const Slide7: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    // Set visible after component mounts to trigger animations
+    setIsVisible(true);
+  }, []);
+  
   return (
     <div 
       className="slide-container" 
@@ -29,7 +36,14 @@ const Slide7: React.FC = () => {
       
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: 'transparent' }}>
         {/* Title Section with good spacing from top */}
-        <div className="mt-12 mb-6">
+        <div 
+          className="mt-12 mb-6"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+            transition: 'opacity 0.7s ease-in-out, transform 0.7s ease-in-out'
+          }}
+        >
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">02 | Sales</h1>
           <div className="w-24 h-1 bg-purple-600 mt-3"></div>
           <p className="text-lg mt-4 text-gray-800">AI-powered sales acceleration through an intelligent, optimized pipeline:</p>
@@ -39,10 +53,23 @@ const Slide7: React.FC = () => {
         <div className="mb-12">
           <div className="flex justify-between items-start mt-6 relative">
             {/* Animated dotted timeline connector line */}
-            <div className="absolute animated-dotted-line top-7 left-0 right-0 z-0"></div>
+            <div 
+              className="absolute animated-dotted-line top-7 left-0 right-0 z-0"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transition: 'opacity 0.7s ease-in-out 1.6s'
+              }}
+            ></div>
             
             {/* Lead Generation - Using Material Symbols */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.4s, transform 0.7s ease-in-out 0.4s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -69,7 +96,14 @@ const Slide7: React.FC = () => {
             </div>
             
             {/* Outbound Campaigns - Using Material Symbols */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.8s, transform 0.7s ease-in-out 0.8s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -96,7 +130,14 @@ const Slide7: React.FC = () => {
             </div>
             
             {/* Lead Scoring & Pipeline - Using Material Symbols */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 1.2s, transform 0.7s ease-in-out 1.2s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -123,7 +164,14 @@ const Slide7: React.FC = () => {
             </div>
             
             {/* Call Transcript Analysis - Using Material Symbols */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 1.6s, transform 0.7s ease-in-out 1.6s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -150,11 +198,30 @@ const Slide7: React.FC = () => {
             </div>
           </div>
           
-          <div className="value-container">
-            <svg className="w-6 h-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"></path>
-            </svg>
-            <p className="value-text">Value: Never run out of prospects with AI-powered lead generation and increase close rates with intelligent scoring and follow-up systems.</p>
+          <div 
+            className="value-container"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s'
+            }}
+          >
+            <div style={{ 
+              marginRight: '12px',
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center' 
+            }}>
+              <span 
+                className="material-symbols-outlined animated-gradient-text" 
+                style={{ 
+                  fontSize: '24px'
+                }}
+              >
+                bolt
+              </span>
+            </div>
+            <p className="value-text">Never run out of prospects with AI-powered lead generation and increase close rates with intelligent scoring and follow-up systems.</p>
           </div>
         </div>
       </div>

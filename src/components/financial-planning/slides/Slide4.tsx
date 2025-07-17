@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
@@ -11,6 +11,13 @@ import '../styles/SlideStyles.css';
  * @returns {JSX.Element} The rendered Slide4 component
  */
 const Slide4: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    // Set visible after component mounts to trigger animations
+    setIsVisible(true);
+  }, []);
+  
   return (
     <div 
       className="slide-container" 
@@ -29,7 +36,14 @@ const Slide4: React.FC = () => {
       
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: 'transparent' }}>
         {/* Title Section with good spacing from top */}
-        <div className="mt-12 mb-6">
+        <div 
+          className="mt-12 mb-6"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+            transition: 'opacity 0.7s ease-in-out, transform 0.7s ease-in-out',
+          }}
+        >
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
             About Supersymmetry
           </h1>
@@ -39,17 +53,41 @@ const Slide4: React.FC = () => {
         {/* Content Area */}
         <div className="mb-20">
           <div className="grid grid-cols-1 gap-2">
-            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+            <div 
+              className="p-5 shadow-sm border-l-4 border-purple-600" 
+              style={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.3s, transform 0.7s ease-in-out 0.3s'
+              }}
+            >
               <div className="text-xl font-semibold text-purple-600 mb-2">Who We Are</div>
               <p className="text-gray-700">An AI transformation partner leveraging Agentic AI to position organizations at the forefront of the digital revolution. We specialize in creating intelligent, autonomous systems that act as powerful force multipliers for your business.</p>
             </div>
             
-            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+            <div 
+              className="p-5 shadow-sm border-l-4 border-purple-600" 
+              style={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.5s, transform 0.7s ease-in-out 0.5s'
+              }}
+            >
               <div className="text-xl font-semibold text-purple-600 mb-2">What We Do</div>
               <p className="text-gray-700">We build, deploy, and accelerate your digital operations with intelligent agent teams that work across your ecosystem. Our solutions optimize lead generation, enhance sales efficiency, streamline customer servicing, and drive data-driven decisions.</p>
             </div>
             
-            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+            <div 
+              className="p-5 shadow-sm border-l-4 border-purple-600" 
+              style={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.7s, transform 0.7s ease-in-out 0.7s'
+              }}
+            >
               <div className="text-xl font-semibold text-purple-600 mb-2">Our Philosophy</div>
               <p className="text-gray-700">True digital transformation extends beyond mere automation; it involves creating intelligent, autonomous agent teams that amplify human capabilities. This collaborative intelligence creates a force multiplier effect, enabling you to achieve significantly greater outcomes with existing resources.</p>
             </div>

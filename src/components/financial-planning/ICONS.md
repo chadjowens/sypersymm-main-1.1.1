@@ -495,6 +495,32 @@ const MaterialSymbolsCSS = () => {
 - Uses the reusable `animated-gradient-text` class for the animation effect
 - Icon size set to 48px for consistency
 
+### Value Section (Material Symbols - Slides 6, 7, 8)
+```jsx
+<div style={{ 
+  marginRight: '12px',
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center' 
+}}>
+  <span 
+    className="material-symbols-outlined animated-gradient-text" 
+    style={{ 
+      fontSize: '24px'
+    }}
+  >
+    bolt
+  </span>
+</div>
+```
+
+**Styling Notes:**
+- Uses the Material Symbols "bolt" icon
+- Applies the same animated gradient styling as other icons
+- Smaller size (24px) to fit in the Value section
+- Used consistently across Slides 6, 7, and 8 for the Value sections
+- Uses the reusable `animated-gradient-text` class for the animation effect
+
 ### Lead Magnet
 ```svg
 <svg class="enhanced-icon" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
@@ -11,6 +11,13 @@ import '../styles/SlideStyles.css';
  * @returns {JSX.Element} The rendered Slide2 component
  */
 const Slide2: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    // Set visible after component mounts to trigger animations
+    setIsVisible(true);
+  }, []);
+  
   return (
     <div 
       className="slide-container" 
@@ -29,7 +36,14 @@ const Slide2: React.FC = () => {
       
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: 'transparent' }}>
         {/* Title Section with good spacing from top */}
-        <div className="mt-16 mb-8">
+        <div 
+          className="mt-16 mb-8"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+            transition: 'opacity 0.7s ease-in-out, transform 0.7s ease-in-out',
+          }}
+        >
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
             The AI Transformation Imperative
           </h1>
@@ -40,28 +54,67 @@ const Slide2: React.FC = () => {
         {/* Content Area */}
         <div className="mb-8">
           <div className="grid grid-cols-2 gap-4">
-            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div 
+              className="p-4 shadow-sm border-l-4 border-purple-600" 
+              style={{ 
+                backgroundColor: '#ffffff',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.3s, transform 0.7s ease-in-out 0.3s'
+              }}
+            >
               <span className="text-xl font-bold text-purple-600">$4.4 trillion</span>
               <p className="text-gray-700">Long-term AI productivity potential (McKinsey)</p>
             </div>
             
-            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div 
+              className="p-4 shadow-sm border-l-4 border-purple-600" 
+              style={{ 
+                backgroundColor: '#ffffff',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.5s, transform 0.7s ease-in-out 0.5s'
+              }}
+            >
               <span className="text-xl font-bold text-purple-600">4× growth</span>
               <p className="text-gray-700">Productivity nearly quadrupled in AI-exposed industries since 2022</p>
             </div>
             
-            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div 
+              className="p-4 shadow-sm border-l-4 border-purple-600" 
+              style={{ 
+                backgroundColor: '#ffffff',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.7s, transform 0.7s ease-in-out 0.7s'
+              }}
+            >
               <span className="text-xl font-bold text-purple-600">56%</span>
               <p className="text-gray-700">Wage premium for jobs requiring AI skills</p>
             </div>
             
-            <div className="p-4 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div 
+              className="p-4 shadow-sm border-l-4 border-purple-600" 
+              style={{ 
+                backgroundColor: '#ffffff',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.9s, transform 0.7s ease-in-out 0.9s'
+              }}
+            >
               <span className="text-xl font-bold text-purple-600">80%</span>
               <p className="text-gray-700">Productivity improvement reported by workers using AI tools</p>
             </div>
           </div>
           
-          <div className="mt-6 text-lg">
+          <div 
+            className="mt-6 text-lg"
+            style={{ 
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.7s ease-in-out 1.1s, transform 0.7s ease-in-out 1.1s'
+            }}
+          >
             <p className="font-semibold text-gray-800">3 out of 5 business owners predict AI will drive sales growth</p>
             <p className="mt-3 text-gray-800 font-semibold italic">The message is clear: AI adoption is no longer optional—it's a competitive imperative.</p>
           </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
@@ -11,6 +11,13 @@ import '../styles/SlideStyles.css';
  * @returns {JSX.Element} The rendered Slide8 component
  */
 const Slide8: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    // Set visible after component mounts to trigger animations
+    setIsVisible(true);
+  }, []);
+  
   return (
     <div 
       className="slide-container" 
@@ -29,7 +36,14 @@ const Slide8: React.FC = () => {
       
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: 'transparent' }}>
         {/* Title Section with good spacing from top */}
-        <div className="mt-12 mb-6">
+        <div 
+          className="mt-12 mb-6"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+            transition: 'opacity 0.7s ease-in-out, transform 0.7s ease-in-out'
+          }}
+        >
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">03 | Servicing (Client &amp; Team Experience)</h1>
           <div className="w-24 h-1 bg-purple-600 mt-3"></div>
           <p className="text-lg mt-4 text-gray-800">Optimizing knowledge, service and support through advanced automation and personalized interactions.</p>
@@ -39,10 +53,23 @@ const Slide8: React.FC = () => {
         <div className="mb-12">
           <div className="flex justify-between items-start mt-6 relative">
             {/* Animated dotted timeline connector line */}
-            <div className="absolute animated-dotted-line top-7 left-8 right-8 z-0"></div>
+            <div 
+              className="absolute animated-dotted-line top-7 left-8 right-8 z-0"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transition: 'opacity 0.7s ease-in-out 2.0s'
+              }}
+            ></div>
             
             {/* Onboarding - Using Material Symbols */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.4s, transform 0.7s ease-in-out 0.4s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -69,7 +96,14 @@ const Slide8: React.FC = () => {
             </div>
             
             {/* Self-Service Portal - Using Material Symbols */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.8s, transform 0.7s ease-in-out 0.8s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -96,7 +130,14 @@ const Slide8: React.FC = () => {
             </div>
             
             {/* Multi-modal Chat - Using Material Symbols */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 1.2s, transform 0.7s ease-in-out 1.2s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -123,7 +164,14 @@ const Slide8: React.FC = () => {
             </div>
             
             {/* Meeting Automation - Using Material Symbols */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 1.6s, transform 0.7s ease-in-out 1.6s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -150,7 +198,14 @@ const Slide8: React.FC = () => {
             </div>
             
             {/* Knowledge Base - Using Material Symbols */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -178,11 +233,30 @@ const Slide8: React.FC = () => {
           </div>
           
           <div className="mt-6">
-            <div className="value-container">
-              <svg className="w-6 h-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
-              </svg>
-              <p className="value-text">Value: Provide instant, 24/7 personalized support while reducing response times from hours to seconds, improving satisfaction.</p>
+            <div 
+              className="value-container"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 2.4s, transform 0.7s ease-in-out 2.4s'
+              }}
+            >
+              <div style={{ 
+                marginRight: '12px',
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center' 
+              }}>
+                <span 
+                  className="material-symbols-outlined animated-gradient-text" 
+                  style={{ 
+                    fontSize: '24px'
+                  }}
+                >
+                  bolt
+                </span>
+              </div>
+              <p className="value-text">Provide instant, 24/7 personalized support while reducing response times from hours to seconds, improving satisfaction.</p>
             </div>
           </div>
         </div>

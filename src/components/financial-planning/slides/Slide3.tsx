@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
@@ -11,6 +11,13 @@ import '../styles/SlideStyles.css';
  * @returns {JSX.Element} The rendered Slide3 component
  */
 const Slide3: React.FC<{ businessName?: string }> = ({ businessName = 'Your Business' }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    // Set visible after component mounts to trigger animations
+    setIsVisible(true);
+  }, []);
+  
   return (
     <div 
       className="slide-container" 
@@ -29,7 +36,14 @@ const Slide3: React.FC<{ businessName?: string }> = ({ businessName = 'Your Busi
       
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: 'transparent' }}>
         {/* Title Section with good spacing from top */}
-        <div className="mt-12 mb-6">
+        <div 
+          className="mt-12 mb-6"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+            transition: 'opacity 0.7s ease-in-out, transform 0.7s ease-in-out',
+          }}
+        >
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
             Implications for {businessName}
           </h1>
@@ -40,17 +54,41 @@ const Slide3: React.FC<{ businessName?: string }> = ({ businessName = 'Your Busi
         {/* Content Area */}
         <div className="mb-12">
           <div className="grid grid-cols-1 gap-2">
-            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div 
+              className="p-5 shadow-sm border-l-4 border-purple-600" 
+              style={{ 
+                backgroundColor: '#ffffff',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.3s, transform 0.7s ease-in-out 0.3s'
+              }}
+            >
               <div className="text-xl font-semibold text-purple-600 mb-2">Competitive Pressure</div>
               <p className="text-gray-700">The rapid adoption of AI solutions is creating a widening gap between digital leaders and laggards. Organizations that delay transformation risk falling permanently behind as competitors leverage AI for efficiency and growth.</p>
             </div>
             
-            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div 
+              className="p-5 shadow-sm border-l-4 border-purple-600" 
+              style={{ 
+                backgroundColor: '#ffffff',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.5s, transform 0.7s ease-in-out 0.5s'
+              }}
+            >
               <div className="text-xl font-semibold text-purple-600 mb-2">Growth Opportunity</div>
               <p className="text-gray-700">Strategic AI implementation offers exponential growth potential through enhanced operational efficiency, accelerated sales cycles, and improved customer experiences—driving both top and bottom line results.</p>
             </div>
             
-            <div className="p-5 shadow-sm border-l-4 border-purple-600" style={{ backgroundColor: '#ffffff' }}>
+            <div 
+              className="p-5 shadow-sm border-l-4 border-purple-600" 
+              style={{ 
+                backgroundColor: '#ffffff',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.7s, transform 0.7s ease-in-out 0.7s'
+              }}
+            >
               <div className="text-xl font-semibold text-purple-600 mb-2">Cost of Inaction</div>
               <p className="text-gray-700">Beyond missed opportunities, the existential risk of digital stagnation grows daily. As AI adoption accelerates across industries, the competitive disadvantage compounds, making later transformation increasingly difficult.</p>
             </div>

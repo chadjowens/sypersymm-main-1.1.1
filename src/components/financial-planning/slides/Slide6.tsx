@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
@@ -11,6 +11,13 @@ import '../styles/SlideStyles.css';
  * @returns {JSX.Element} The rendered Slide6 component
  */
 const Slide6: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    // Set visible after component mounts to trigger animations
+    setIsVisible(true);
+  }, []);
+  
   return (
     <div 
       className="slide-container" 
@@ -29,7 +36,14 @@ const Slide6: React.FC = () => {
       
       <div className="relative z-10 px-16 h-full flex flex-col" style={{ backgroundColor: 'transparent' }}>
         {/* Title Section with good spacing from top */}
-        <div className="mt-12 mb-6">
+        <div 
+          className="mt-12 mb-6"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+            transition: 'opacity 0.7s ease-in-out, transform 0.7s ease-in-out'
+          }}
+        >
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">01 | Foundation</h1>
           <div className="w-24 h-1 bg-purple-600 mt-3"></div>
           <p className="text-lg mt-4 text-gray-800">Establishing a robust digital infrastructure and presence essential for all subsequent initiatives.</p>
@@ -39,10 +53,23 @@ const Slide6: React.FC = () => {
         <div className="mb-12">
           <div className="flex justify-between items-start mb-5 mt-6 relative">
             {/* Animated dotted timeline connector line */}
-            <div className="absolute animated-dotted-line top-7 left-0 right-0 z-0"></div>
+            <div 
+              className="absolute animated-dotted-line top-7 left-0 right-0 z-0"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transition: 'opacity 0.7s ease-in-out 1.6s'
+              }}
+            ></div>
             
             {/* Step 1 - Website Migration (Material Symbols) */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.4s, transform 0.7s ease-in-out 0.4s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -70,7 +97,14 @@ const Slide6: React.FC = () => {
             </div>
             
             {/* Step 2 - SEO Optimization (Material Symbols) */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 0.8s, transform 0.7s ease-in-out 0.8s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -98,7 +132,14 @@ const Slide6: React.FC = () => {
             </div>
             
             {/* Step 3 - Social Media (Material Symbols) */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 1.2s, transform 0.7s ease-in-out 1.2s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -126,7 +167,14 @@ const Slide6: React.FC = () => {
             </div>
             
             {/* Step 4 - Content Creation (Material Symbols) */}
-            <div className="flex-1 px-2 relative z-10 flex flex-col items-center">
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 1.6s, transform 0.7s ease-in-out 1.6s'
+              }}
+            >
               <div style={{ 
                 marginBottom: '15px', 
                 backgroundColor: 'white', 
@@ -154,11 +202,30 @@ const Slide6: React.FC = () => {
             </div>
           </div>
           
-          <div className="value-container">
-            <svg className="w-6 h-6 text-yellow-500 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
-            </svg>
-            <p className="value-text">Value: Eliminate dependence on third-party providers while gaining control over your digital presence and capturing more organic traffic.</p>
+          <div 
+            className="value-container"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s'
+            }}
+          >
+            <div style={{ 
+              marginRight: '12px',
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center' 
+            }}>
+              <span 
+                className="material-symbols-outlined animated-gradient-text" 
+                style={{ 
+                  fontSize: '24px'
+                }}
+              >
+                bolt
+              </span>
+            </div>
+            <p className="value-text">Eliminate dependence on third-party providers while gaining control over your digital presence and capturing more organic traffic.</p>
           </div>
         </div>
       </div>
