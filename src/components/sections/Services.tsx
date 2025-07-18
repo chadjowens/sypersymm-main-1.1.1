@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useThemeStore } from '../../store/themeStore';
 import { Brain, Rocket, Code, Palette, LineChart, Wand2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -148,9 +148,60 @@ export const services = [
  */
 export const Services: React.FC = () => {
   const { isDarkMode } = useThemeStore();
-  const [animatingIndex, setAnimatingIndex] = React.useState<number | null>(null);
+  const [animatingIndex, setAnimatingIndex] = useState<number | null>(null);
+  
+  // Animation states for different sections
+  const [animationState, setAnimationState] = useState({
+    header: false,
+    description: false,
+    cards: false
+  });
+  
+  // Refs for sections to observe
+  const headerRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
+  // Set up intersection observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      root: null, // viewport
+      rootMargin: '0px',
+      threshold: 0.2 // 20% of the element must be visible
+    };
+    
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Determine which element came into view
+          if (entry.target === headerRef.current) {
+            setAnimationState(prev => ({ ...prev, header: true }));
+          } else if (entry.target === descriptionRef.current) {
+            setAnimationState(prev => ({ ...prev, description: true }));
+          } else if (entry.target === cardsRef.current) {
+            setAnimationState(prev => ({ ...prev, cards: true }));
+          }
+        }
+      });
+    };
+    
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Observe all section elements
+    if (headerRef.current) observer.observe(headerRef.current);
+    if (descriptionRef.current) observer.observe(descriptionRef.current);
+    if (cardsRef.current) observer.observe(cardsRef.current);
+    
+    // Clean up
+    return () => {
+      if (headerRef.current) observer.unobserve(headerRef.current);
+      if (descriptionRef.current) observer.unobserve(descriptionRef.current);
+      if (cardsRef.current) observer.unobserve(cardsRef.current);
+    };
+  }, []);
+  
+  // Service card animation cycle
+  useEffect(() => {
     console.log('Setting up animation cycle');
     let timeoutId: NodeJS.Timeout;
     let intervalId: NodeJS.Timeout;
@@ -175,36 +226,55 @@ export const Services: React.FC = () => {
       }, 3000);
     };
 
-    // Initial animation
-    startAnimationCycle();
-
-    // Set up interval for future animations
-    intervalId = setInterval(() => {
+    // Initial animation - only if cards are visible
+    if (animationState.cards) {
       startAnimationCycle();
-    }, 8000); // Increased to 8 seconds for 5 second gap between 3-second animations
+
+      // Set up interval for future animations
+      intervalId = setInterval(() => {
+        startAnimationCycle();
+      }, 8000); // Increased to 8 seconds for 5 second gap between 3-second animations
+    }
 
     return () => {
       clearTimeout(timeoutId);
       clearInterval(intervalId);
     };
-  }, []); // Remove animatingIndex dependency
+  }, [animationState.cards]); // Only restart when cards become visible
 
   return (
     <section id="services" className="min-h-screen flex items-center justify-center px-4 py-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl section-header mb-4 ${
-            isDarkMode ? 'text-white' : 'text-gray-900'
-          }`}>
+          <h2 
+            ref={headerRef}
+            className={`text-4xl md:text-5xl section-header mb-4 transition-all transform duration-1000 ease-out ${
+              isDarkMode ? 'text-white' : 'text-gray-900'
+            } ${
+              animationState.header ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
+            }`}
+          >
             Our Services
           </h2>
-          <p className={`text-xl md:text-2xl font-light ${
-            isDarkMode ? 'text-gray-200' : 'text-gray-600'
-          }`}>
+          <p 
+            ref={descriptionRef}
+            className={`text-xl md:text-2xl font-light transition-all transform duration-1000 ease-in ${
+              isDarkMode ? 'text-gray-200' : 'text-gray-600'
+            } ${
+              animationState.description ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
+            }`}
+            style={{ transitionDelay: '200ms' }}
+          >
             Comprehensive solutions for your digital transformation journey
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div 
+          ref={cardsRef}
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all transform duration-1000 ease-out ${
+            animationState.cards ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
+          }`}
+          style={{ transitionDelay: '400ms' }}
+        >
           {services.map((service, index) => (
             <ServiceCard 
               key={service.slug} 

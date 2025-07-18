@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useThemeStore } from '../../store/themeStore';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
@@ -39,6 +39,56 @@ export const Contact: React.FC = () => {
     type: 'success' | 'error' | null;
     message: string;
   }>({ type: null, message: '' });
+  
+  // Animation states for different sections
+  const [animationState, setAnimationState] = useState({
+    header: false,
+    description: false,
+    form: false
+  });
+  
+  // Refs for sections to observe
+  const headerRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  
+  // Set up intersection observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      root: null, // viewport
+      rootMargin: '0px',
+      threshold: 0.2 // 20% of the element must be visible
+    };
+    
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Determine which element came into view
+          if (entry.target === headerRef.current) {
+            setAnimationState(prev => ({ ...prev, header: true }));
+          } else if (entry.target === descriptionRef.current) {
+            setAnimationState(prev => ({ ...prev, description: true }));
+          } else if (entry.target === formRef.current) {
+            setAnimationState(prev => ({ ...prev, form: true }));
+          }
+        }
+      });
+    };
+    
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Observe all section elements
+    if (headerRef.current) observer.observe(headerRef.current);
+    if (descriptionRef.current) observer.observe(descriptionRef.current);
+    if (formRef.current) observer.observe(formRef.current);
+    
+    // Clean up
+    return () => {
+      if (headerRef.current) observer.unobserve(headerRef.current);
+      if (descriptionRef.current) observer.unobserve(descriptionRef.current);
+      if (formRef.current) observer.unobserve(formRef.current);
+    };
+  }, []);
 
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: '',
@@ -120,17 +170,37 @@ export const Contact: React.FC = () => {
     <section id="contact" className="min-h-screen flex items-center justify-center px-4 py-20">
       <div className="max-w-3xl mx-auto w-full">
         <div className="text-center mb-12">
-          <h2 className={`text-4xl md:text-5xl section-header mb-4 ${
-            isDarkMode ? 'text-white' : 'text-gray-900'
-          }`}>
+          <h2 
+            ref={headerRef}
+            className={`text-4xl md:text-5xl section-header mb-4 transition-all transform duration-1000 ease-out ${
+              isDarkMode ? 'text-white' : 'text-gray-900'
+            } ${
+              animationState.header ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
+            }`}
+          >
             Contact Us
           </h2>
-          <p className={`text-xl md:text-2xl font-light ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
+          <p 
+            ref={descriptionRef}
+            className={`text-xl md:text-2xl font-light transition-all transform duration-1000 ease-out ${
+              isDarkMode ? 'text-gray-200' : 'text-gray-600'
+            } ${
+              animationState.description ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
+            }`}
+            style={{ transitionDelay: '200ms' }}
+          >
             Let's discuss your project and bring your ideas to life
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form 
+          ref={formRef}
+          onSubmit={handleSubmit} 
+          className={`space-y-6 transition-all transform duration-1000 ease-out ${
+            animationState.form ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
+          }`}
+          style={{ transitionDelay: '400ms' }}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="fullName" className={labelClassName}>Full Name</label>
