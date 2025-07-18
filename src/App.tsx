@@ -3,6 +3,7 @@ import { Navbar } from './layouts/core/Navbar';
 import { Background } from './layouts/core/Background';
 import { useThemeStore } from './store/themeStore';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
+import { ThreeJsPreloader } from './components/common/ThreeJsPreloader';
 import HomePage from './pages/HomePage';
 import ServicePage from './pages/ServicePage';
 import PresentationDeckPage from './pages/PresentationDeckPage';
@@ -52,6 +53,9 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 function App() {
   return (
     <Router>
+      {/* Preload Three.js as early as possible */}
+      <ThreeJsPreloader />
+      
       <Routes>
         <Route path="/" element={<AppLayout><HomePage /></AppLayout>} />
         <Route path="/services/:serviceSlug" element={<AppLayout><ServicePage /></AppLayout>} />
