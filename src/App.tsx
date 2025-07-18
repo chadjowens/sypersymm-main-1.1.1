@@ -34,7 +34,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   
   // Don't render the main Navbar on the financial-planning-2 page
   // since it has its own SimpleNavbar
-  const showMainNavbar = location.pathname !== '/financial-planning-2';
+  const showMainNavbar = location.pathname !== '/sample-proposal';
   
   return (
     <div className={`relative min-h-screen ${isDarkMode ? 'dark' : 'light'}`}>
