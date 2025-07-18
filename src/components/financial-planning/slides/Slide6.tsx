@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
+// Custom styles for this slide
+const contentBoxStyle = {
+  backgroundColor: 'rgba(255, 255, 255, 0.9)', // Lighter background
+  boxShadow: '0 4px 10px -2px rgba(0, 0, 0, 0.06)' // Reduced drop shadow
+};
+
 /**
  * Slide6 component - Foundation
  * 
@@ -89,10 +95,10 @@ const Slide6: React.FC = () => {
                   browse_activity
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Website Migration</h3>
                 <p className="content-box-text">High-performance hosting, domain management, lead capture landing pages</p>
-                <div className="content-box-phase">Phase 1</div>
+                
               </div>
             </div>
             
@@ -124,10 +130,10 @@ const Slide6: React.FC = () => {
                   search_insights
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">SEO Optimization</h3>
                 <p className="content-box-text">Web chat implementation, search visibility, organic traffic growth</p>
-                <div className="content-box-phase">Phase 2</div>
+                
               </div>
             </div>
             
@@ -159,10 +165,10 @@ const Slide6: React.FC = () => {
                   brand_awareness
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Social Media</h3>
                 <p className="content-box-text">Consistent social presence with automated posting and content calendars</p>
-                <div className="content-box-phase">Phase 3</div>
+                
               </div>
             </div>
             
@@ -194,38 +200,35 @@ const Slide6: React.FC = () => {
                   auto_stories
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Content Creation</h3>
                 <p className="content-box-text">Newsletters, whitepapers, e-books, and CTA optimization</p>
-                <div className="content-box-phase">Phase 4</div>
+                
               </div>
             </div>
           </div>
           
-          <div 
-            className="value-container"
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
-              transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s'
-            }}
-          >
-            <div style={{ 
-              marginRight: '12px',
-              display: 'flex', 
-              justifyContent: 'center', 
-              alignItems: 'center' 
-            }}>
+          <div className="mt-6 flex justify-center">
+            <div 
+              className="bg-gray-50 p-1 rounded-lg border border-gray-200 flex items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s',
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+              }}
+            >
               <span 
                 className="material-symbols-outlined animated-gradient-text" 
                 style={{ 
-                  fontSize: '24px'
+                  fontSize: '24px',
+                  marginRight: '12px'
                 }}
               >
                 bolt
               </span>
+              <span className="text-xs text-gray-600">Eliminate dependence on third-party providers while gaining control over your digital presence and capturing more organic traffic.</span>
             </div>
-            <p className="value-text">Eliminate dependence on third-party providers while gaining control over your digital presence and capturing more organic traffic.</p>
           </div>
         </div>
       </div>

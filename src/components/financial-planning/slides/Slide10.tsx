@@ -403,32 +403,29 @@ const Slide10: React.FC = () => {
         bottom: '70px',
         width: '100%',
         padding: '0 40px',
-        zIndex: 5 /* Lower z-index to ensure it's behind the mobile screen */
+        zIndex: 5, /* Lower z-index to ensure it's behind the mobile screen */
+        display: 'flex',
+        justifyContent: 'center'
       }}>
         <div 
-          className="bg-gray-50 p-3 rounded-lg border border-gray-200 flex items-center"
+          className="bg-gray-50 p-1 rounded-lg border border-gray-200 flex items-center"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'scale(1)' : 'scale(0.97)',
-            transition: 'opacity 0.7s ease-in-out 2.4s, transform 0.7s ease-in-out 2.4s'
+            transition: 'opacity 0.7s ease-in-out 2.4s, transform 0.7s ease-in-out 2.4s',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
           }}
         >
-          <div style={{ 
-            marginRight: '12px',
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center' 
-          }}>
-            <span 
-              className="material-symbols-outlined animated-gradient-text" 
-              style={{ 
-                fontSize: '24px'
-              }}
-            >
-              bolt
-            </span>
-          </div>
-          <p className="font-semibold text-gray-800">Create a future-ready organization that continuously evolves with technological advancements.</p>
+          <span 
+            className="material-symbols-outlined animated-gradient-text" 
+            style={{ 
+              fontSize: '24px',
+              marginRight: '12px'
+            }}
+          >
+            bolt
+          </span>
+          <span className="text-xs text-gray-600">Create a future-ready organization that continuously evolves with technological advancements.</span>
         </div>
       </div>
       

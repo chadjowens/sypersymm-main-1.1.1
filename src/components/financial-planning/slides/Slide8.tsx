@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
+// Custom styles for this slide
+const contentBoxStyle = {
+  backgroundColor: 'rgba(255, 255, 255, 0.9)', // Lighter background
+  boxShadow: '0 4px 10px -2px rgba(0, 0, 0, 0.06)' // Reduced drop shadow
+};
+
 /**
  * Slide8 component - Servicing (Client & Team Experience)
  * 
@@ -89,7 +95,7 @@ const Slide8: React.FC = () => {
                   person_raised_hand
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Customer Onboarding</h3>
                 <p className="content-box-text">Streamlined welcome process with automated calls, document distribution, and client intake.</p>
               </div>
@@ -123,7 +129,7 @@ const Slide8: React.FC = () => {
                   dashboard_customize
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Self-Service Portal</h3>
                 <p className="content-box-text">24/7 client portal with automated onboarding and form distribution for immediate access.</p>
               </div>
@@ -157,7 +163,7 @@ const Slide8: React.FC = () => {
                   voice_chat
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Multi-modal Chat</h3>
                 <p className="content-box-text">AI conversations across platforms with instant chat-based Q&amp;A support.</p>
               </div>
@@ -191,7 +197,7 @@ const Slide8: React.FC = () => {
                   calendar_clock
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Meeting Automation</h3>
                 <p className="content-box-text">Smart scheduling, reminders, and follow-ups to optimize client meetings.</p>
               </div>
@@ -225,38 +231,33 @@ const Slide8: React.FC = () => {
                   network_intel_node
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Knowledge Base</h3>
                 <p className="content-box-text">Secure RAG-based repository with voice/chat access to business knowledge.</p>
               </div>
             </div>
           </div>
           
-          <div className="mt-6">
+          <div className="mt-6 flex justify-center">
             <div 
-              className="value-container"
+              className="bg-gray-50 p-1 rounded-lg border border-gray-200 flex items-center"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'scale(1)' : 'scale(0.98)',
-                transition: 'opacity 0.7s ease-in-out 2.4s, transform 0.7s ease-in-out 2.4s'
+                transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s',
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
               }}
             >
-              <div style={{ 
-                marginRight: '12px',
-                display: 'flex', 
-                justifyContent: 'center', 
-                alignItems: 'center' 
-              }}>
-                <span 
-                  className="material-symbols-outlined animated-gradient-text" 
-                  style={{ 
-                    fontSize: '24px'
-                  }}
-                >
-                  bolt
-                </span>
-              </div>
-              <p className="value-text">Provide instant, 24/7 personalized support while reducing response times from hours to seconds, improving satisfaction.</p>
+              <span 
+                className="material-symbols-outlined animated-gradient-text" 
+                style={{ 
+                  fontSize: '24px',
+                  marginRight: '12px'
+                }}
+              >
+                bolt
+              </span>
+              <span className="text-xs text-gray-600">Provide instant, 24/7 personalized support through multimodal chat and self-service portals, while streamlining onboarding and leveraging shared team knowledge to reduce response times from hours to seconds.</span>
             </div>
           </div>
         </div>

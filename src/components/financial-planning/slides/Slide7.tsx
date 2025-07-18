@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import FractalBackground from '../components/FractalBackground';
 import '../styles/SlideStyles.css';
 
+// Custom styles for this slide
+const contentBoxStyle = {
+  backgroundColor: 'rgba(255, 255, 255, 0.9)', // Lighter background
+  boxShadow: '0 4px 10px -2px rgba(0, 0, 0, 0.06)' // Reduced drop shadow
+};
+
 /**
  * Slide7 component - Sales
  * 
@@ -89,7 +95,7 @@ const Slide7: React.FC = () => {
                   filter_alt
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Lead Generation Systems</h3>
                 <p className="content-box-text">Automated lead scraping, qualification, and prioritization from multiple sources.</p>
               </div>
@@ -123,7 +129,7 @@ const Slide7: React.FC = () => {
                   outgoing_mail
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Outbound Email Campaigns</h3>
                 <p className="content-box-text">Personalized outreach optimized for conversion based on prospect's market position.</p>
               </div>
@@ -157,7 +163,7 @@ const Slide7: React.FC = () => {
                   readiness_score
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Lead Scoring &amp; Pipeline</h3>
                 <p className="content-box-text">Intelligent scoring and auto-responders for timely follow-ups and lead nurturing.</p>
               </div>
@@ -191,37 +197,34 @@ const Slide7: React.FC = () => {
                   speech_to_text
                 </span>
               </div>
-              <div className="content-box">
+              <div className="content-box" style={contentBoxStyle}>
                 <h3 className="content-box-header">Call Transcript Analysis</h3>
                 <p className="content-box-text">Virtual assistants that transcribe calls, analyze content, and identify next steps.</p>
               </div>
             </div>
           </div>
           
-          <div 
-            className="value-container"
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
-              transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s'
-            }}
-          >
-            <div style={{ 
-              marginRight: '12px',
-              display: 'flex', 
-              justifyContent: 'center', 
-              alignItems: 'center' 
-            }}>
+          <div className="mt-6 flex justify-center">
+            <div 
+              className="bg-gray-50 p-1 rounded-lg border border-gray-200 flex items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s',
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+              }}
+            >
               <span 
                 className="material-symbols-outlined animated-gradient-text" 
                 style={{ 
-                  fontSize: '24px'
+                  fontSize: '24px',
+                  marginRight: '12px'
                 }}
               >
                 bolt
               </span>
+              <span className="text-xs text-gray-600">Never run out of prospects with AI-powered lead generation and increase close rates with intelligent scoring and follow-up systems.</span>
             </div>
-            <p className="value-text">Never run out of prospects with AI-powered lead generation and increase close rates with intelligent scoring and follow-up systems.</p>
           </div>
         </div>
       </div>

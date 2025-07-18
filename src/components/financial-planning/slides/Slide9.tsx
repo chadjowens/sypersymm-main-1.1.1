@@ -399,7 +399,7 @@ const Slide9: React.FC = () => {
             >
               bolt
             </span>
-            <span className="text-xs text-gray-600">Insights are updated daily. Last update: <span className="font-medium">Today, 9:41 AM</span></span>
+            <span className="text-xs text-gray-600">Unified analytics platform tracking agent team performance across sales, service, and operations for enhanced productivity. </span>
           </div>
         </div>
         

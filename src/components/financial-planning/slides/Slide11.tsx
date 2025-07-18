@@ -49,7 +49,7 @@ const Slide11: React.FC = () => {
           }}
         >
           <h1 className="text-2xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent inline-block leading-tight tracking-tight">
-            Engagement Model
+            Sample Engagement Model
           </h1>
           <div className="w-24 h-1 bg-purple-600 mt-3"></div>
           <p className="text-lg mt-4 text-gray-800">
