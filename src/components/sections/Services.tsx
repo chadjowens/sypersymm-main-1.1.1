@@ -45,6 +45,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slu
       <div 
         style={{
           backgroundColor: bgColor,
+          minHeight: '225px' // Set minimum height for uniform card size
         }}
         className={`
           service-card
@@ -58,6 +59,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slu
           border
           hover:!bg-opacity-70
           cursor-pointer
+          h-full
+          flex flex-col
           ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
           ${isAnimating ? 'service-card-animated' : ''}
         `}
@@ -68,7 +71,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slu
           (e.currentTarget as HTMLElement).style.backgroundColor = bgColor;
         }}
       >
-        <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+        <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
           <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
             {icon}
           </div>
@@ -76,7 +79,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slu
         <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
           {title}
         </h3>
-        <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug`}>
+        <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
           {description}
         </p>
       </div>
