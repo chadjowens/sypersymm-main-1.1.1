@@ -56,7 +56,7 @@ function App() {
         <Route path="/" element={<AppLayout><HomePage /></AppLayout>} />
         <Route path="/services/:serviceSlug" element={<AppLayout><ServicePage /></AppLayout>} />
         <Route path="/financial-planning" element={<AppLayout><PresentationDeckPage /></AppLayout>} />
-        <Route path="/financial-planning-2" element={<AppLayout><FinancialPlanningPage /></AppLayout>} />
+        <Route path="/sample-proposal" element={<AppLayout><FinancialPlanningPage /></AppLayout>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
