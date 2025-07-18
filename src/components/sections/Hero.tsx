@@ -11,7 +11,7 @@ export const Hero: React.FC = () => {
           Super-Powering Digital Experiences //
           <span> Automating Business Impact</span>
         </h1>
-        <p className={`text-xl md:text-2xl mb-8 font-normal ${
+        <p className={`text-xl md:text-2xl mb-8 font-light ${
           isDarkMode ? 'text-gray-100' : 'text-gray-600'
         }`}>
           We combine cutting-edge AI technology with expert development
