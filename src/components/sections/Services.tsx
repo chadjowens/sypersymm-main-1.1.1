@@ -198,7 +198,7 @@ export const Services: React.FC = () => {
           }`}>
             Our Services
           </h2>
-          <p className={`text-xl md:text-2xl font-thin ${
+          <p className={`text-xl md:text-2xl font-normal ${
             isDarkMode ? 'text-gray-200' : 'text-gray-600'
           }`}>
             Comprehensive solutions for your digital transformation journey

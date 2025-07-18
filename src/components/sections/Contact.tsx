@@ -125,7 +125,7 @@ export const Contact: React.FC = () => {
           }`}>
             Contact Us
           </h2>
-          <p className={`text-xl md:text-2xl font-thin ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
+          <p className={`text-xl md:text-2xl font-normal ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
             Let's discuss your project and bring your ideas to life
           </p>
         </div>

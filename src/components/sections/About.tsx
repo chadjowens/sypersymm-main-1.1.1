@@ -16,7 +16,7 @@ export const About: React.FC = () => {
           }`}>
             Hello, we're Supersymmetry
           </h2>
-          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-8 font-thin leading-relaxed ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
+          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-8 font-normal leading-relaxed ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
             Supersymmetry specializes in designing and deploying bespoke <span className="font-bold section-header">agent teams</span> tailored to your specific business needs. Imagine a coordinated network of intelligent AI agents working tirelessly across your digital ecosystem:
           </p>
           
@@ -60,7 +60,7 @@ export const About: React.FC = () => {
             </div>
           </div>
           
-          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-8 font-thin leading-relaxed ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
+          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-8 font-normal leading-relaxed ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
             These agent teams are not simply tools; they
             <span className="section-header font-bold text-3xl mx-1 mr-2"> 1</span> 
             are extensions of your workforce, 
@@ -70,7 +70,7 @@ export const About: React.FC = () => {
             drive unparalleled efficiency and effectiveness.
           </p>
 
-          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-12 font-thin leading-relaxed ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
+          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-12 font-normal leading-relaxed ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
             By offloading repetitive, data-intensive, and time-consuming tasks to these intelligent agents, your human teams are freed to focus on high-value, strategic initiatives, fostering innovation and deeper client relationships.
           </p>
           
@@ -82,13 +82,13 @@ export const About: React.FC = () => {
               This collaborative intelligence creates a force multiplier effect.
           </h3>
           
-          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-10 font-thin leading-relaxed ${
+          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-10 font-normal leading-relaxed ${
             isDarkMode ? 'text-gray-200' : 'text-gray-600'
           }`}>
             Supersymmetry's agent teams enable you to achieve significantly greater outcomes with existing resources. This means accelerated sales cycles, improved customer satisfaction, reduced operational costs, and the ability to scale your operations without linear increases in headcount.
           </p>
           
-          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-10 font-thin leading-relaxed ${
+          <p className={`text-xl md:text-2xl max-w-5xl mx-auto mb-10 font-normal leading-relaxed ${
             isDarkMode ? 'text-gray-200' : 'text-gray-600'
           }`}>
             Our solutions integrate seamlessly with your existing infrastructure, ensuring a smooth transition and rapid time-to-value. Transforming Digital Operations for Accelerated Sales and Growth.
