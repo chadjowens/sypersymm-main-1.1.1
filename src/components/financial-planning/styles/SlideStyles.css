@@ -107,18 +107,18 @@
   min-height: 600px;
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
-  border-radius: 8px;
+  border-radius: 0;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   overflow: hidden;
   margin: 0 auto;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: none;
 }
 
 .dark .slide-container {
   background-color: rgba(31, 41, 55, 0.85);
   backdrop-filter: blur(8px);
   color: #f3f4f6;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: none;
 }
 
 /* Slide Content Styles */
