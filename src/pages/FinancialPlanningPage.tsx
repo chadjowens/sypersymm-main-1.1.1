@@ -182,7 +182,7 @@ const SlideContainer: React.FC = () => {
   
   return (
     <SlideContext.Provider value={contextValue}>
-      <section className="flex flex-col items-center justify-center px-4">
+      <section className="flex flex-col items-center justify-center px-4 bg-transparent">
         <div className="slide-container">
           <div className="content">
             {renderCurrentSlide()}
@@ -210,12 +210,12 @@ const FinancialPlanningPage: React.FC = () => {
   const { isDarkMode } = useThemeStore();
   
   return (
-    <div className={`relative min-h-screen ${isDarkMode ? 'dark bg-gray-900' : 'light bg-gray-50'}`}>
+    <div className={`relative min-h-screen bg-transparent ${isDarkMode ? 'dark' : 'light'}`}>
       <Background />
-      <div className="relative">
+      <div className="relative bg-transparent">
         <SimpleNavbar />
-        <main className="pt-4"> {/* Minimal padding for proper spacing */}
-          <div className="container mx-auto px-4 mb-8">
+        <main className="pt-4 bg-transparent"> {/* Minimal padding for proper spacing */}
+          <div className="container mx-auto px-4 mb-8 bg-transparent">
             <h1 className="text-5xl md:text-6xl font-bold text-center mb-8 hero-header">Sample Proposal</h1>
             <SlideContainer />
           </div>
