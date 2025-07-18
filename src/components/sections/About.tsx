@@ -81,7 +81,7 @@ export const About: React.FC = () => {
               animationState.header ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
             }`}
           >
-            Hello, we're Supersymmetry
+            Hello, we're SUPER{'{SYMMETRY}'}
           </h2>
           <p 
             ref={introRef}
@@ -152,7 +152,7 @@ export const About: React.FC = () => {
             }`}
             style={{ transitionDelay: '600ms' }}
           >
-            These agent teams are not simply tools; they are
+            Agent teams are not simply tools; they are
             <span className="section-header font-bold text-3xl mx-1 mr-2"> 1</span> 
             extensions of your workforce, 
             <span className="section-header font-bold text-3xl mx-1 mr-2"> 2</span> 

@@ -113,7 +113,7 @@ export const services = [
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
-    title: 'UX/UI Design 2.0',
+    title: 'UX/UI & Design Strategy',
     description: 'Create intuitive, beautiful interfaces that delight users and drive engagement.',
     icon: <Palette className="w-6 h-6" />,
     slug: 'ux-ui-design',
