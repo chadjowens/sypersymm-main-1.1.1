@@ -31,8 +31,9 @@ export const Background: React.FC = () => {
     containerRef.current.appendChild(renderer.domElement);
 
     // Particles setup - start with fewer particles for faster initial render
-    const targetParticles = 100000; // Target number of particles
-    const initialParticles = 20000; // Initial number of particles for faster loading
+    const particles = 100000;    // Particle count settings
+    const targetParticles = particles;
+    const initialParticles = 60000;  // Increased initial particles for faster visual density
     let currentParticles = initialParticles;
     
     const geometry = new THREE.BufferGeometry();
@@ -114,8 +115,8 @@ export const Background: React.FC = () => {
       
       // Progressively add more particles until we reach the target
       if (currentParticles < targetParticles && isLoaded) {
-        // Add particles in larger batches for faster visual completion
-        const batchSize = 20000;
+        // Add particles in much larger batches for immediate visual completion
+        const batchSize = 40000;
         const newParticles = Math.min(batchSize, targetParticles - currentParticles);
         
         const newPositions = [];
