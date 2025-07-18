@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useThemeStore } from '../../store/themeStore';
-import { Brain, Rocket, Code, Palette, LineChart, Wand2, ArrowRight } from 'lucide-react';
+import { Brain, Rocket, Code, Palette, LineChart, Wand2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 /**
@@ -38,51 +38,49 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slu
   const hoverBgColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
 
   return (
-    <div 
-      style={{
-        backgroundColor: bgColor,
-      }}
-      className={`
-        service-card
-        p-6 
-        rounded-md 
-        group 
-        backdrop-blur-sm 
-        transition-all
-        duration-300
-        hover:shadow-lg
-        border
-        hover:!bg-opacity-70
-        ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
-        ${isAnimating ? 'service-card-animated' : ''}
-      `}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.backgroundColor = hoverBgColor;
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.backgroundColor = bgColor;
-      }}
+    <Link 
+      to={`/services/${slug}`}
+      className="block text-decoration-none"
     >
-      <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-        <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
-          {icon}
-        </div>
-      </div>
-      <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-        {title}
-      </h3>
-      <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-4 font-light leading-snug`}>
-        {description}
-      </p>
-      <Link 
-        to={`/services/${slug}`}
-        className={`inline-flex items-center text-sm ${
-          isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'
-        } transition-colors`}
+      <div 
+        style={{
+          backgroundColor: bgColor,
+        }}
+        className={`
+          service-card
+          p-6 
+          rounded-md 
+          group 
+          backdrop-blur-sm 
+          transition-all
+          duration-300
+          hover:shadow-lg
+          border
+          hover:!bg-opacity-70
+          cursor-pointer
+          ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+          ${isAnimating ? 'service-card-animated' : ''}
+        `}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLElement).style.backgroundColor = hoverBgColor;
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLElement).style.backgroundColor = bgColor;
+        }}
       >
-        Learn more <ArrowRight className="ml-1 w-4 h-4" />
-      </Link>
-    </div>
+        <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+          <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+            {icon}
+          </div>
+        </div>
+        <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+          {title}
+        </h3>
+        <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug`}>
+          {description}
+        </p>
+      </div>
+    </Link>
   );
 };
 
