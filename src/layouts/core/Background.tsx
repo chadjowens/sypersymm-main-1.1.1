@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useThemeStore } from '../../store/themeStore';
 
 export const Background: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { isDarkMode } = useThemeStore();
+  const [isLoaded, setIsLoaded] = useState(false);
   
   useEffect(() => {
     if (!containerRef.current) return;
@@ -119,6 +120,11 @@ export const Background: React.FC = () => {
 
     window.addEventListener('resize', handleResize);
     animate();
+    
+    // Set loaded state after a small delay to ensure smooth transition
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
 
     // Cleanup
     return () => {
@@ -129,16 +135,25 @@ export const Background: React.FC = () => {
       geometry.dispose();
       material.dispose();
       renderer.dispose();
+      setIsLoaded(false);
     };
   }, [isDarkMode]);
 
   return (
-    <div 
-      ref={containerRef}
-      className="fixed inset-0 -z-10 transition-all duration-700"
-      style={{ 
-        backgroundColor: isDarkMode ? '#0f172a' : '#ffffff',
-      }}
-    />
+    <>
+      {/* Static background that's always visible */}
+      <div 
+        className="fixed inset-0 -z-10 transition-all duration-700"
+        style={{ 
+          backgroundColor: isDarkMode ? '#0f172a' : '#ffffff',
+        }}
+      />
+      
+      {/* Three.js animation container with opacity transition */}
+      <div 
+        ref={containerRef}
+        className={`fixed inset-0 -z-10 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+      />
+    </>
   );
 };
