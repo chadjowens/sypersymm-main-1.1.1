@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import ServicePage from './pages/ServicePage';
 import PresentationDeckPage from './pages/PresentationDeckPage';
 import FinancialPlanningPage from './pages/FinancialPlanningPage';
+import AdvisorAccessPage from './pages/AdvisorAccessPage';
 
 /**
  * Main App component that sets up routing and global layout
@@ -61,6 +62,7 @@ function App() {
         <Route path="/services/:serviceSlug" element={<AppLayout><ServicePage /></AppLayout>} />
         <Route path="/financial-planning" element={<AppLayout><PresentationDeckPage /></AppLayout>} />
         <Route path="/sample-proposal" element={<AppLayout><FinancialPlanningPage /></AppLayout>} />
+        <Route path="/advisor-access" element={<AppLayout><AdvisorAccessPage /></AppLayout>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
