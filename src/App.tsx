@@ -34,9 +34,9 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const { isDarkMode } = useThemeStore();
   const location = useLocation();
   
-  // Don't render the main Navbar on the financial-planning-2 page
-  // since it has its own SimpleNavbar
-  const showMainNavbar = location.pathname !== '/sample-proposal';
+  // Don't render the main Navbar on orphan pages
+  // since they have their own SimpleNavbar
+  const showMainNavbar = !['/sample-proposal', '/advisor-access'].includes(location.pathname);
   
   return (
     <div className={`relative min-h-screen ${isDarkMode ? 'dark' : 'light'}`}>
