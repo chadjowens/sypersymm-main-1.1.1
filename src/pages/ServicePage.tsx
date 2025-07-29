@@ -18,8 +18,20 @@ import { services } from '../components/sections/Services';
 const ServicePage = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
   
-  // Validate that the service exists
-  const serviceExists = services.some(service => service.slug === serviceSlug);
+  // Helper function to generate slug from title
+  const generateSlug = (title: string) => {
+    return title.toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single
+      .trim();
+  };
+  
+  // Validate that the service exists by checking generated slugs
+  const serviceExists = services.some(service => {
+    const generatedSlug = generateSlug(service.title);
+    return generatedSlug === serviceSlug;
+  });
   
   if (!serviceExists) {
     return <Navigate to="/" replace />;

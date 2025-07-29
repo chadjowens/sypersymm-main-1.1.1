@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useThemeStore } from '../../store/themeStore';
 import { Brain, Rocket, Code, Palette, LineChart, Wand2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 /**
  * Props for the ServiceCard component
@@ -10,7 +9,6 @@ import { Link } from 'react-router-dom';
  * @property {string} title - The title of the service
  * @property {string} description - A brief description of the service
  * @property {React.ReactNode} icon - The icon to display for the service
- * @property {string} slug - URL slug for the service page
  * @property {string} [color] - Optional background color for the service card
  * @property {boolean} [isAnimating] - Whether the card should display animation
  */
@@ -18,7 +16,6 @@ interface ServiceCardProps {
   title: string;
   description: string;
   icon: React.ReactNode;
-  slug: string;
   color?: string;
   isAnimating?: boolean;
 }
@@ -31,59 +28,53 @@ interface ServiceCardProps {
  * @param {ServiceCardProps} props - The component props
  * @returns {JSX.Element} The rendered ServiceCard component
  */
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slug, isAnimating = false }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, isAnimating = false }) => {
   const { isDarkMode } = useThemeStore();
   
   const bgColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
   const hoverBgColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
 
   return (
-    <Link 
-      to={`/services/${slug}`}
-      className="block text-decoration-none"
+    <div 
+      style={{
+        backgroundColor: bgColor,
+        minHeight: '225px' // Set minimum height for uniform card size
+      }}
+      className={`
+        service-card
+        p-6 
+        rounded-md 
+        group 
+        backdrop-blur-sm 
+        transition-all
+        duration-300
+        hover:shadow-lg
+        border
+        hover:!bg-opacity-70
+        h-full
+        flex flex-col
+        ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+        ${isAnimating ? 'service-card-animated' : ''}
+      `}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.backgroundColor = hoverBgColor;
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.backgroundColor = bgColor;
+      }}
     >
-      <div 
-        style={{
-          backgroundColor: bgColor,
-          minHeight: '225px' // Set minimum height for uniform card size
-        }}
-        className={`
-          service-card
-          p-6 
-          rounded-md 
-          group 
-          backdrop-blur-sm 
-          transition-all
-          duration-300
-          hover:shadow-lg
-          border
-          hover:!bg-opacity-70
-          cursor-pointer
-          h-full
-          flex flex-col
-          ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
-          ${isAnimating ? 'service-card-animated' : ''}
-        `}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.backgroundColor = hoverBgColor;
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.backgroundColor = bgColor;
-        }}
-      >
-        <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-          <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
-            {icon}
-          </div>
+      <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+        <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+          {icon}
         </div>
-        <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-          {title}
-        </h3>
-        <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
-          {description}
-        </p>
       </div>
-    </Link>
+      <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+        {title}
+      </h3>
+      <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
+        {description}
+      </p>
+    </div>
   );
 };
 
@@ -94,44 +85,38 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, slu
 export const services = [
   {
     title: 'AI Development & Enablement',
-    description: 'Leverage cutting-edge AI technologies to transform your business with intelligent solutions and automation.',
+    description: 'Build intelligent systems that transform your business operations and unlock new possibilities.',
     icon: <Brain className="w-6 h-6" />,
-    slug: 'ai-development',
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
     title: 'MVP Product Development',
     description: 'Rapidly prototype and develop minimum viable products to validate your ideas and reach the market faster.',
     icon: <Rocket className="w-6 h-6" />,
-    slug: 'mvp-development',
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
     title: 'Modern Full-Stack Custom Software Development',
     description: 'Build scalable, robust applications using the latest technologies and best practices.',
     icon: <Code className="w-6 h-6" />,
-    slug: 'custom-development',
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
     title: 'UX/UI & Design Strategy',
     description: 'Create intuitive, beautiful interfaces that delight users and drive engagement.',
     icon: <Palette className="w-6 h-6" />,
-    slug: 'ux-ui-design',
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
     title: 'Data Visualization & Insights',
     description: 'Transform complex data into clear, actionable insights through powerful interactive visualizations.',
     icon: <LineChart className="w-6 h-6" />,
-    slug: 'data-visualization',
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
     title: 'AI Creative Production',
     description: 'Harness AI to generate and enhance creative content, from images to marketing materials.',
     icon: <Wand2 className="w-6 h-6" />,
-    slug: 'ai-creative',
     color: 'bg-[rgba(255,105,180,0.7)]'
   }
 ];
@@ -278,7 +263,7 @@ export const Services: React.FC = () => {
         >
           {services.map((service, index) => (
             <ServiceCard 
-              key={service.slug} 
+              key={service.title} 
               {...service} 
               isAnimating={index === animatingIndex}
             />

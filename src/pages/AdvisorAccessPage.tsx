@@ -156,86 +156,184 @@ const AdvisorAccessPage: React.FC = () => {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className={`p-8 rounded-2xl shadow-xl border transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-                isDarkMode 
-                  ? 'bg-gradient-to-br from-blue-500/20 to-blue-600/20 border-blue-400/30 hover:border-blue-300/50' 
-                  : 'bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:border-blue-300'
-              }`}>
-                <div className={`text-3xl mb-4 ${
-                  isDarkMode ? 'text-blue-300' : 'text-blue-600'
-                }`}>🎯</div>
-                <h3 className={`text-xl font-bold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>Professional Marketing Content</h3>
-                <p className={`mb-6 font-light ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
-                  Transform every episode into a complete content package for your marketing needs:
-                </p>
-                <ul className={`space-y-3 ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>3-5 short video clips with key Agent AI insights</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>5-8 quote graphics optimized for social media</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Written summaries adaptable for newsletters</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Professional audio clips for website integration</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Social media templates with industry intelligence</li>
-                </ul>
+            <div className="max-w-4xl mx-auto space-y-8">
+              {/* First row: Two cards side by side */}
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Card 1: Transform every episode */}
+                <div 
+                  style={{
+                    backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+                    minHeight: '225px'
+                  }}
+                  className={`
+                    p-6 
+                    rounded-md 
+                    backdrop-blur-sm 
+                    transition-all
+                    duration-300
+                    hover:shadow-lg
+                    border
+                    hover:!bg-opacity-70
+                    h-full
+                    flex flex-col
+                    ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+                  `}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+                  }}
+                >
+                  <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+                      📊
+                    </div>
+                  </div>
+                  <h3 className={`text-xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                    Transform every episode into a complete content package for your marketing needs:
+                  </h3>
+                  <ul className={`space-y-2 text-base leading-relaxed font-light flex-grow ${
+                    isDarkMode ? 'text-gray-200' : 'text-gray-600'
+                  }`}>
+                    <li className="flex items-start">
+                      <span className={`mr-2 mt-1 ${
+                        isDarkMode ? 'text-green-400' : 'text-green-500'
+                      }`}>✓</span>
+                      Social media posts and graphics
+                    </li>
+                    <li className="flex items-start">
+                      <span className={`mr-2 mt-1 ${
+                        isDarkMode ? 'text-green-400' : 'text-green-500'
+                      }`}>✓</span>
+                      Newsletter content and insights
+                    </li>
+                    <li className="flex items-start">
+                      <span className={`mr-2 mt-1 ${
+                        isDarkMode ? 'text-green-400' : 'text-green-500'
+                      }`}>✓</span>
+                      Blog post outlines and key points
+                    </li>
+                    <li className="flex items-start">
+                      <span className={`mr-2 mt-1 ${
+                        isDarkMode ? 'text-green-400' : 'text-green-500'
+                      }`}>✓</span>
+                      Client conversation starters
+                    </li>
+                    <li className="flex items-start">
+                      <span className={`mr-2 mt-1 ${
+                        isDarkMode ? 'text-green-400' : 'text-green-500'
+                      }`}>✓</span>
+                      Prospect education materials
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* Card 2: Community & Client Connections */}
+                <div 
+                  style={{
+                    backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+                    minHeight: '225px'
+                  }}
+                  className={`
+                    p-6 
+                    rounded-md 
+                    backdrop-blur-sm 
+                    transition-all
+                    duration-300
+                    hover:shadow-lg
+                    border
+                    hover:!bg-opacity-70
+                    h-full
+                    flex flex-col
+                    ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+                  `}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+                  }}
+                >
+                  <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+                      🤝
+                    </div>
+                  </div>
+                  <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                    Community & Client Connections
+                  </h3>
+                  <p className={`mb-4 font-light ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
+                    Build relationships that drive your practice forward:
+                  </p>
+                  <ul className={`space-y-2 flex-grow ${isDarkMode ? 'text-gray-200' : 'text-gray-600'} font-light leading-snug`}>
+                    <li className="flex items-start">
+                      <span className={`mr-2 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-500'}`}>✓</span>
+                      Curated community of Agent AI-focused professionals
+                    </li>
+                    <li className="flex items-start">
+                      <span className={`mr-2 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-500'}`}>✓</span>
+                      Directory listing showcasing your expertise
+                    </li>
+                    <li className="flex items-start">
+                      <span className={`mr-2 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-500'}`}>✓</span>
+                      Referral network across geographic markets
+                    </li>
+                    <li className="flex items-start">
+                      <span className={`mr-2 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-500'}`}>✓</span>
+                      Client matching with prospects seeking AI-savvy advisors
+                    </li>
+                    <li className="flex items-start">
+                      <span className={`mr-2 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-500'}`}>✓</span>
+                      Peer discussions on implementation experiences
+                    </li>
+                  </ul>
+                </div>
               </div>
               
-              <div className={`p-8 rounded-2xl shadow-xl border transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-                isDarkMode 
-                  ? 'bg-gradient-to-br from-green-500/20 to-green-600/20 border-green-400/30 hover:border-green-300/50' 
-                  : 'bg-gradient-to-br from-green-50 to-green-100 border-green-200 hover:border-green-300'
-              }`}>
-                <div className={`text-3xl mb-4 ${
-                  isDarkMode ? 'text-green-300' : 'text-green-600'
-                }`}>📊</div>
-                <h3 className={`text-xl font-bold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>Comprehensive Strategic Analysis</h3>
-                <p className={`mb-6 font-light ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
-                  Get actionable intelligence that goes beyond episode summaries:
-                </p>
-                <ul className={`space-y-3 ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Executive summaries highlighting practice-relevant insights</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Trend analysis identifying patterns across episodes</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Quarterly strategic intelligence reports</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Action item extraction with implementation guidance</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Regulatory and competitive analysis for independents</li>
-                </ul>
-              </div>
-              
-              <div className={`p-8 rounded-2xl shadow-xl border transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 md:col-span-2 max-w-2xl mx-auto ${
-                isDarkMode 
-                  ? 'bg-gradient-to-br from-purple-500/20 to-purple-600/20 border-purple-400/30 hover:border-purple-300/50' 
-                  : 'bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200 hover:border-purple-300'
-              }`}>
-                <div className={`text-3xl mb-4 ${
-                  isDarkMode ? 'text-purple-300' : 'text-purple-600'
-                }`}>🤝</div>
-                <h3 className={`text-xl font-bold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>Community & Client Connections</h3>
-                <p className={`mb-6 font-light ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
-                  Build relationships that drive your practice forward:
-                </p>
-                <ul className={`space-y-3 ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Curated community of Agent AI-focused professionals</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Directory listing showcasing your expertise</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Referral network across geographic markets</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Client matching with prospects seeking AI-savvy advisors</li>
-                  <li className="flex items-start"><span className="text-green-400 mr-3 font-bold">✓</span>Peer discussions on implementation experiences</li>
-                </ul>
+              {/* Second row: Full width card */}
+              <div className="max-w-3xl mx-auto">
+                <div 
+                  style={{
+                    backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+                    minHeight: '225px'
+                  }}
+                  className={`
+                    p-6 
+                    rounded-md 
+                    backdrop-blur-sm 
+                    transition-all
+                    duration-300
+                    hover:shadow-lg
+                    border
+                    hover:!bg-opacity-70
+                    h-full
+                    flex flex-col
+                    ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+                  `}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+                  }}
+                >
+                  <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+                      🎯
+                    </div>
+                  </div>
+                  <h3 className={`text-xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                    Connect with prospects who specifically seek Agent AI-savvy advisors
+                  </h3>
+                  <p className={`text-base leading-relaxed font-light flex-grow ${
+                    isDarkMode ? 'text-gray-200' : 'text-gray-600'
+                  }`}>
+                    Our community includes a curated directory that connects forward-thinking prospects with advisors who 
+                    understand Agent AI's role in modern financial planning. Position yourself as the advisor who gets it, 
+                    attracting clients who value innovation and strategic thinking about the industry's technological future.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -250,100 +348,334 @@ const AdvisorAccessPage: React.FC = () => {
               Why Forward-Thinking Advisors Choose Our Community
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className={`p-8 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-                isDarkMode 
-                  ? 'bg-gradient-to-br from-slate-700/40 to-slate-800/40 border border-slate-600/30' 
-                  : 'bg-white border border-gray-200'
-              }`}>
-                <h3 className={`text-xl font-bold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>Stay Ahead Without the Research Overhead</h3>
-                <p className={`text-base leading-relaxed font-light ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
+              <div 
+                style={{
+                  backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+                  minHeight: '225px'
+                }}
+                className={`
+                  p-6 
+                  rounded-md 
+                  backdrop-blur-sm 
+                  transition-all
+                  duration-300
+                  hover:shadow-lg
+                  border
+                  hover:!bg-opacity-70
+                  h-full
+                  flex flex-col
+                  ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+                `}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+                }}
+              >
+                <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+                    🔍
+                  </div>
+                </div>
+                <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  Stay Ahead Without the Research Overhead
+                </h3>
+                <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
                   Agent AI developments happen faster than most advisors can track. Our community does the research, analysis, 
                   and trend identification for you, delivering curated insights that help you understand what's coming and how it affects your practice.
                 </p>
               </div>
               
-              <div className={`p-8 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-                isDarkMode 
-                  ? 'bg-gradient-to-br from-slate-700/40 to-slate-800/40 border border-slate-600/30' 
-                  : 'bg-white border border-gray-200'
-              }`}>
-                <h3 className={`text-xl font-bold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>Content That Positions You as an Industry Leader</h3>
-                <p className={`text-base leading-relaxed font-light ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
+              <div 
+                style={{
+                  backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+                  minHeight: '225px'
+                }}
+                className={`
+                  p-6 
+                  rounded-md 
+                  backdrop-blur-sm 
+                  transition-all
+                  duration-300
+                  hover:shadow-lg
+                  border
+                  hover:!bg-opacity-70
+                  h-full
+                  flex flex-col
+                  ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+                `}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+                }}
+              >
+                <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+                    👑
+                  </div>
+                </div>
+                <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  Content That Positions You as an Industry Leader
+                </h3>
+                <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
                   Every episode generates shareable content designed specifically for financial advisor marketing needs. Your clients 
                   and prospects see you as an advisor who understands the future of financial planning, not just current practices.
                 </p>
               </div>
               
-              <div className={`p-8 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-                isDarkMode 
-                  ? 'bg-gradient-to-br from-slate-700/40 to-slate-800/40 border border-slate-600/30' 
-                  : 'bg-white border border-gray-200'
-              }`}>
-                <h3 className={`text-xl font-bold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>Connect with Like-Minded Professionals</h3>
-                <p className={`text-base leading-relaxed font-light ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
+              <div 
+                style={{
+                  backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+                  minHeight: '225px'
+                }}
+                className={`
+                  p-6 
+                  rounded-md 
+                  backdrop-blur-sm 
+                  transition-all
+                  duration-300
+                  hover:shadow-lg
+                  border
+                  hover:!bg-opacity-70
+                  h-full
+                  flex flex-col
+                  ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+                `}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+                }}
+              >
+                <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+                    🤝
+                  </div>
+                </div>
+                <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  Connect with Like-Minded Professionals
+                </h3>
+                <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
                   Join a curated community of advisors thinking seriously about Agent AI's role in financial planning. Share experiences, 
                   learn from implementations, and connect with prospects who seek advisors who understand modern approaches.
                 </p>
               </div>
               
-              <div className={`p-8 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-                isDarkMode 
-                  ? 'bg-gradient-to-br from-slate-700/40 to-slate-800/40 border border-slate-600/30' 
-                  : 'bg-white border border-gray-200'
-              }`}>
-                <h3 className={`text-xl font-bold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>Actionable Intelligence, Not Just Industry News</h3>
-                <p className={`text-base leading-relaxed font-light ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
+              <div 
+                style={{
+                  backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+                  minHeight: '225px'
+                }}
+                className={`
+                  p-6 
+                  rounded-md 
+                  backdrop-blur-sm 
+                  transition-all
+                  duration-300
+                  hover:shadow-lg
+                  border
+                  hover:!bg-opacity-70
+                  h-full
+                  flex flex-col
+                  ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+                `}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+                }}
+              >
+                <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+                    ⚡
+                  </div>
+                </div>
+                <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  Actionable Intelligence, Not Just Industry News
+                </h3>
+                <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
                   Get practical implementation guidance, real-world case studies, and specific strategies you can apply in your practice. 
                   Our analysis provides actionable intelligence for independent advisors, not theoretical discussions.
                 </p>
               </div>
               
-              <div className={`p-8 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-                isDarkMode 
-                  ? 'bg-gradient-to-br from-slate-700/40 to-slate-800/40 border border-slate-600/30' 
-                  : 'bg-white border border-gray-200'
-              }`}>
-                <h3 className={`text-xl font-bold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>Comprehensive Analysis Across All Trends</h3>
-                <p className={`text-base leading-relaxed font-light ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
+              <div 
+                style={{
+                  backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+                  minHeight: '225px'
+                }}
+                className={`
+                  p-6 
+                  rounded-md 
+                  backdrop-blur-sm 
+                  transition-all
+                  duration-300
+                  hover:shadow-lg
+                  border
+                  hover:!bg-opacity-70
+                  h-full
+                  flex flex-col
+                  ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+                `}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+                }}
+              >
+                <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+                    📈
+                  </div>
+                </div>
+                <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  Comprehensive Analysis Across All Trends
+                </h3>
+                <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
                   Our ongoing analysis provides comprehensive intelligence about Agent AI trends, regulatory implications, and competitive 
                   developments. Get quarterly reports that synthesize insights into strategic intelligence for practice planning.
                 </p>
               </div>
               
-              <div className={`p-8 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-                isDarkMode 
-                  ? 'bg-gradient-to-br from-slate-700/40 to-slate-800/40 border border-slate-600/30' 
-                  : 'bg-white border border-gray-200'
-              }`}>
-                <h3 className={`text-xl font-bold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>Early Access to Industry Developments</h3>
-                <p className={`text-base leading-relaxed font-light ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
-                }`}>
+              <div 
+                style={{
+                  backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+                  minHeight: '225px'
+                }}
+                className={`
+                  p-6 
+                  rounded-md 
+                  backdrop-blur-sm 
+                  transition-all
+                  duration-300
+                  hover:shadow-lg
+                  border
+                  hover:!bg-opacity-70
+                  h-full
+                  flex flex-col
+                  ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+                `}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+                }}
+              >
+                <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
+                    🚀
+                  </div>
+                </div>
+                <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  Early Access to Industry Developments
+                </h3>
+                <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
                   Community members get early access to industry developments, expert interviews, and implementation case studies. 
                   Stay ahead of competitors while they're still learning about basic automation.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 hero-header">
+              Meet Your Community Host
+            </h2>
+            <div 
+              style={{
+                backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)'
+              }}
+              className={`
+                rounded-md 
+                backdrop-blur-sm 
+                transition-all
+                duration-300
+                hover:shadow-lg
+                border
+                hover:!bg-opacity-70
+                overflow-hidden
+                ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+              `}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
+              }}
+            >
+              <div className="grid md:grid-cols-3 gap-8 p-8 md:p-12">
+                <div className="md:col-span-1 flex justify-center md:justify-start">
+                  <div className={`w-48 h-48 rounded-full flex items-center justify-center text-6xl ${
+                    isDarkMode 
+                      ? 'bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-2 border-blue-400/30' 
+                      : 'bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200'
+                  }`}>
+                    👤
+                  </div>
+                </div>
+                <div className="md:col-span-2 space-y-6">
+                  <div>
+                    <h3 className={`text-2xl md:text-3xl font-bold mb-2 ${
+                      isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>[Your Name]</h3>
+                    <p className={`text-lg font-medium mb-6 ${
+                      isDarkMode ? 'text-blue-300' : 'text-blue-600'
+                    }`}>Host & Founder of the Agent AI Community</p>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <p className={`text-base leading-relaxed font-light ${
+                      isDarkMode ? 'text-gray-200' : 'text-gray-600'
+                    }`}>
+                      [Your Name] is the host and founder of the Agent AI community for financial planning professionals, 
+                      bringing together independent advisors who are shaping the future of the industry through thoughtful 
+                      technology adoption and implementation.
+                    </p>
+                    
+                    <p className={`text-base leading-relaxed font-light ${
+                      isDarkMode ? 'text-gray-200' : 'text-gray-600'
+                    }`}>
+                      Through extensive work with financial services organizations including Discover, Citi, and Capital One, 
+                      [Your Name] has gained deep insights into both the sophisticated AI capabilities that large institutions 
+                      deploy and the unique challenges that independent practices face in competing effectively while maintaining 
+                      personal client relationships.
+                    </p>
+                    
+                    <p className={`text-base leading-relaxed font-light ${
+                      isDarkMode ? 'text-gray-200' : 'text-gray-600'
+                    }`}>
+                      [Your Name] provides the analysis, insights, and strategic intelligence that help independent advisors 
+                      understand and prepare for the industry's technological evolution. Through comprehensive research and 
+                      ongoing analysis of Agent AI developments, the community receives practical guidance that translates 
+                      cutting-edge technology into actionable strategies for small-to-mid-size firms.
+                    </p>
+                    
+                    <p className={`text-base leading-relaxed font-light ${
+                      isDarkMode ? 'text-gray-200' : 'text-gray-600'
+                    }`}>
+                      The Adaptive Advisor community represents a vision where independent advisors leverage Agent AI capabilities 
+                      to compete effectively with large institutions while maintaining the personal relationships and specialized 
+                      service that set them apart.
+                    </p>
+                    
+                    <p className={`text-base leading-relaxed font-light ${
+                      isDarkMode ? 'text-gray-200' : 'text-gray-600'
+                    }`}>
+                      Through work at Supersymmetry, [Your Name] has gained deep insights into Agent AI implementation challenges 
+                      and opportunities, which inform the strategic analysis and practical guidance provided to the community.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
