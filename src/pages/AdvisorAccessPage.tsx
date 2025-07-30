@@ -91,42 +91,42 @@ const AdvisorAccessPage: React.FC = () => {
             <h1 className={`text-4xl md:text-6xl font-bold mb-6 hero-header ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             }`}>
-              Join the Agent AI Conversation That's Shaping Financial Planning's Future
+              Join the Conversation Shaping the Future of Financial Planning Firms
             </h1>
             <p className={`text-xl md:text-2xl mb-8 font-light max-w-4xl mx-auto ${
               isDarkMode ? 'text-gray-200' : 'text-gray-600'
             }`}>
-              Connect with forward-thinking financial planners who are exploring how Agent AI will transform client relationships, 
-              operational efficiency, and competitive advantage. Get the insights, shareable content, and industry connections 
-              you need to lead in the age of autonomous intelligence.
+              Connect with progressive financial planning and wealth management professionals who are successfully integrating new technologies to transform their client experience, operational capabilities, and growth trajectory.
             </p>
             
-            <div className={`p-8 rounded-2xl mb-8 max-w-4xl mx-auto backdrop-blur-sm border ${
-              isDarkMode 
-                ? 'bg-blue-500/20 border-blue-400/30 text-white' 
-                : 'bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200 text-gray-800'
-            }`}>
+            <div 
+              style={{
+                backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)'
+              }}
+              className={`p-8 rounded-2xl mb-8 max-w-4xl mx-auto backdrop-blur-sm border ${
+                isDarkMode ? 'border-gray-700' : 'border-gray-200'
+              }`}
+            >
               <h3 className={`text-2xl font-semibold mb-4 ${
-                isDarkMode ? 'text-blue-200' : 'text-blue-800'
-              }`}>Every episode generates:</h3>
+                isDarkMode ? 'text-white' : 'text-gray-900'
+              }`}>Every conversation provides:</h3>
               <p className={`text-lg leading-relaxed ${
-                isDarkMode ? 'text-blue-100' : 'text-blue-700'
+                isDarkMode ? 'text-gray-200' : 'text-gray-600'
               }`}>
-                Professional content you can share across your marketing channels • Comprehensive analysis you can use in strategic planning • 
-                Connections with prospects who specifically seek Agent AI-savvy advisors
+                Marketing-ready content showcasing innovative approaches • Intelligence insights gathered from peer discussions • Strategic analysis combining perspectives from leading advisors
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a href="#signup" className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition-colors">
-                Join the Agent AI Community
+                Join the Conversation
               </a>
               <a href="#value-props" className={`${
                 isDarkMode
                   ? 'bg-gray-800 text-white hover:bg-gray-700'
                   : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
               } px-8 py-3 rounded-lg text-lg font-medium transition-colors`}>
-                Get Episode Insights & Content
+                Sign In for Content & Insights
               </a>
             </div>
           </div>
@@ -138,22 +138,20 @@ const AdvisorAccessPage: React.FC = () => {
         <section className="py-20" id="value-props">
           <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 hero-header">
-              What You Get as a Community Member
+              Your Participation Benefits
             </h2>
             <div className="text-center max-w-4xl mx-auto mb-16">
               <p className={`text-xl md:text-2xl mb-6 font-light ${
                 isDarkMode ? 'text-gray-200' : 'text-gray-600'
               }`}>
-                The Agent AI revolution isn't coming to financial planning—it's already here. While large institutions deploy 
-                sophisticated AI capabilities with dedicated teams, independent advisors need a different approach: one that 
-                provides enterprise-level intelligence with practical implementation guidance.
+                The financial services technology landscape is changing faster than ever. While major institutions deploy specialized teams to leverage new capabilities, independent firms need streamlined access to industry intelligence and practical implementation strategies.
               </p>
-              <p className={`text-xl md:text-2xl font-light ${
+              {/* <p className={`text-xl md:text-2xl font-light ${
                 isDarkMode ? 'text-gray-200' : 'text-gray-600'
               }`}>
                 The Adaptive Advisor community bridges that gap, providing you with the research, analysis, and shareable 
                 content you need to compete effectively while building connections with like-minded professionals and qualified prospects.
-              </p>
+              </p> */}
             </div>
             
             <div className="max-w-4xl mx-auto space-y-8">
@@ -186,12 +184,17 @@ const AdvisorAccessPage: React.FC = () => {
                   }}
                 >
                   <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
-                      📊
-                    </div>
+                    <span 
+                      className="material-symbols-outlined hero-header" 
+                      style={{ 
+                        fontSize: '32px'
+                      }}
+                    >
+                      bar_chart
+                    </span>
                   </div>
                   <h3 className={`text-xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                    Transform every episode into a complete content package for your marketing needs:
+                  Transform conversations into a complete content package for marketing
                   </h3>
                   <ul className={`space-y-2 text-base leading-relaxed font-light flex-grow ${
                     isDarkMode ? 'text-gray-200' : 'text-gray-600'
@@ -200,22 +203,22 @@ const AdvisorAccessPage: React.FC = () => {
                       <span className={`mr-2 mt-1 ${
                         isDarkMode ? 'text-green-400' : 'text-green-500'
                       }`}>✓</span>
-                      Social media posts and graphics
+                      Social media posts, graphics, and newsletter content ready for distribution
                     </li>
                     <li className="flex items-start">
                       <span className={`mr-2 mt-1 ${
                         isDarkMode ? 'text-green-400' : 'text-green-500'
                       }`}>✓</span>
-                      Newsletter content and insights
+                      Blog post outlines and key talking points for thought leadership
                     </li>
                     <li className="flex items-start">
                       <span className={`mr-2 mt-1 ${
                         isDarkMode ? 'text-green-400' : 'text-green-500'
                       }`}>✓</span>
-                      Blog post outlines and key points
+                      Client conversation starters and prospect education materials
                     </li>
-                    <li className="flex items-start">
-                      <span className={`mr-2 mt-1 ${
+                    {/* <li className="flex items-start"> */}
+                      {/* <span className={`mr-2 mt-1 ${
                         isDarkMode ? 'text-green-400' : 'text-green-500'
                       }`}>✓</span>
                       Client conversation starters
@@ -225,7 +228,7 @@ const AdvisorAccessPage: React.FC = () => {
                         isDarkMode ? 'text-green-400' : 'text-green-500'
                       }`}>✓</span>
                       Prospect education materials
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
                 
@@ -256,12 +259,17 @@ const AdvisorAccessPage: React.FC = () => {
                   }}
                 >
                   <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
-                      🤝
-                    </div>
+                    <span 
+                      className="material-symbols-outlined hero-header" 
+                      style={{ 
+                        fontSize: '32px'
+                      }}
+                    >
+                      hive
+                    </span>
                   </div>
                   <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                    Community & Client Connections
+                    Industry Connections & Strategic Intelligence
                   </h3>
                   <p className={`mb-4 font-light ${isDarkMode ? 'text-gray-200' : 'text-gray-600'}`}>
                     Build relationships that drive your practice forward:
@@ -269,29 +277,29 @@ const AdvisorAccessPage: React.FC = () => {
                   <ul className={`space-y-2 flex-grow ${isDarkMode ? 'text-gray-200' : 'text-gray-600'} font-light leading-snug`}>
                     <li className="flex items-start">
                       <span className={`mr-2 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-500'}`}>✓</span>
-                      Curated community of Agent AI-focused professionals
+                      Directory presence highlighting your innovative approach
                     </li>
                     <li className="flex items-start">
                       <span className={`mr-2 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-500'}`}>✓</span>
-                      Directory listing showcasing your expertise
+                      Geographic referral network with technology-minded peers
                     </li>
                     <li className="flex items-start">
                       <span className={`mr-2 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-500'}`}>✓</span>
-                      Referral network across geographic markets
+                      Collaborative discussions on practical implementation strategies
                     </li>
-                    <li className="flex items-start">
+                    {/* <li className="flex items-start">
                       <span className={`mr-2 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-500'}`}>✓</span>
                       Client matching with prospects seeking AI-savvy advisors
                     </li>
                     <li className="flex items-start">
                       <span className={`mr-2 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-500'}`}>✓</span>
                       Peer discussions on implementation experiences
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
               
-              {/* Second row: Full width card */}
+              {/* Second row: Full width card
               <div className="max-w-3xl mx-auto">
                 <div 
                   style={{
@@ -334,7 +342,7 @@ const AdvisorAccessPage: React.FC = () => {
                     attracting clients who value innovation and strategic thinking about the industry's technological future.
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -345,7 +353,7 @@ const AdvisorAccessPage: React.FC = () => {
         }`}>
           <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 hero-header">
-              Why Forward-Thinking Advisors Choose Our Community
+              Why Forward-Thinking Advisors Participate
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div 
@@ -374,16 +382,20 @@ const AdvisorAccessPage: React.FC = () => {
                 }}
               >
                 <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
-                    🔍
-                  </div>
+                  <span 
+                    className="material-symbols-outlined hero-header" 
+                    style={{ 
+                      fontSize: '32px'
+                    }}
+                  >
+                    search_insights
+                  </span>
                 </div>
                 <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   Stay Ahead Without the Research Overhead
                 </h3>
                 <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
-                  Agent AI developments happen faster than most advisors can track. Our community does the research, analysis, 
-                  and trend identification for you, delivering curated insights that help you understand what's coming and how it affects your practice.
+                  Technology developments move faster than most advisors can track. We handle the research and analysis, delivering curated insights on what's coming and how it impacts your practice.
                 </p>
               </div>
               
@@ -413,16 +425,20 @@ const AdvisorAccessPage: React.FC = () => {
                 }}
               >
                 <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
-                    👑
-                  </div>
+                  <span 
+                    className="material-symbols-outlined hero-header" 
+                    style={{ 
+                      fontSize: '32px'
+                    }}
+                  >
+                    crown
+                  </span>
                 </div>
                 <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   Content That Positions You as an Industry Leader
                 </h3>
                 <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
-                  Every episode generates shareable content designed specifically for financial advisor marketing needs. Your clients 
-                  and prospects see you as an advisor who understands the future of financial planning, not just current practices.
+                Every episode creates shareable content for financial advisor marketing. Your clients see you as forward-thinking, understanding both current practices and future trends.
                 </p>
               </div>
               
@@ -452,16 +468,20 @@ const AdvisorAccessPage: React.FC = () => {
                 }}
               >
                 <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
-                    🤝
-                  </div>
+                  <span 
+                    className="material-symbols-outlined hero-header" 
+                    style={{ 
+                      fontSize: '32px'
+                    }}
+                  >
+                    handshake
+                  </span>
                 </div>
                 <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   Connect with Like-Minded Professionals
                 </h3>
                 <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
-                  Join a curated community of advisors thinking seriously about Agent AI's role in financial planning. Share experiences, 
-                  learn from implementations, and connect with prospects who seek advisors who understand modern approaches.
+                Join advisors exploring technology's role in financial planning. Share experiences, learn from implementations, and build relationships with innovation-focused peers.
                 </p>
               </div>
               
@@ -491,16 +511,20 @@ const AdvisorAccessPage: React.FC = () => {
                 }}
               >
                 <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
-                    ⚡
-                  </div>
+                  <span 
+                    className="material-symbols-outlined hero-header" 
+                    style={{ 
+                      fontSize: '32px'
+                    }}
+                  >
+                    bolt
+                  </span>
                 </div>
                 <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   Actionable Intelligence, Not Just Industry News
                 </h3>
                 <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
-                  Get practical implementation guidance, real-world case studies, and specific strategies you can apply in your practice. 
-                  Our analysis provides actionable intelligence for independent advisors, not theoretical discussions.
+                Access real-world guidance on scaling your practice and streamlining operations. Our insights focus on practical implementation, not abstract concepts.
                 </p>
               </div>
               
@@ -530,16 +554,20 @@ const AdvisorAccessPage: React.FC = () => {
                 }}
               >
                 <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
-                    📈
-                  </div>
+                  <span 
+                    className="material-symbols-outlined hero-header" 
+                    style={{ 
+                      fontSize: '32px'
+                    }}
+                  >
+                    chart_data
+                  </span>
                 </div>
                 <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   Comprehensive Analysis Across All Trends
                 </h3>
                 <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
-                  Our ongoing analysis provides comprehensive intelligence about Agent AI trends, regulatory implications, and competitive 
-                  developments. Get quarterly reports that synthesize insights into strategic intelligence for practice planning.
+                  Ongoing analysis covers technology trends, regulatory implications, and competitive developments. Quarterly reports synthesize insights into strategic intelligence for practice planning.
                 </p>
               </div>
               
@@ -569,16 +597,20 @@ const AdvisorAccessPage: React.FC = () => {
                 }}
               >
                 <div className="flex-none w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <div className={isDarkMode ? 'text-gray-200' : 'text-gray-600'}>
-                    🚀
-                  </div>
+                  <span 
+                    className="material-symbols-outlined hero-header" 
+                    style={{ 
+                      fontSize: '32px'
+                    }}
+                  >
+                    rocket_launch
+                  </span>
                 </div>
                 <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   Early Access to Industry Developments
                 </h3>
                 <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-600'} mb-0 font-light leading-snug flex-grow`}>
-                  Community members get early access to industry developments, expert interviews, and implementation case studies. 
-                  Stay ahead of competitors while they're still learning about basic automation.
+                  Get early access to industry developments, expert interviews, and implementation case studies. Stay ahead while competitors are still learning basic automation.
                 </p>
               </div>
             </div>
