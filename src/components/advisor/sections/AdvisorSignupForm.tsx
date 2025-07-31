@@ -1,35 +1,263 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useThemeStore } from '../../../store/themeStore';
-import { useAdvisorSignupForm } from '../../../hooks/useAdvisorSignupForm';
+import { supabase } from '../../../config/supabase';
+
+/**
+ * Available role options for advisor signup
+ */
+const roleOptions = [
+  'Financial Advisor',
+  'Financial Planner',
+  'Investment Advisor',
+  'Wealth Manager',
+  'RIA Owner',
+  'Broker-Dealer Rep',
+  'Insurance Agent',
+  'Other'
+];
+
+/**
+ * Available firm size options
+ */
+const firmSizeOptions = [
+  'Solo Practice',
+  '2-5 Advisors',
+  '6-20 Advisors',
+  '21-50 Advisors',
+  '50+ Advisors'
+];
 
 /**
  * AdvisorSignupForm component - Community signup form section
  * 
- * This component renders the signup form section with:
- * - Section heading and introductory content
- * - Comprehensive signup form with validation
- * - Success/error status messaging
- * - Community benefits selection checkboxes
- * - Submit button with loading state
+ * This component provides a form for financial advisors to join the Agent AI community.
+ * Features include comprehensive form validation, Supabase integration, and themed styling.
  * 
- * Features:
- * - Uses custom useAdvisorSignupForm hook for state management
- * - Theme-aware styling for dark/light mode
- * - Responsive form layout for mobile and desktop
- * - Form validation and error handling
- * - Professional form design with glassmorphism effects
- * 
- * @returns {JSX.Element} The rendered signup form section
+ * @returns {JSX.Element} The rendered AdvisorSignupForm component
  */
 export const AdvisorSignupForm: React.FC = () => {
   const { isDarkMode } = useThemeStore();
-  const {
-    formData,
-    isSubmitting,
-    submitStatus,
-    handleChange,
-    handleSubmit
-  } = useAdvisorSignupForm();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+  
+  // Animation states for form sections (for future scroll animations)
+  // const [animationState, setAnimationState] = useState({
+  //   header: false,
+  //   form: false
+  // });
+  
+  // Refs for animation (disabled for now)
+  // const headerRef = useRef<HTMLHeadingElement>(null);
+  // const formRef = useRef<HTMLFormElement>(null);
+  
+  // Form data state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    role: roleOptions[0],
+    interest: '',
+    firmSize: '', // Start with empty string to require selection
+    contentPackage: false,
+    analysisReports: false,
+    directoryListing: false,
+    communityEvents: false
+  });
+
+  // Set up intersection observer for scroll animations (disabled for now)
+  // useEffect(() => {
+  //   const observerOptions = {
+  //     root: null,
+  //     rootMargin: '0px',
+  //     threshold: 0.2
+  //   };
+  //   
+  //   const observerCallback = (entries: IntersectionObserverEntry[]) => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         if (entry.target === headerRef.current) {
+  //           setAnimationState(prev => ({ ...prev, header: true }));
+  //         } else if (entry.target === formRef.current) {
+  //           setAnimationState(prev => ({ ...prev, form: true }));
+  //         }
+  //       }
+  //     });
+  //   };
+  //   
+  //   const observer = new IntersectionObserver(observerCallback, observerOptions);
+  //   
+  //   if (headerRef.current) observer.observe(headerRef.current);
+  //   if (formRef.current) observer.observe(formRef.current);
+  //   
+  //   return () => {
+  //     if (headerRef.current) observer.unobserve(headerRef.current);
+  //     if (formRef.current) observer.unobserve(formRef.current);
+  //   };
+  // }, []);
+
+  // Handle form input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked;
+      setFormData(prev => ({
+        ...prev,
+        [name]: checked
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    // Comprehensive form validation for all required fields
+    if (!formData.name.trim()) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please enter your full name.'
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!formData.email.trim()) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please enter your email address.'
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please enter a valid email address.'
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!formData.company.trim()) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please enter your company or firm name.'
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!formData.role || formData.role === '') {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please select your professional role.'
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!formData.interest.trim()) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please describe your interest in Agent AI.'
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!formData.firmSize || formData.firmSize === '') {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please select your firm size.'
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Prepare data for Supabase submission
+      const submissionData = {
+        name: formData.name.trim(),
+        email: formData.email.trim().toLowerCase(),
+        company: formData.company.trim(),
+        role: formData.role,
+        interest: formData.interest.trim(),
+        firm_size: formData.firmSize,
+        content_package: formData.contentPackage,
+        analysis_reports: formData.analysisReports,
+        directory_listing: formData.directoryListing,
+        community_events: formData.communityEvents,
+        submitted_at: new Date().toISOString()
+      };
+
+      console.log('Submitting advisor signup data:', submissionData);
+
+      const { error } = await supabase
+        .from('advisor_signups')
+        .insert([submissionData]);
+
+      if (error) {
+        // Handle specific Supabase errors
+        if (error.code === '23505') {
+          throw new Error('This email address is already registered. Please use a different email or contact support.');
+        }
+        throw error;
+      }
+      
+      setSubmitStatus({
+        type: 'success',
+        message: 'Welcome to the Agent AI Community! Check your email for next steps.'
+      });
+      
+      // Reset form on successful submission
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        role: roleOptions[0],
+        interest: '',
+        firmSize: firmSizeOptions[0],
+        contentPackage: false,
+        analysisReports: false,
+        directoryListing: false,
+        communityEvents: false
+      });
+    } catch (error: any) {
+      console.error('Advisor signup error:', error);
+      
+      // Provide user-friendly error messages
+      let errorMessage = 'Something went wrong. Please try again later.';
+      
+      if (error.message) {
+        errorMessage = error.message;
+      } else if (error.code === 'PGRST301') {
+        errorMessage = 'Database connection error. Please check your internet connection and try again.';
+      } else if (error.code === '42P01') {
+        errorMessage = 'Database table not found. Please contact support.';
+      }
+      
+      setSubmitStatus({
+        type: 'error',
+        message: errorMessage
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section className="py-16" id="signup">
@@ -55,17 +283,6 @@ export const AdvisorSignupForm: React.FC = () => {
               and connections with like-minded financial planning professionals who are shaping the industry's future.
             </p>
           </div>
-          
-          {/* Status Message */}
-          {submitStatus && (
-            <div className={`p-4 mb-6 rounded-md ${
-              submitStatus.success 
-                ? 'bg-green-100 text-green-800 border border-green-200' 
-                : 'bg-red-100 text-red-800 border border-red-200'
-            }`}>
-              {submitStatus.message}
-            </div>
-          )}
           
           {/* Signup Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -286,6 +503,17 @@ export const AdvisorSignupForm: React.FC = () => {
                 </div>
               </div>
             </div>
+            
+            {/* Status Message */}
+            {submitStatus.type && (
+              <div className={`p-4 mb-4 rounded-md ${
+                submitStatus.type === 'success' 
+                  ? 'bg-green-100 text-green-800 border border-green-200' 
+                  : 'bg-red-100 text-red-800 border border-red-200'
+              }`}>
+                {submitStatus.message}
+              </div>
+            )}
             
             {/* Submit Button */}
             <button

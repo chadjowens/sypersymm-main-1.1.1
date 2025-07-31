@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { supabase } from '../config/supabase';
 
 /**
  * Form data interface for the advisor signup form
@@ -99,10 +100,28 @@ export const useAdvisorSignupForm = (): UseAdvisorSignupFormReturn => {
     setSubmitStatus(null);
 
     try {
-      // TODO: Replace with actual Supabase integration
-      // Here you would typically send the data to your backend or Supabase
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Prepare data for Supabase submission
+      const submissionData = {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        role: formData.role,
+        interest: formData.interest,
+        firm_size: formData.firmSize,
+        content_package: formData.contentPackage,
+        analysis_reports: formData.analysisReports,
+        directory_listing: formData.directoryListing,
+        community_events: formData.communityEvents,
+        submitted_at: new Date().toISOString()
+      };
+
+      console.log('Submitting advisor signup data:', submissionData); // Debug log
+
+      const { error } = await supabase
+        .from('advisor_signups')
+        .insert([submissionData]);
+
+      if (error) throw error;
       
       setSubmitStatus({
         success: true,
