@@ -4,7 +4,7 @@ import React from 'react';
  * GradientIcon component for Material Symbol icons with gradient styling
  * 
  * This component provides a standardized way to render Material Symbol icons
- * with the hero-header gradient styling used throughout the advisor pages.
+ * with gradient styling optimized for Material Symbol icons.
  * 
  * @param iconName - The Material Symbol icon name (e.g., 'groups', 'trending_up')
  * @param size - The size class for the icon (default: 'text-6xl')
@@ -25,7 +25,7 @@ export const GradientIcon: React.FC<GradientIconProps> = ({
 }) => {
   return (
     <span 
-      className={`material-symbols-outlined hero-header ${size} ${className}`}
+      className={`material-symbols-outlined gradient-icon ${size} ${className}`}
       style={{ fontSize: 'inherit', ...style }}
     >
       {iconName}
