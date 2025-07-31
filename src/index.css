@@ -93,19 +93,42 @@ html.dark {
   text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
 }
 
-/* Animated gradient icon effect */
+/* Animated gradient icon effect - optimized for Material Symbols */
 .gradient-icon {
-  color: #ff69b4;
-  stroke: #ff69b4;
-  fill: none;
-  stroke-width: 2;
-  animation: icon-stroke-shift 8s ease infinite;
+  font-weight: bold;
+  
+  /* Animated gradient background effect */
+  background: linear-gradient(135deg, #0077ff, #ff69b4, #0077ff);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Fallback color for better compatibility */
+  color: #0077ff;
+  
+  /* Ensure the icon font loads properly */
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
 }
 
-@keyframes icon-stroke-shift {
-  0% { color: #0077ff; stroke: #0077ff; }
-  50% { color: #ff69b4; stroke: #ff69b4; }
-  100% { color: #0077ff; stroke: #0077ff; }
+/* Webkit browsers - use transparent color after font loads */
+.gradient-icon.material-symbols-outlined {
+  color: transparent;
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (background-clip: text) {
+  .gradient-icon {
+    color: #0077ff;
+    animation: icon-color-shift 8s ease infinite;
+  }
+  
+  @keyframes icon-color-shift {
+    0% { color: #0077ff; }
+    50% { color: #ff69b4; }
+    100% { color: #0077ff; }
+  }
 }
 
 @keyframes rotate-gradient {
