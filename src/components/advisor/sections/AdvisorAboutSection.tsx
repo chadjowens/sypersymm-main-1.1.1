@@ -1,5 +1,6 @@
 import React from 'react';
 import { useThemeStore } from '../../../store/themeStore';
+import profileImage from '../../../assets/images/chad-profile.jpg';
 
 /**
  * AdvisorAboutSection component - "Meet Your Community Host" section
@@ -52,15 +53,19 @@ export const AdvisorAboutSection: React.FC = () => {
             (e.currentTarget as HTMLElement).style.backgroundColor = isDarkMode ? 'rgba(31, 41, 55, 0.3)' : 'rgba(255, 255, 255, 0.3)';
           }}
         >
-          <div className="grid md:grid-cols-3 gap-8 p-8 md:p-12">
+          <div className="grid md:grid-cols-3 gap-4 p-8 md:p-12 md:items-center">
             {/* Avatar Section */}
-            <div className="md:col-span-1 flex justify-center md:justify-start">
-              <div className={`w-48 h-48 rounded-full flex items-center justify-center text-6xl ${
+            <div className="md:col-span-1 flex justify-center items-center">
+              <div className={`w-48 h-48 rounded-full overflow-hidden border-2 ${
                 isDarkMode 
-                  ? 'bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-2 border-blue-400/30' 
-                  : 'bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200'
+                  ? 'border-blue-400/30' 
+                  : 'border-blue-200'
               }`}>
-                👤
+                <img 
+                  src={profileImage} 
+                  alt="Chad Owens" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -71,12 +76,12 @@ export const AdvisorAboutSection: React.FC = () => {
                 <h3 className={`text-2xl md:text-3xl font-bold mb-2 ${
                   isDarkMode ? 'text-white' : 'text-gray-900'
                 }`}>
-                  [Your Name]
+                  Chad Owens
                 </h3>
                 <p className={`text-lg font-medium mb-6 ${
                   isDarkMode ? 'text-blue-300' : 'text-blue-600'
                 }`}>
-                  Host & Founder of the Agent AI Community
+                  Founder of Future-Forward Planning & Super&#123;Symmetry&#125;
                 </p>
               </div>
               
@@ -85,21 +90,22 @@ export const AdvisorAboutSection: React.FC = () => {
                 <p className={`text-base leading-relaxed font-light ${
                   isDarkMode ? 'text-gray-200' : 'text-gray-600'
                 }`}>
-                  [Your Name] is the host and founder of the Agent AI community for financial planning professionals, 
-                  bringing together independent advisors who are shaping the future of the industry through thoughtful 
-                  technology adoption and implementation.
+                  Chad facilitates conversations with financial planning professionals who are using emerging technologies to evolve their practices. Drawing from 15+ years of experience driving digital innovation across multiple industries, Chad finds fintech and wealth management especially compelling for their rapid transformation potential. 
                 </p>
-                
+
                 <p className={`text-base leading-relaxed font-light ${
                   isDarkMode ? 'text-gray-200' : 'text-gray-600'
                 }`}>
-                  Through extensive work with financial services organizations including Discover, Citi, and Capital One, 
-                  [Your Name] has gained deep insights into both the sophisticated AI capabilities that large institutions 
-                  deploy and the unique challenges that independent practices face in competing effectively while maintaining 
-                  personal client relationships.
+                  Chad and his carefully selected guests deliver strategic insights that help independent advisors harness new technologies to stay ahead of industry change while preserving their distinctive client relationships. The platform provides practical guidance that turns technological developments into actionable growth strategies for independent firms.
                 </p>
                 
-                <p className={`text-base leading-relaxed font-light ${
+                {/* <p className={`text-base leading-relaxed font-light ${
+                  isDarkMode ? 'text-gray-200' : 'text-gray-600'
+                }`}>
+                  Chad, along with his carefully curated guests, provides strategic insights that help independent advisors leverage emerging technologies to evolve at the pace of industry change while maintaining the personal relationships that set them apart. The community delivers practical guidance that translates cutting-edge technology developments into actionable strategies for small-to-mid-size firms.
+                </p> */}
+                
+                {/* <p className={`text-base leading-relaxed font-light ${
                   isDarkMode ? 'text-gray-200' : 'text-gray-600'
                 }`}>
                   [Your Name] provides the analysis, insights, and strategic intelligence that help independent advisors 
@@ -121,7 +127,7 @@ export const AdvisorAboutSection: React.FC = () => {
                 }`}>
                   Through work at Supersymmetry, [Your Name] has gained deep insights into Agent AI implementation challenges 
                   and opportunities, which inform the strategic analysis and practical guidance provided to the community.
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
