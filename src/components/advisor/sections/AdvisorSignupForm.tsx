@@ -3,35 +3,68 @@ import { useThemeStore } from '../../../store/themeStore';
 import { supabase } from '../../../config/supabase';
 
 /**
- * Available role options for advisor signup
+ * Available professional role options for advisor signup
+ * 
+ * These options cover the main categories of financial services professionals
+ * who would benefit from Future-Forward Planning community membership.
+ * The 'Other' option allows for roles not specifically listed.
+ * 
+ * Note: These values are used directly in the form dropdown and stored
+ * in the Supabase database exactly as written.
  */
 const roleOptions = [
-  'Financial Advisor',
-  'Financial Planner',
-  'Investment Advisor',
-  'Wealth Manager',
-  'RIA Owner',
-  'Broker-Dealer Rep',
-  'Insurance Agent',
-  'Other'
+  'Financial Advisor',      // General financial advisory services
+  'Financial Planner',      // Comprehensive financial planning focus
+  'Investment Advisor',     // Investment management and advisory
+  'Wealth Manager',         // High-net-worth client services
+  'RIA Owner',             // Registered Investment Advisor firm owners
+  'Broker-Dealer Rep',     // Broker-dealer representatives
+  'Insurance Agent',       // Insurance and risk management focus
+  'Other'                  // Catch-all for other financial services roles
 ];
 
 /**
- * Available firm size options
+ * Available firm size categories for advisor signup
+ * 
+ * These categories help segment the community by practice size, enabling
+ * more targeted content and networking opportunities. Categories are based
+ * on common industry segmentation standards.
+ * 
+ * Note: These values are stored in Supabase as 'firm_size' field.
  */
 const firmSizeOptions = [
-  'Solo Practice',
-  '2-5 Advisors',
-  '6-20 Advisors',
-  '21-50 Advisors',
-  '50+ Advisors'
+  'Solo Practice',         // Individual practitioners
+  '2-5 Advisors',         // Small team practices
+  '6-20 Advisors',        // Medium-sized firms
+  '21-50 Advisors',       // Large regional firms
+  '50+ Advisors'          // Enterprise-level organizations
 ];
 
 /**
- * AdvisorSignupForm component - Community signup form section
+ * AdvisorSignupForm component - Future-Forward Planning Community signup form
  * 
- * This component provides a form for financial advisors to join the Agent AI community.
- * Features include comprehensive form validation, Supabase integration, and themed styling.
+ * This component provides a comprehensive signup form for financial advisors to join
+ * the Future-Forward Planning community. The form collects advisor information,
+ * professional details, and communication preferences.
+ * 
+ * Key Features:
+ * - Multi-field form with validation (name, email, company, role, firm size, interests)
+ * - Role selection dropdown with industry-standard options
+ * - Firm size categorization for better community segmentation
+ * - Optional communication preferences (content packages, analysis reports)
+ * - Supabase integration for data persistence
+ * - Real-time form validation and error handling
+ * - Theme-aware styling with dark/light mode support
+ * - Responsive design for mobile and desktop
+ * - Success/error status messaging
+ * 
+ * Form Fields:
+ * - Personal: Name, Email, Company
+ * - Professional: Role (dropdown), Firm Size (dropdown), Areas of Interest (textarea)
+ * - Preferences: Content packages, Analysis reports (checkboxes)
+ * 
+ * Note: Directory listing and community events checkboxes are temporarily disabled
+ * but preserved in code for future implementation.
  * 
  * @returns {JSX.Element} The rendered AdvisorSignupForm component
  */
@@ -58,7 +91,7 @@ export const AdvisorSignupForm: React.FC = () => {
     name: '',
     email: '',
     company: '',
-    role: roleOptions[0],
+    role: '', // Start with empty string to require selection
     interest: '',
     firmSize: '', // Start with empty string to require selection
     contentPackage: false,
@@ -98,10 +131,20 @@ export const AdvisorSignupForm: React.FC = () => {
   //   };
   // }, []);
 
-  // Handle form input changes
+  /**
+   * Handle form input changes for all form elements
+   * 
+   * This function handles updates to all form fields including:
+   * - Text inputs (name, email, company, interest)
+   * - Select dropdowns (role, firmSize)
+   * - Checkboxes (contentPackage, analysisReports, directoryListing, communityEvents)
+   * 
+   * @param e - Change event from form elements
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     
+    // Handle checkbox inputs differently - use checked property instead of value
     if (type === 'checkbox') {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData(prev => ({
@@ -109,6 +152,7 @@ export const AdvisorSignupForm: React.FC = () => {
         [name]: checked
       }));
     } else {
+      // Handle text inputs, textareas, and select dropdowns - use value property
       setFormData(prev => ({
         ...prev,
         [name]: value
@@ -116,13 +160,41 @@ export const AdvisorSignupForm: React.FC = () => {
     }
   };
 
-  // Handle form submission
+  /**
+   * Handle form submission with validation and Supabase integration
+   * 
+   * This function performs the following operations:
+   * 1. Prevents default form submission behavior
+   * 2. Sets loading state and clears previous status messages
+   * 3. Validates all required fields with specific error messages
+   * 4. Validates email format using regex
+   * 5. Submits data to Supabase 'advisor_signups' table
+   * 6. Handles success/error responses with user feedback
+   * 7. Resets form on successful submission
+   * 
+   * Required Fields:
+   * - name: Full name (trimmed for whitespace)
+   * - email: Valid email address (format validated)
+   * - company: Company/firm name (trimmed for whitespace)
+   * - role: Professional role (must be selected from dropdown)
+   * - firmSize: Firm size category (must be selected from dropdown)
+   * 
+   * Optional Fields:
+   * - interest: Areas of interest (textarea)
+   * - contentPackage: Boolean preference for content packages
+   * - analysisReports: Boolean preference for analysis reports
+   * - directoryListing: Boolean preference for directory (currently disabled)
+   * - communityEvents: Boolean preference for events (currently disabled)
+   * 
+   * @param e - Form submission event
+   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
-    // Comprehensive form validation for all required fields
+    // === FORM VALIDATION SECTION ===
+    // Validate all required fields with specific error messages for better UX
     if (!formData.name.trim()) {
       setSubmitStatus({
         type: 'error',
@@ -141,7 +213,8 @@ export const AdvisorSignupForm: React.FC = () => {
       return;
     }
 
-    // Email validation
+    // Email format validation using regex pattern
+    // Pattern ensures: localpart@domain.tld format with no spaces or multiple @ symbols
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setSubmitStatus({
@@ -189,16 +262,18 @@ export const AdvisorSignupForm: React.FC = () => {
     }
 
     try {
-      // Prepare data for Supabase submission
+      // === SUPABASE INTEGRATION SECTION ===
+      // Prepare data for Supabase submission with proper formatting and field mapping
+      // Note: Supabase column names use snake_case while form uses camelCase
       const submissionData = {
-        name: formData.name.trim(),
-        email: formData.email.trim().toLowerCase(),
-        company: formData.company.trim(),
-        role: formData.role,
-        interest: formData.interest.trim(),
-        firm_size: formData.firmSize,
-        content_package: formData.contentPackage,
-        analysis_reports: formData.analysisReports,
+        name: formData.name.trim(),                           // Clean whitespace
+        email: formData.email.trim().toLowerCase(),           // Normalize email format
+        company: formData.company.trim(),                     // Clean whitespace
+        role: formData.role,                                  // Direct mapping
+        interest: formData.interest.trim(),                   // Clean whitespace
+        firm_size: formData.firmSize,                         // Map camelCase to snake_case
+        content_package: formData.contentPackage,             // Map camelCase to snake_case
+        analysis_reports: formData.analysisReports,           // Map camelCase to snake_case
         directory_listing: formData.directoryListing,
         community_events: formData.communityEvents,
         submitted_at: new Date().toISOString()
@@ -264,7 +339,7 @@ export const AdvisorSignupForm: React.FC = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Section Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 hero-header">
-          Join the Agent AI Community
+          Join the Future-Forward Planning Community
         </h2>
 
         {/* Form Container */}
@@ -273,13 +348,13 @@ export const AdvisorSignupForm: React.FC = () => {
         }`}>
           {/* Form Introduction */}
           <div className="text-center mb-8">
-            <h3 className={`text-2xl font-semibold mb-4 ${
+            {/* <h3 className={`text-2xl font-semibold mb-4 ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             }`}>
-              Welcome to the Agent AI Community
-            </h3>
+              Welcome to the Future-Forward Planning Community
+            </h3> */}
             <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>
-              Get immediate access to shareable content from every episode, comprehensive analysis of Agent AI trends, 
+              Get immediate access to shareable content from episodes, comprehensive analysis of Future-Forward Planning trends, 
               and connections with like-minded financial planning professionals who are shaping the industry's future.
             </p>
           </div>
@@ -450,7 +525,7 @@ export const AdvisorSignupForm: React.FC = () => {
                   <label htmlFor="contentPackage" className={`text-sm ${
                     isDarkMode ? 'text-gray-200' : 'text-gray-600'
                   }`}>
-                    Send me shareable content from every episode for my marketing channels
+                    Send me shareable content from episodes for my marketing channels
                   </label>
                 </div>
                 
@@ -466,11 +541,12 @@ export const AdvisorSignupForm: React.FC = () => {
                   <label htmlFor="analysisReports" className={`text-sm ${
                     isDarkMode ? 'text-gray-200' : 'text-gray-600'
                   }`}>
-                    Include me in the comprehensive quarterly Agent AI analysis reports
+                    Include me in the comprehensive quarterly Future-Forward Planning analysis reports
                   </label>
                 </div>
                 
-                <div className="flex items-start space-x-3">
+                {/* Temporarily commented out - Directory listing checkbox */}
+                {/* <div className="flex items-start space-x-3">
                   <input
                     type="checkbox"
                     id="directoryListing"
@@ -484,9 +560,10 @@ export const AdvisorSignupForm: React.FC = () => {
                   }`}>
                     Add me to the directory for client-advisor matching opportunities
                   </label>
-                </div>
+                </div> */}
                 
-                <div className="flex items-start space-x-3">
+                {/* Temporarily commented out - Community events checkbox */}
+                {/* <div className="flex items-start space-x-3">
                   <input
                     type="checkbox"
                     id="communityEvents"
@@ -500,7 +577,7 @@ export const AdvisorSignupForm: React.FC = () => {
                   }`}>
                     Notify me about community networking events and discussions
                   </label>
-                </div>
+                </div> */}
               </div>
             </div>
             

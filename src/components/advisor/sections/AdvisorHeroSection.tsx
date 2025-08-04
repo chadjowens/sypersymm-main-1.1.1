@@ -67,7 +67,7 @@ export const AdvisorHeroSection: React.FC = () => {
           >
             Join the Conversation
           </a>
-          <a 
+          {/* <a 
             href="#value-props" 
             className={`${
               isDarkMode
@@ -76,7 +76,7 @@ export const AdvisorHeroSection: React.FC = () => {
             } px-8 py-3 rounded-lg text-lg font-medium transition-colors`}
           >
             Sign In for Content & Insights
-          </a>
+          </a> */}
         </div>
       </div>
     </section>
