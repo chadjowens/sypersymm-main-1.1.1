@@ -1,40 +1,103 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useThemeStore } from '../../store/themeStore';
-import { UserSearch, LineChart, MessageCircle, Workflow, Database, BarChart3 } from 'lucide-react';
+import GradientIcon from '../advisor/ui/GradientIcon';
 
-import AnimatedSeparator from '../ui/AnimatedSeparator';
-
+/**
+ * About component - Main company introduction and capabilities overview
+ * 
+ * This component serves as the primary introduction to SyperSymmetry, showcasing
+ * the company's specialization in AI agent teams and core business capabilities.
+ * 
+ * Features:
+ * - Animated scroll-triggered content reveals
+ * - Six key capability highlights with gradient icons
+ * - Responsive grid layout for feature display
+ * - Theme-aware styling (dark/light mode)
+ * - Material Symbols icons with animated gradients
+ * 
+ * Content Structure:
+ * 1. Company introduction and agent teams overview
+ * 2. Six core capabilities grid:
+ *    - Identifying high-potential leads
+ *    - Optimizing sales funnels
+ *    - Personalizing customer interactions
+ *    - Automating business processes
+ *    - Connecting to knowledgebases
+ *    - Real-time analytics optimization
+ * 
+ * Animation System:
+ * - Uses Intersection Observer API for scroll-triggered animations
+ * - Staggered animation delays for smooth content reveals
+ * - Transforms include opacity, scale, and translate effects
+ * 
+ * Icon Implementation:
+ * - Material Symbols via GradientIcon component
+ * - Consistent text-3xl sizing (30px)
+ * - Animated blue-to-pink gradient effects
+ * - Proper vertical centering with content
+ * 
+ * @returns {JSX.Element} The rendered About section component
+ */
 export const About: React.FC = () => {
   const { isDarkMode } = useThemeStore();
   
-  // Animation states for different sections
+  /**
+   * Animation state management for scroll-triggered reveals
+   * Each section has its own animation state to enable staggered animations
+   * - header: Main "Hello, we're SUPER{SYMMETRY}" title
+   * - intro: Company description paragraph
+   * - features: Six capabilities grid with icons
+   * - description: Additional descriptive content (if present)
+   * - conclusion: Closing content (if present)
+   */
   const [animationState, setAnimationState] = useState({
-    header: false,
-    intro: false,
-    features: false,
-    description: false,
-    conclusion: false
+    header: false,     // Main title animation state
+    intro: false,      // Introduction paragraph animation state
+    features: false,   // Capabilities grid animation state
+    description: false, // Additional description animation state
+    conclusion: false   // Conclusion section animation state
   });
   
-  // Refs for sections to observe
-  const headerRef = useRef<HTMLHeadingElement>(null);
-  const introRef = useRef<HTMLParagraphElement>(null);
-  const featuresRef = useRef<HTMLDivElement>(null);
-  const descriptionRef = useRef<HTMLParagraphElement>(null);
-  const conclusionRef = useRef<HTMLDivElement>(null);
+  /**
+   * React refs for DOM elements to observe with Intersection Observer
+   * These refs are attached to specific sections to trigger animations
+   * when they come into viewport
+   */
+  const headerRef = useRef<HTMLHeadingElement>(null);      // Main title element
+  const introRef = useRef<HTMLParagraphElement>(null);     // Intro paragraph element
+  const featuresRef = useRef<HTMLDivElement>(null);       // Features grid container
+  const descriptionRef = useRef<HTMLParagraphElement>(null); // Description element
+  const conclusionRef = useRef<HTMLDivElement>(null);     // Conclusion element
   
-  // Set up intersection observer for scroll animations
+  /**
+   * Intersection Observer setup for scroll-triggered animations
+   * Monitors when sections come into viewport and triggers their animations
+   */
   useEffect(() => {
+    /**
+     * Observer configuration options
+     * - root: null = use viewport as root
+     * - rootMargin: '0px' = no margin around root
+     * - threshold: 0.2 = trigger when 20% of element is visible
+     */
     const observerOptions = {
-      root: null, // viewport
-      rootMargin: '0px',
-      threshold: 0.2 // 20% of the element must be visible
+      root: null,        // Use viewport as intersection root
+      rootMargin: '0px', // No additional margin around viewport
+      threshold: 0.2     // Trigger when 20% of element becomes visible
     };
     
+    /**
+     * Intersection Observer callback function
+     * Called whenever an observed element enters or exits the viewport
+     * 
+     * @param {IntersectionObserverEntry[]} entries - Array of intersection entries
+     */
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
+        // Only trigger animations when elements come into view
         if (entry.isIntersecting) {
-          // Determine which element came into view
+          // Identify which specific element triggered the intersection
+          // and update the corresponding animation state
           if (entry.target === headerRef.current) {
             setAnimationState(prev => ({ ...prev, header: true }));
           } else if (entry.target === introRef.current) {
@@ -75,17 +138,17 @@ export const About: React.FC = () => {
         <div className="text-center mb-16">
           <h2 
             ref={headerRef}
-            className={`text-4xl md:text-5xl section-header mb-4 transition-all transform duration-1000 ease-out ${
+            className={`text-4xl md:text-5xl section-header font-bold mb-4 transition-all transform duration-1000 ease-out ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             } ${
               animationState.header ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
             }`}
           >
-            Hello, we're SUPER{'{SYMMETRY}'}
+            Hello, we're <span className="font-light">SUPER{'{SYMMETRY}'}</span>
           </h2>
           <p 
             ref={introRef}
-            className={`text-base md:text-lg max-w-5xl mx-auto mb-8 font-light leading-relaxed transition-all transform duration-1000 ease-in ${
+            className={`text-xl md:text-2xl max-w-5xl mx-auto mb-8 font-light leading-relaxed transition-all transform duration-1000 ease-in ${
               isDarkMode ? 'text-gray-200' : 'text-gray-600'
             } ${
               animationState.intro ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
@@ -105,36 +168,36 @@ export const About: React.FC = () => {
             style={{ transitionDelay: '400ms' }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pl-4 md:pl-12">
-              <div className="flex items-start">
-                <UserSearch className="gradient-icon mr-4 mt-1 flex-shrink-0" size={32} />
+              <div className="flex items-center">
+                <GradientIcon iconName="person_search" size="text-3xl" className="mr-4 flex-shrink-0" />
                 <span className="text-xl font-medium">Identifying high-potential leads</span>
               </div>
               
-              <div className="flex items-start">
-                <LineChart className="gradient-icon mr-4 mt-1 flex-shrink-0" size={32} />
+              <div className="flex items-center">
+                <GradientIcon iconName="trending_up" size="text-3xl" className="mr-4 flex-shrink-0" />
                 <span className="text-xl font-medium">Optimizing sales funnels</span>
               </div>
               
-              <div className="flex items-start">
-                <MessageCircle className="gradient-icon mr-4 mt-1 flex-shrink-0" size={32} />
+              <div className="flex items-center">
+                <GradientIcon iconName="chat" size="text-3xl" className="mr-4 flex-shrink-0" />
                 <span className="text-xl font-medium">Personalizing customer interactions</span>
               </div>
               
-              <div className="flex items-start">
-                <Workflow className="gradient-icon mr-4 mt-1 flex-shrink-0" size={32} />
+              <div className="flex items-center">
+                <GradientIcon iconName="workflow" size="text-3xl" className="mr-4 flex-shrink-0" />
                 <span className="text-xl font-medium">Automating business processes</span>
               </div>
               
-              <div className="flex items-start">
-                <Database className="gradient-icon mr-4 mt-1 flex-shrink-0" size={32} />
+              <div className="flex items-center">
+                <GradientIcon iconName="database" size="text-3xl" className="mr-4 flex-shrink-0" />
                 <div className="text-xl font-medium text-left">
                   Connecting employees to<br />
                   self-improving knowledgebases
                 </div>
               </div>
               
-              <div className="flex items-start">
-                <BarChart3 className="gradient-icon mr-4 mt-1 flex-shrink-0" size={32} />
+              <div className="flex items-center">
+                <GradientIcon iconName="bar_chart" size="text-3xl" className="mr-4 flex-shrink-0" />
                 <div className="text-xl font-medium text-left">
                   Ongoing optimization with<br />
                   real-time analytics
@@ -142,62 +205,7 @@ export const About: React.FC = () => {
               </div>
             </div>
           </div>
-          
-          <p 
-            ref={descriptionRef}
-            className={`text-base md:text-lg max-w-5xl mx-auto mb-8 font-light leading-relaxed transition-all transform duration-1000 ease-in ${
-              isDarkMode ? 'text-gray-200' : 'text-gray-600'
-            } ${
-              animationState.description ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
-            }`}
-            style={{ transitionDelay: '600ms' }}
-          >
-            Agent teams are not simply tools; they are
-            <span className="section-header font-bold text-3xl mx-1 mr-2"> 1</span> 
-            extensions of your workforce, 
-            <span className="section-header font-bold text-3xl mx-1 mr-2"> 2</span> 
-            amplify your team's abilities and 
-            <span className="section-header font-bold text-3xl mx-1 mr-2"> 3</span> 
-            drive unparalleled efficiency and effectiveness.
-          </p>
 
-          <p 
-            className={`text-base md:text-lg max-w-5xl mx-auto mb-12 font-light leading-relaxed transition-all transform duration-1000 ease-in ${
-              isDarkMode ? 'text-gray-200' : 'text-gray-600'
-            } ${
-              animationState.description ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
-            }`}
-            style={{ transitionDelay: '700ms' }}
-          >
-            By offloading repetitive, data-intensive, and time-consuming tasks to these intelligent agents, your human teams are freed to focus on high-value, strategic initiatives, fostering innovation and deeper client relationships.
-          </p>
-          
-          <AnimatedSeparator className="my-10" />
-          
-          <div ref={conclusionRef} className="transition-all transform duration-1000 ease-out"
-               style={{ 
-                 opacity: animationState.conclusion ? 1 : 0,
-                 transform: animationState.conclusion ? 'translateY(0) scale(1)' : 'translateY(4px) scale(0.95)',
-                 transitionDelay: '800ms'
-               }}>
-            <h3 className={`text-3xl font-bold mb-8 section-header ${
-                isDarkMode ? 'text-white' : 'text-gray-900'
-              }`}>
-                This collaborative intelligence creates a force multiplier effect.
-            </h3>
-          
-            <p className={`text-base md:text-lg max-w-5xl mx-auto mb-10 font-light leading-relaxed ${
-              isDarkMode ? 'text-gray-200' : 'text-gray-600'
-            }`}>
-              Supersymmetry's agent teams enable you to achieve significantly greater outcomes with existing resources. This means accelerated sales cycles, improved customer satisfaction, reduced operational costs, and the ability to scale your operations without linear increases in headcount.
-            </p>
-            
-            <p className={`text-base md:text-lg max-w-5xl mx-auto mb-10 font-light leading-relaxed ${
-              isDarkMode ? 'text-gray-200' : 'text-gray-600'
-            }`}>
-              Our solutions integrate seamlessly with your existing infrastructure, ensuring a smooth transition and rapid time-to-value. Transforming Digital Operations for Accelerated Sales and Growth.
-            </p>
-          </div>
         </div>
         {/* Profile tiles removed as requested */}
       </div>

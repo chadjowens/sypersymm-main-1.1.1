@@ -26,7 +26,7 @@ export const GradientIcon: React.FC<GradientIconProps> = ({
   return (
     <span 
       className={`material-symbols-outlined gradient-icon ${size} ${className}`}
-      style={{ fontSize: 'inherit', ...style }}
+      style={style}
     >
       {iconName}
     </span>

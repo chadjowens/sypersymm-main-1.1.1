@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useThemeStore } from '../../store/themeStore';
-import { Brain, Rocket, Code, Palette, LineChart, Wand2 } from 'lucide-react';
+import GradientIcon from '../advisor/ui/GradientIcon';
 
 /**
  * Props for the ServiceCard component
@@ -86,37 +86,37 @@ export const services = [
   {
     title: 'AI Development & Enablement',
     description: 'Build intelligent systems that transform your business operations and unlock new possibilities.',
-    icon: <Brain className="w-6 h-6" />,
+    icon: <GradientIcon iconName="psychology" size="text-3xl" />,
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
     title: 'MVP Product Development',
     description: 'Rapidly prototype and develop minimum viable products to validate your ideas and reach the market faster.',
-    icon: <Rocket className="w-6 h-6" />,
+    icon: <GradientIcon iconName="rocket_launch" size="text-3xl" />,
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
     title: 'Modern Full-Stack Custom Software Development',
     description: 'Build scalable, robust applications using the latest technologies and best practices.',
-    icon: <Code className="w-6 h-6" />,
+    icon: <GradientIcon iconName="code" size="text-3xl" />,
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
     title: 'UX/UI & Design Strategy',
     description: 'Create intuitive, beautiful interfaces that delight users and drive engagement.',
-    icon: <Palette className="w-6 h-6" />,
+    icon: <GradientIcon iconName="palette" size="text-3xl" />,
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
     title: 'Data Visualization & Insights',
     description: 'Transform complex data into clear, actionable insights through powerful interactive visualizations.',
-    icon: <LineChart className="w-6 h-6" />,
+    icon: <GradientIcon iconName="trending_up" size="text-3xl" />,
     color: 'bg-[rgba(255,105,180,0.7)]'
   },
   {
     title: 'AI Creative Production',
     description: 'Harness AI to generate and enhance creative content, from images to marketing materials.',
-    icon: <Wand2 className="w-6 h-6" />,
+    icon: <GradientIcon iconName="auto_fix_high" size="text-3xl" />,
     color: 'bg-[rgba(255,105,180,0.7)]'
   }
 ];
@@ -234,7 +234,7 @@ export const Services: React.FC = () => {
         <div className="text-center mb-16">
           <h2 
             ref={headerRef}
-            className={`text-4xl md:text-5xl section-header mb-4 transition-all transform duration-1000 ease-out ${
+            className={`text-4xl md:text-5xl section-header font-bold mb-4 transition-all transform duration-1000 ease-out ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             } ${
               animationState.header ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
@@ -251,7 +251,8 @@ export const Services: React.FC = () => {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            Comprehensive solutions for your digital transformation journey
+            We amplify team capabilities by understanding your processes to design, build and deploy <br />
+            smart agentic AI solutions in these key service domains
           </p>
         </div>
         <div 

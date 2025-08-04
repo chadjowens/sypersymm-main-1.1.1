@@ -172,7 +172,7 @@ export const Contact: React.FC = () => {
         <div className="text-center mb-12">
           <h2 
             ref={headerRef}
-            className={`text-4xl md:text-5xl section-header mb-4 transition-all transform duration-1000 ease-out ${
+            className={`text-4xl md:text-5xl section-header font-bold mb-4 transition-all transform duration-1000 ease-out ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             } ${
               animationState.header ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'

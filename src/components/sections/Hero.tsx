@@ -1,22 +1,74 @@
 import React, { useState, useEffect } from 'react';
 import { useThemeStore } from '../../store/themeStore';
 
+/**
+ * Hero component - Main landing section with company branding and call-to-action
+ * 
+ * This component serves as the primary landing area for the SyperSymmetry website,
+ * featuring the company name, tagline, and main call-to-action buttons.
+ * 
+ * Features:
+ * - Sequential fade-in animations with staggered timing
+ * - Theme-aware styling (dark/light mode)
+ * - Responsive typography and layout
+ * - Call-to-action buttons for engagement
+ * - Professional branding presentation
+ * 
+ * Animation System:
+ * - Uses setTimeout-based sequential animations
+ * - Three-stage animation sequence:
+ *   1. Header/logo animation (1000ms delay)
+ *   2. Descriptive text animation (2000ms delay)
+ *   3. Call-to-action buttons animation (3000ms delay)
+ * - Smooth opacity and transform transitions
+ * 
+ * Content Structure:
+ * 1. Main company name with stylized branding
+ * 2. Descriptive tagline about AI agent teams
+ * 3. Call-to-action buttons for user engagement
+ * 
+ * Styling:
+ * - Responsive text sizing (mobile to desktop)
+ * - Theme-aware color schemes
+ * - Professional typography hierarchy
+ * - Centered layout with proper spacing
+ * 
+ * @returns {JSX.Element} The rendered Hero section component
+ */
 export const Hero: React.FC = () => {
   const { isDarkMode } = useThemeStore();
+  
+  /**
+   * Animation state management for sequential Hero section reveals
+   * Each element animates in sequence to create a professional entrance effect
+   * - header: Main company name and branding
+   * - text: Descriptive tagline and value proposition
+   * - buttons: Call-to-action buttons for user engagement
+   */
   const [animationState, setAnimationState] = useState({
-    header: false,
-    text: false,
-    buttons: false
+    header: false,  // Main title/logo animation state
+    text: false,    // Descriptive text animation state
+    buttons: false  // CTA buttons animation state
   });
 
-  // Sequential fade-in animation with progressively longer delays
+  /**
+   * Sequential fade-in animation setup with staggered timing
+   * Creates a professional entrance effect by animating elements in sequence
+   * rather than all at once for better visual impact
+   */
   useEffect(() => {
-    // Start header animation after a short delay
+    /**
+     * Stage 1: Header/Logo Animation (1000ms delay)
+     * Starts the animation sequence with the main company branding
+     */
     const headerTimer = setTimeout(() => {
       setAnimationState(prev => ({ ...prev, header: true }));
     }, 1000);
     
-    // Start text animation
+    /**
+     * Stage 2: Text Animation (2000ms delay)
+     * Reveals the descriptive content after the header is established
+     */
     const textTimer = setTimeout(() => {
       setAnimationState(prev => ({ ...prev, text: true }));
     }, 2000);
@@ -54,8 +106,7 @@ export const Hero: React.FC = () => {
           }`}
           style={{ transitionDuration: '2000ms' }}
         >
-          We combine cutting-edge AI technology with expert development
-          to create innovative solutions for your business
+          We integrate advanced Agentic AI with your company's proven expertise to fuel sustainable business growth and transformation
         </p>
         <div 
           className={`flex flex-col sm:flex-row gap-4 justify-center transition-all transform ease-linear ${

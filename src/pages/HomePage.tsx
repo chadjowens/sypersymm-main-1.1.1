@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Hero } from '../components/sections/Hero';
+import { Agents } from '../components/sections/Agents';
 import { Services } from '../components/sections/Services';
 import { About } from '../components/sections/About';
 import { Contact } from '../components/sections/Contact';
@@ -37,6 +38,7 @@ const HomePage = () => {
     <main>
       <Hero />
       <About />
+      <Agents />
       <Services />
       <Contact />
     </main>
