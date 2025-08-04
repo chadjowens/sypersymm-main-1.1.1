@@ -30,7 +30,7 @@ export const AdvisorOverviewSection: React.FC = () => {
       listItems: [
         'Social media posts, graphics, and newsletter content ready for distribution',
         'Blog post outlines and key talking points for thought leadership',
-        'Client conversation starters and prospect education materials'
+        'Lead magnets as client conversation starters and prospect education materials'
       ]
     },
     {
@@ -38,9 +38,9 @@ export const AdvisorOverviewSection: React.FC = () => {
       title: 'Industry Connections & Strategic Intelligence',
       description: 'Build relationships that drive your practice forward:',
       listItems: [
-        'Directory presence highlighting your innovative approach',
-        'Geographic referral network with technology-minded peers',
-        'Collaborative discussions on practical implementation strategies'
+        'Collaborative discussions on practical implementation strategies',
+        'Directory presence highlighting your innovative approach (Coming Soon)',
+        'Geographic referral network with technology-minded peers (Coming Soon)',
       ]
     }
   ];
