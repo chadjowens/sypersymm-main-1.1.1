@@ -83,13 +83,13 @@ export const Agents: React.FC = () => {
         <div className="text-center mb-16">
           <h2 
             ref={headerRef}
-            className={`text-4xl md:text-5xl font-bold mb-4 hero-header transition-all transform duration-1000 ease-out ${
+            className={`text-4xl md:text-5xl section-header font-bold mb-4 transition-all transform duration-1000 ease-out ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             } ${
               animationState.header ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
             }`}
           >
-            Agent Teams: Your Workforce Extension
+            Agent Teams: <span className="font-light">Your Workforce Extension</span>
           </h2>
           <p 
             ref={descriptionRef}
