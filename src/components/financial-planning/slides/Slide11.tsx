@@ -80,20 +80,20 @@ const Slide11: React.FC = () => {
               <tbody>
                 <tr>
                   <td className="highlight-cell" style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', fontWeight: 600, color: '#4A5568' }}>Foundation</td>
-                  <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$2,000</td>
-                  <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$1,000</td>
+                  <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$2,500</td>
+                  <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$1,500</td>
                   <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>3-5</td>
                 </tr>
                 <tr>
                   <td className="highlight-cell" style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', fontWeight: 600, color: '#4A5568' }}>Sales</td>
                   <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$2,500</td>
-                  <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$1,500</td>
+                  <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$2,500</td>
                   <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>7-10</td>
                 </tr>
                 <tr>
                   <td className="highlight-cell" style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', fontWeight: 600, color: '#4A5568' }}>Servicing</td>
-                  <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$2,000</td>
-                  <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$1,000</td>
+                  <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$2,500</td>
+                  <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>$1,500</td>
                   <td style={{ padding: '8px 16px', borderTop: '1px solid rgba(226, 232, 240, 0.7)', backgroundColor: 'rgba(255, 255, 255, 0.6)', color: '#4A5568' }}>3-5</td>
                 </tr>
                 <tr>

@@ -218,20 +218,20 @@ const Slide10: React.FC = () => {
             overflow: 'hidden',
             position: 'absolute',
             boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
-            zIndex: 999, /* Extremely high z-index to ensure it's above everything */
+            zIndex: 50, /* High z-index above content but below footer */
             right: '60px',
             top: '50%'
         }}>
           {/* Dashboard Header */}
           <div className="dashboard-header" style={{
-            backgroundColor: '#8A2BE2',
+            backgroundColor: '#9333ea',
             color: 'white',
             padding: '12px 10px'
           }}>
             <div className="flex justify-between items-center">
               <div>
-                <div className="text-xs opacity-80">Welcome back</div>
-                <div className="font-semibold">Client Dashboard</div>
+                <div className="text-xs opacity-80" style={{ color: 'white' }}>Welcome back</div>
+                <div className="font-semibold" style={{ color: 'white' }}>Client Dashboard</div>
               </div>
               <div className="h-8 w-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
                 <i className="fas fa-user-circle"></i>
@@ -254,7 +254,7 @@ const Slide10: React.FC = () => {
               boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
             }}>
               <div className="flex justify-between items-center mb-1">
-                <h4 className="font-semibold text-sm">Portfolio Overview</h4>
+                <h4 className="font-semibold text-sm" style={{ color: '#374151' }}>Portfolio Overview</h4>
                 <span className="text-green-500 text-xs font-semibold">+12.4% <i className="fas fa-arrow-up"></i></span>
               </div>
               <div style={{ height: '90px' }}>
@@ -263,10 +263,10 @@ const Slide10: React.FC = () => {
                   <svg className="w-full h-full" viewBox="0 0 208 90" preserveAspectRatio="none">
                     <path d="M0,70 L35,60 L70,50 L105,55 L140,40 L175,20 L208,10" 
                           fill="none" 
-                          stroke="#8A2BE2" 
+                          stroke="#9333ea" 
                           strokeWidth="2" />
                     <path d="M0,70 L35,60 L70,50 L105,55 L140,40 L175,20 L208,10 L208,90 L0,90 Z" 
-                          fill="rgba(138, 43, 226, 0.1)" />
+                          fill="rgba(147, 51, 234, 0.1)" />
                   </svg>
                 </div>
               </div>
@@ -280,15 +280,15 @@ const Slide10: React.FC = () => {
               marginBottom: '8px',
               boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
             }}>
-              <h4 className="font-semibold text-sm mb-1">AI Insights</h4>
+              <h4 className="font-semibold text-sm mb-1" style={{ color: '#374151' }}>AI Insights</h4>
               <div className="bg-purple-50 rounded-md p-2 text-xs">
                 <div className="flex items-start mb-1">
                   <i className="fas fa-robot text-purple-500 mr-2 mt-0.5"></i>
-                  <span>Recommend rebalancing portfolio to increase defensive positions by 5%</span>
+                  <span style={{ color: '#374151' }}>Recommend rebalancing portfolio to increase defensive positions by 5%</span>
                 </div>
                 <div className="flex items-start">
                   <i className="fas fa-chart-line text-purple-500 mr-2 mt-0.5"></i>
-                  <span>Market volatility predicted to increase in next 30 days</span>
+                  <span style={{ color: '#374151' }}>Market volatility predicted to increase in next 30 days</span>
                 </div>
               </div>
             </div>
@@ -301,7 +301,7 @@ const Slide10: React.FC = () => {
               marginBottom: '8px',
               boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
             }}>
-              <h4 className="font-semibold text-sm mb-1">Investment Allocation</h4>
+              <h4 className="font-semibold text-sm mb-1" style={{ color: '#374151' }}>Investment Allocation</h4>
               <div className="flex justify-center" style={{ height: '80px' }}>
                 {/* Static donut chart representation */}
                 <div className="relative w-20 h-20 mt-2">
@@ -311,7 +311,7 @@ const Slide10: React.FC = () => {
                       a 15.9155 15.9155 0 0 1 0 31.831
                       a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
-                      stroke="#8A2BE2"
+                      stroke="#9333ea"
                       strokeWidth="3"
                       strokeDasharray="45, 100"
                       strokeDashoffset="25"
@@ -321,7 +321,7 @@ const Slide10: React.FC = () => {
                       a 15.9155 15.9155 0 0 1 0 31.831
                       a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
-                      stroke="#5D3FD3"
+                      stroke="#a855f7"
                       strokeWidth="3"
                       strokeDasharray="30, 100"
                       strokeDashoffset="70"
@@ -331,7 +331,7 @@ const Slide10: React.FC = () => {
                       a 15.9155 15.9155 0 0 1 0 31.831
                       a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
-                      stroke="#C9A0DC"
+                      stroke="#d8b4fe"
                       strokeWidth="3"
                       strokeDasharray="15, 100"
                       strokeDashoffset="0"
@@ -341,7 +341,7 @@ const Slide10: React.FC = () => {
                       a 15.9155 15.9155 0 0 1 0 31.831
                       a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
-                      stroke="#E6E6FA"
+                      stroke="#f3e8ff"
                       strokeWidth="3"
                       strokeDasharray="10, 100"
                       strokeDashoffset="15"
@@ -352,19 +352,19 @@ const Slide10: React.FC = () => {
               <div className="flex justify-center text-xs mt-2">
                 <div className="flex items-center mx-1">
                   <div className="w-2 h-2 bg-purple-600 mr-1"></div>
-                  <span>Stocks</span>
+                  <span style={{ color: '#374151' }}>Stocks</span>
                 </div>
                 <div className="flex items-center mx-1">
                   <div className="w-2 h-2 bg-purple-500 mr-1"></div>
-                  <span>Bonds</span>
+                  <span style={{ color: '#374151' }}>Bonds</span>
                 </div>
                 <div className="flex items-center mx-1">
                   <div className="w-2 h-2 bg-purple-300 mr-1"></div>
-                  <span>Cash</span>
+                  <span style={{ color: '#374151' }}>Cash</span>
                 </div>
                 <div className="flex items-center mx-1">
                   <div className="w-2 h-2 bg-purple-100 mr-1"></div>
-                  <span>Alt</span>
+                  <span style={{ color: '#374151' }}>Alt</span>
                 </div>
               </div>
             </div>
@@ -377,19 +377,19 @@ const Slide10: React.FC = () => {
               marginBottom: '0',
               boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
             }}>
-              <h4 className="font-semibold text-sm mb-1">Quick Actions</h4>
+              <h4 className="font-semibold text-sm mb-1" style={{ color: '#374151' }}>Quick Actions</h4>
               <div className="grid grid-cols-3 gap-2">
                 <div className="bg-gray-100 rounded-md flex flex-col items-center justify-center p-2">
                   <i className="fas fa-sync text-gray-600 mb-1"></i>
-                  <span className="text-xs">Rebalance</span>
+                  <span className="text-xs" style={{ color: '#374151' }}>Rebalance</span>
                 </div>
                 <div className="bg-gray-100 rounded-md flex flex-col items-center justify-center p-2">
                   <i className="fas fa-dollar-sign text-gray-600 mb-1"></i>
-                  <span className="text-xs">Invest</span>
+                  <span className="text-xs" style={{ color: '#374151' }}>Invest</span>
                 </div>
                 <div className="bg-gray-100 rounded-md flex flex-col items-center justify-center p-2">
                   <i className="fas fa-chart-pie text-gray-600 mb-1"></i>
-                  <span className="text-xs">Reports</span>
+                  <span className="text-xs" style={{ color: '#374151' }}>Reports</span>
                 </div>
               </div>
             </div>
@@ -403,7 +403,7 @@ const Slide10: React.FC = () => {
         bottom: '70px',
         width: '100%',
         padding: '0 40px',
-        zIndex: 5, /* Lower z-index to ensure it's behind the mobile screen */
+        zIndex: 10, /* Above background but below mobile screen */
         display: 'flex',
         justifyContent: 'center'
       }}>
@@ -440,7 +440,7 @@ const Slide10: React.FC = () => {
         alignItems: 'center',
         borderTop: '1px solid #e2e8f0',
         backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        zIndex: 10
+        zIndex: 100 /* Highest z-index to ensure footer is always visible */
       }}>
         <div className="slide-footer-logo relative inline-block">
           SUPER{'{SYMMETRY}'}
