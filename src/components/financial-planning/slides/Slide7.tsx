@@ -202,6 +202,40 @@ const Slide7: React.FC = () => {
                 <p className="content-box-text">Virtual assistants that transcribe calls, analyze content, and identify next steps.</p>
               </div>
             </div>
+            
+            {/* Inbound AI SDR - Using Material Symbols */}
+            <div 
+              className="flex-1 px-2 relative z-10 flex flex-col items-center"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+                transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s'
+              }}
+            >
+              <div style={{ 
+                marginBottom: '15px', 
+                backgroundColor: 'white', 
+                borderRadius: '50%', 
+                width: '60px', 
+                height: '60px', 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center' 
+              }}>
+                <span 
+                  className="material-symbols-outlined animated-gradient-text" 
+                  style={{ 
+                    fontSize: '48px'
+                  }}
+                >
+                  smart_toy
+                </span>
+              </div>
+              <div className="content-box" style={contentBoxStyle}>
+                <h3 className="content-box-header">Inbound AI SDR</h3>
+                <p className="content-box-text">End-to-end AI-powered SDR workflow: verifies leads, enriches data, writes personalized scripts for email, text or calls and follows up automatically.</p>
+              </div>
+            </div>
           </div>
           
           <div className="mt-6 flex justify-center">
@@ -210,7 +244,7 @@ const Slide7: React.FC = () => {
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'scale(1)' : 'scale(0.98)',
-                transition: 'opacity 0.7s ease-in-out 2.0s, transform 0.7s ease-in-out 2.0s',
+                transition: 'opacity 0.7s ease-in-out 2.4s, transform 0.7s ease-in-out 2.4s',
                 boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
               }}
             >
