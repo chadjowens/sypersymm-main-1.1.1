@@ -216,7 +216,7 @@ const FinancialPlanningPage: React.FC = () => {
         <SimpleNavbar />
         <main className="pt-4 bg-transparent"> {/* Minimal padding for proper spacing */}
           <div className="container mx-auto px-4 mb-8 bg-transparent">
-            <h1 className="text-5xl md:text-6xl font-bold text-center mb-8 hero-header">Sample Proposal</h1>
+            <h1 className="text-5xl md:text-6xl font-bold text-center mb-8 hero-header">Offerings Overview</h1>
             <SlideContainer />
           </div>
         </main>

@@ -36,7 +36,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   
   // Don't render the main Navbar on orphan pages
   // since they have their own SimpleNavbar
-  const showMainNavbar = !['/sample-proposal', '/advisor-access'].includes(location.pathname);
+  const showMainNavbar = !['/offerings-overview', '/advisor-access'].includes(location.pathname);
   
   return (
     <div className={`relative min-h-screen ${isDarkMode ? 'dark' : 'light'}`}>
@@ -61,7 +61,7 @@ function App() {
         <Route path="/" element={<AppLayout><HomePage /></AppLayout>} />
         <Route path="/services/:serviceSlug" element={<AppLayout><ServicePage /></AppLayout>} />
         <Route path="/financial-planning" element={<AppLayout><PresentationDeckPage /></AppLayout>} />
-        <Route path="/sample-proposal" element={<AppLayout><FinancialPlanningPage /></AppLayout>} />
+        <Route path="/offerings-overview" element={<AppLayout><FinancialPlanningPage /></AppLayout>} />
         <Route path="/advisor-access" element={<AppLayout><AdvisorAccessPage /></AppLayout>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
